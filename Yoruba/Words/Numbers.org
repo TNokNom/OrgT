@@ -1,0 +1,101 @@
+#+ANKI_DECk: YorubaNumbers
+* 1
+ ọkan
+* 2
+ meji
+* 3
+ mẹta
+* 4
+ mẹrin
+* 5
+ marun
+* 6
+ mẹfa
+* 7
+ meje
+* 8
+ mẹjọ
+* 9
+ mẹsan
+* 10
+ mẹwa
+* 11
+ mọkanla
+* 12
+ mejila
+* 13
+ mẹtala
+* 14
+ mẹrinla
+* 15
+ márunla
+* 16
+ mẹfa Iketa
+* 17
+ meje la
+* 18
+ mẹjọla
+* 19
+ mẹsanla
+* 20
+ ogun
+* 21
+ ogun ati kan
+* 22
+ ogun ati meji
+* 23
+ ogun ati mẹta
+* 24
+ ogun ati mẹrin
+* 25
+ ogun ati marun
+* 26
+ ogun ati mẹfa
+* 27
+ ogun ati meje
+* 28
+ ogun ati mẹjọ
+* 29
+ ogun ati mẹsan
+* 30
+ ọgbọn
+* 31
+ ọgbọn ati kan
+* 32
+ ọgbọn ati meji
+* 33
+ ọgbọn ati mẹta
+* 34
+ ọgbọn ati mẹrin
+* 35
+ ọgbọn ati marun
+* 36
+ ọgbọn ati mẹfa
+* 37
+ ọgbọn ati meje
+* 38
+ ọgbọn ati mẹjọ
+* 39
+ ọgbọn ati mẹsan
+* 40
+ ogorun
+* 41
+ ogorun ati kan
+* 42
+ ogorun ati meji
+* 43
+ ogorun ati mẹta
+* 44
+ ogorun ati mẹrin
+* 45
+ ogorun ati marun
+* 46
+ ogorun ati mẹfa
+* 47
+ ogorun ati meje
+* 48
+ ogorun ati mẹjọ
+* 49
+ ogorun ati mẹsan
+* 50
+ aadọrin

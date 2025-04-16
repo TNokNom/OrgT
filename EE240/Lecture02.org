@@ -1,0 +1,5 @@
+#+title: EE 240 CMOS Technology And Passive Devices
+:PROPERTIES:
+:ID:       9c568f1c-4d32-4079-8bfc-e880180f0fc1
+:END:
+[[file:../../Pictures/2025-04-14_18-29-26_screenshot.png]]

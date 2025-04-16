@@ -1,0 +1,96 @@
+#+title: Chapter 4 Notes
+#+Book: DL
+* Single Layer Networks {*Linear Regression*}
+- Single-layer neural networks take an input x and transform it using some basis functions with weights
+to produce an output
+- The goal of regression is to predict the value of one or more continuous target variables \(t\)
+using the value of a D-dimensional vector \(x\)
+- you are typically asked to do this given a training data set with \(N\) observations {\(X_n\)}
+and a target value of {\(t_n\)}
+- The like stated above is to predict the value of \(t\) for a new value of \(x\)
+- this is typically done using a function \(y(x,w)\) whose values for new inputs \(x\)
+constitute the predictions for the corresponding values of t, where W represents a vector of parameters
+that can be learned from the training data.
+** Model for regression:
+ \(y(x,w) = w_0 + w_1x_1 + ... + w_d x_d\)
+
+* Linear Vs. Non Linear Models
+- In machine learning we deal with two different models Linear and Non-Linear models
+*Linear Model* - A model where the relationship between the input variables (*features*) and the output is
+a linear relationship  represented by: \(y(x,w) = w_0 + w_1x_1 + ... + w_d x_d + b\)
+
+*Non Linear Model* -  A model where you cant describe the relationship between input and output using
+a straight line
+- one example of a non linear model is *polynomial regression* represented by: \(y = w_1x + w_2x^2 +w_3x^3 + b\)
+- since the inputs are higher-order terms we know this equation is non linear
+- the output may depend on more complex functions of the inputs
+
+** Neural Networks:
+- Neural Networks are highly non-linear because they apply non-linear activations functions to linear transformations
+*EX:* (ReLU,sigmoid,tanh)
+* Basis Functions
+** Sigmoid Function
+- \(\sigma(a) = \frac{1}{1 + e^{-a}} \)
+- \(\phi_j(x) = \sigma \left(\frac{x - \mu_j}{s} \right)\)
+
+** Fourier Basis Functions
+- \(\phi_j(x) = \sin(f_j x), \quad \phi_j(x) = \cos(f_j x)\)
+
+** Gaussian Functions
+Function - \(\phi_j(x) = \exp \left(- \frac{(x - \mu_j)^2}{2s^2} \right)\)
+
+** Polynomial Functions
+*Function* - \( \phi(x) = x^j\)
+*Where* - \(y(x,w) = w_{o} + w_{1}x + w_{2}x^{2} + w_{3}x^{3} + ... + w_{m}x^{m}\)
+- single layer network using polynomial basis functions (*Polynomial Regression*)
+- It captures smooth trends in data but fails with complex patterns
+* Discriminant Functions
+- A discriminant is a function that takes an input vector \(x\) and assigns it to on of the \(K\)
+  classes, denoted \(C_{k}\)
+  - Essentially maps an input feature vector to a real number that represents the likelihood of confidence of belonging to a particular class
+- Say we have two classes \(C_{1}\) and \(C_{2}\) ->
+  \[g(x) = \begin {cases}
+  > 0 , \text {if x belongs to class }   C_{1} \\
+  < 0 , \text{if x belongs to class }   C_{2}
+  \]
+** Linear Discriminant Function
+- say we have a feature vector and our weight vector and \(b\) being our bias term
+\[
+x = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
+w = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_n \end{bmatrix} + b
+\]
+
+#+Begin_src python :results output
+import numpy as np
+
+w = np.array([2,3])
+b = -5
+
+def g(x):
+    return np.dot(w,x) + b
+x1 = np.array([1,1])
+x2 = np.array([2,3])
+
+print("g(x1) =" , g(x1))
+print("g(x2) =" , g(x2))
+
+#+end_src
+#+RESULTS:
+: g(x1) = 0
+: g(x2) = 8
+
+** Quadratic Discriminant Function
+** Probabilistic Discriminant Function
+
+* Decision Theory
+- Decision theory is the idea that no classifier is perfect and mistake can be made
+  - we model the probability of an error occurring with this function
+    -> \( P(\text{error}) = \sum_{k} P(C_k) P(\text{misclassify} | C_k)\)
+** Generative Models
+- in ml we use generative models to learn the full probability of a class
+
+
+
+** Linear Decision Boundary
+- is  a line or surface that separates different classes
+  -  use case would be trying to classify wether emails are spam or not

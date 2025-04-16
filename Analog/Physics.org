@@ -1,0 +1,50 @@
+#+title: Integrated Circuits Physics
+
+* Mosfets
+- Mostfets have a Gate(G), Source(S), and Drain(D)
+-> Both the Drain and Source are interchangeable due to the device being symmetric
+unlike a BJT
+** Device Structure
+:PROPERTIES:
+:ID:       70181b17-9278-4c79-9157-05f68bd1a394
+:END:
+[[file:../../Pictures/Mosfets/2025-04-05_12-49-20_screenshot.png]]
+- Built on P type Substrate => The entire wafer is usually also this same substrate
+- There are two heavily doped *n-type* regions indicated as \(n^{+}\) source and drain
+- A thin layer of \(SiO_{2}\) works as an electrical insulator
+
+** Operation With Zero Gate Voltage
+- When there is no voltage at the gate(G) terminal there is no current flow
+  between the source (S) and the Drain(D)
+- It is essentially two back to back diodes (PN NP)
+** Creating A Channel For Current Flow
+:PROPERTIES:
+:ID:       3a48c360-bfc6-4b55-bd0b-10dadf0921e3
+:END:
+[[file:../../Pictures/Mosfets/2025-04-05_13-57-30_screenshot.png]]
+
+The Gate Voltage is denoted as -> \(v_{GS}\)
+- When a positive voltage is applied to the gate it causes (*the free holes*)
+  which are positively charged to be repelled from the area of the substrate under the gate
+  (*the channel region*) to be pushed
+- When these holes are pushed they leave behind a carrier-depletion region
+-> Allowing for current flow
+** Applying a small \[v_{ds}}\]
+- After inducing a channel we can see what happens when a positive voltage
+  is applied to \(v_{ds}\)
+** Threshold Voltage
+- We know that as \(V_{G}\) increases the width of the depletion region also does too
+- The value at which this occurs is called the "/threshold voltage/" -> \(V_{TH}\)
+- If \(V_{G}}\) continues to rise the charge density in out depletion reigons also continues to increase
+  providing an increase in current from source(S) to drain(D)
+=> \(V_{TH} = \phi_{MS} + 2\phi_{F} + \frac{Q_{dep}}{C_{ox}}\)
+
+1. *\(V_{TH}\)*: This is the threshold voltage of the MOS transistor. It is the minimum gate-to-source voltage (\(V_{GS}\)) that is required to create a conductive channel between the source and drain terminals of the transistor.
+
+2. *\(\phi_{MS}\)*: This term is the metal-semiconductor work function difference. It represents the difference in work function between the metal gate (or its equivalent) and the semiconductor material. It indicates how the energy levels align between the gate and the semiconductor at equilibrium, influencing charge distribution and behavior at the interface.
+
+3. *\(\phi_{F}\)*: This is the Fermi potential in the semiconductor, which is a measure of the energy difference between the Fermi level and the intrinsic energy level of the semiconductor. The Fermi potential is important for understanding the charge carrier concentration in the semiconductor and its response to external voltages.
+
+4. *\(Q_{dep}\)*: This term represents the charge density in the depletion region of the semiconductor. When a voltage is applied, charge carriers in the semiconductor get pushed away from the interface, creating a depletion layer. The charge density in this region affects the overall voltage that needs to be overcome to turn the device on.
+
+5. *\(C_{ox}\)*: This is the oxide capacitance per unit area, which is related to the dielectric material (typically silicon dioxide) that separates the gate from the semiconductor. It is calculated as \(C_{ox} = \frac{\epsilon_{ox}}{t_{ox}}\), where \(\epsilon_{ox}\) is the permittivity of the oxide material and \(t_{ox}\) is the thickness of the oxide layer. This capacitance plays a crucial role in the gate capacitance, impacting how effectively the gate voltage can control the channel.

@@ -1,0 +1,13 @@
+#+page: 290
+* How MOS technology is used
+:PROPERTIES:
+:ID:       433c9b0a-a8d1-4d94-8fe6-4c603639356d
+:END:
+- CMOS circuits have essentially taken over BJT's in the market
+- CMOS circuits contain both NMOS and PMOS transistors
+-> they are typically harder to fabricate
+- now say we have chip with a p-type substrate
+-> The PMOS transistor is built in a specially created n region
+known as the n-well
+
+[[file:../../Pictures/How_MOS_technology_is_used/2025-04-15_01-22-41_screenshot.png]]

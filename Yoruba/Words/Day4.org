@@ -1,0 +1,35 @@
+* yoruba
+** to be
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+je
+
+** I am Nigerian
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+mo je omo nigeria
+
+** truth
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+ooto
+
+** really?; is that so?
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+se loooto?
+
+** right?
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+abi?

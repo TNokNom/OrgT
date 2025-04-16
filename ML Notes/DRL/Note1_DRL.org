@@ -1,0 +1,76 @@
+* What is Machine Learning
+ - machine learning is a subfield of computer science that is capable of building algorithms that can help
+  solve real world problems
+** Types:
+*** Supervised Learning(*maybe later*)
+
+- In supervised learning the dataset is a certain amount of labeled examples
+  - each element X among N is called a feature vector
+Ex:
+\[
+X = \begin {bmatrix} 1 \\ 2 \\ 4 \\ 5 \\ 6 \end{bmatrix}
+\] - a feature vector is just a numerical representation of our data each unit represents something
+
+- The goal of supervised learning is to take a number of feature vectors as an input and produce output that
+  can be useful to us, could be anything from predicting if a person is dying, to the color of the next pixel
+  on a screen
+*** Unsupervised Learning(*The Focus*)
+- In Unsupervised Learning the dataset is a collection of unlabeled examples meaning there's no physical representation of each number not be _confused with random we just don't know what each number represents_
+  - we are trying to find a pattern using this data
+    - the output is either another vector or a value that can be used to solve a practical problem
+
+*** Reinforcement Learning (*The Focus*)
+ Another subfield of machine learning where the machine lives in an environment and is capable of
+  perceiving the state of that environment as a vector or feature
+  - The machine can execute actions, and different actions bring different *rewards*
+    and could change the state of the machine
+- The goal of reinforcement learning is to learn a *Policy*
+*** Deep Reinforcement Learning (*The Focus*)
+
+* Deep Reinforcement Learning Notes
+
+** Policy
+- Policy is a function that takes the feature vector of a state as inputs and outputs an optimal action
+  to execute in that state
+  - The action is optimal
+- if it maximizes the expected average reward
+** Agent
+- In DRL we call our computer programs agents
+- An agent is a decision maker only and not be confused with anything else
+** Environment
+- the environment is anything outside of the agent (_anything the agent has no control over_)
+
+** Reinforcement Learning Cycle
+-
+[[file:/home/tnom/Pictures/Screenshots/RL.png]]
+[[file:/home/tnom/Pictures/Screenshots/swappy-20250217-180122.png]]
+- agents can approximate functions using a variety of ML methods from decision tress to SVMs to neural networks
+- for this learning we will only use *neural networks*
+
+** Artificial neural networks (*ANN*)
+- multi-layered non-linear function approximates
+* Idk yet
+
+** States
+- A state represents the current situation of the environment as it pertains to our agent.
+- It contains all the information for the agent to make decisions
+- In DRL the agent uses this policy function  \[ at = \pi(st)
+  \]
+      -  where \(at\) is the action taken at some point in time and \(\pi(st)\) is the policy function
+        mapping states and actions
+*** Fully observable states
+- The agent has complete knowledge of the environment
+*Ex:* Chess, where the board state is fully known
+*** Partially observable state
+- The agent sees only part of the environment
+  *Ex:* A self-driving car using sensors ,but _It can't see everything at once_
+*** Terminal/Absorbing State
+- A special type of state where the *episode* ends
+- Once an agent reaches a terminal state, it cannot take further actions , and the environment resets/stop
+- Generally we want to teach the agent to avoid these terminal states
+ *Markov Property:*
+- states that the future state of a system depends only on the present state and not on the past states
+\[
+P(X_{n+1} \mid X_n, X_{n-1}, \dots, X_0) = P(X_{n+1} \mid X_n)
+\]
+- where _Xn_ represents the state of a system at some time _n_

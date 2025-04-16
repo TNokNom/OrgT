@@ -1,0 +1,17 @@
+
+#+Title: Transformers Continued
+* Mutual Inductance
+- Property of electric circuits in which a time-varying current in one
+  inductor results in a voltage across a second inductor
+- Caused by flux linkage between the two inductors
+- Denoted as M
+- Units: Henries (H)
+
+
+** Mutual Inductance *Dot Convention*
+- Current enetering the dotted terminal of one coil produces a voltage
+  that is sensed positively at the dotted terminal of the second coil
+
+ [[file:/home/tnom/Downloads/Screenshot 2025-02-19 at 15-44-59 Week 7 - Transformers - Circuit Analysis II Section 02 Spring Semester 2025 CO.png]]
+
+* Examples (With explanations)

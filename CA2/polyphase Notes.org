@@ -1,0 +1,4 @@
+* Chapter 12 Polyphase Circutits
+
+** AC Power Source
+- In ac circuits the elctric current changes periodically both in magnitude and direction

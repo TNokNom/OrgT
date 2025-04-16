@@ -1,0 +1,147 @@
+#+title: Chapter 4 Notes
+#+page:205
+#+problem page:270
+* Chapter 4.1{**The Ideal Diode**}
+- The Ideal Diode is a two-terminal device
+- Allows for current flow in one direction (_Anode to Cathode_)
+**  Characteristics
+- Forward Bias Condition:
+  - Zero Forward Voltage Drop: When forward-biased, an ideal diode has no voltage drop across it, meaning it conducts current perfectly without resistance.
+
+- Reverse Bias Condition:
+  - Infinite Reverse Resistance: When reverse-biased, an ideal diode does not conduct any current at all, effectively having infinite resistance.
+  - Zero Reverse Current: No current flows through the diode when it is reverse-biased.
+- Switching Behavior:
+  - Instantaneous Switching: An ideal diode switches from conducting to non-conducting and vice versa instantaneously, with no delay.
+
+- Temperature Independence:
+  - The characteristics of an ideal diode do not change with temperature. It maintains the same behavior regardless of environmental conditions.
+
+- No Reverse Recovery Time:
+  - The ideal diode does not have a reverse recovery time. It can switch off immediately when the reverse bias is applied.
+
+- No Leakage Current:
+  - There is no leakage current in the ideal diode when reverse-biased, unlike real diodes which have some leakage current.
+
+- Infinite Breakdown Voltage:
+  - An ideal diode can withstand any reverse voltage without breaking down; it exhibits no reverse breakdown behavior.
+
+
+** Current/Voltage Characteristics
+- If a *negative voltage* is applied to the diode no current flows and the
+diode behaves similar to an open circuit, this mode is *Reverse Biased*
+- If a *positive voltage* is applied then the diode behaves as a short circuit,
+this mode is known as *Forward Biased*
+** Limting and protection circuits
+- Limiter circuits use diodes to limit voltage excursions
+- It can safeguard electrical componets and systems
+*Formula for current through a Diode:*
+  \(i_D = \frac{v_1 - V_+}{R}\)
+
+* Chapter 4.2 {*Temrminal Characteristics Of Junction Diodes*}:
+*Formula for the relationship between i-v:*
+ \(i = I_s (e^\frac{v}{V_t}-1) \)
+** Regions:
+*** Forward Bias Region:
+- A diode enters forward-bias reigon, when the terminal voltage v is positive (_Anode to Cathode)_
+- Determined by \( v > 0\)
+- \(V = V_c_a_t_h_o_d_e + V_d_i_o_d_e\)
+**** Diodes Temperature relationship
+- The value of \(Is\) can also be strongly correlated to temperature
+*Which is given by this formula*:
+- \(V_t = \frac{kT}{q} \)
+- K = Boltzmann's constant
+- T = the absolute temperature in kelvins
+- q = the magnitude of electronic charge
+*** Reverse Bias Region:
+- A diode enters Reverse-Bias Reigon, when the terminal voltage V is negative (_Cathode to Anode)_
+- Determined by \(v < 0\)
+- \(V = V_c_a_t_o_d_e\)
+*** Breakown Reigon:
+- The Breakdown Reigon like the name entails is when you keep increasing the reverse voltgae,
+you will eventualy reach a point where the diode "Breaks down" and starts to conduct in reverse
+- Determined by \( v < -V_B_R\)
+
+**  Diode Resistor Logic Gates
+     *EX*: using 0 for a l
+* Chapter 4.3 {*Modeling The Diode*}
+** The Exponential Model
+- Explains how the current flowing through a diode changes with the voltage applied to it
+- The exponential model provides the most accurate description of diode operation
+- Its important to note that when you apply a forward voltage, the current dosen't increase
+linearly, it instead increases *exponentially*.
+- Meaning small increases in voltage can lead to large increases in current
+(*outside the breakdown region*)
+** Constant Voltage Drop Model
+- Of the two models its the most practical
+- Assumes that when a diode is forward-biased, it has a constant voltage drop across it
+- This voltage drop is .7v  for silicon
+** Operation In The Reverse Breakdown Region
+-
+*** Avalanche Breakdown
+- Avalanche Breakdown occurs when a large reverse voltage is
+applied
+- Its essentially a chain reaction due to the fact that as the electric field
+from the reverse voltage gets larger it cases electrons to gain energy and knock
+loose other electrons causing a huge *surge* in current
+**** Zener Diodes
+- Zener diodes are used to prevent the events above
+- Built to work reliably in the breakdown region
+- It does this by allowing current to flow in the reverse direction when the voltage
+exceeds a certain value
+* Chapter 4.6{*Rectifier Circuits*}
+- A diode rectifier uses diodes to change *AC current* into *DC Current*
+- Rectifier circuits typically use three things:
+** Recitifier Components:
+*** Transformer
+- Transformers allow for a stepping down of the voltage
+*** Power Supply
+- Supplies power
+*** Filter
+- The output from the diodes is not typically "smooth"
+- So filters help reduce this fluctuation
+- Even though the filter helps a lot it still produces something known as
+a *ripple*, and because of this we need a voltage regulator
+*** Voltage Regulator
+- Voltage regulator help maintain a constant output voltage
+- It does this by adjusting the resistance in the circuit to compensate for the changes, ensuring a stable voltage
+
+** Half Wave Rectifier:
+- The half-wave rectifier only uses one half of the AC waveform
+- Allowing current to pass during only a certain half of the cycle
+-
+*Formulas*:
+- \(PIV = V_s\)
+-  \( v_o = 0\)  for \( v_s < v_d \)
+- States that that when the input voltage \(V_s\)(*The AC Source*) is less than the diodes forward voltages drop \(V_D\) the output voltage \(V_o\) is zero
+-  \( v_o = v_s - V_D \) for \( v_s > V_D \)
+** Full Wave Rectifier
+- Converts both halves of an AC waveform into a DC signal
+- typically has a smoother and more efficient output
+*** Bridge Full Wave Rectifier
+
+[[file:../../../Pictures/Screenshots/Chapter_4.6{*Rectifier_Circuits*}/2025-03-01_23-41-13_screenshot.png]]
+
+
+- Has four diodes arranged in a bridge configuration
+*Formulas*:
+- \(v_o = |v_s| - 2V_D\)
+- \(V_s\) being the peak voltage of the AC source and \(2V_d\) accounting
+  for the voltage drop across two diodes at a time
+- *Peak Inverse Voltage* \(PIV = V_s_,_p_e_a_k\)
+** Precision Half Wave Recitifier {*Super Diode*}
+
+[[file:../../../Pictures/Screenshots/Chapter_4.6{*Rectifier_Circuits*}/2025-03-01_23-42-36_screenshot.png]]
+
+
+- Addresses the limitation of traditional rectifiers where the diodes
+forward voltage drop can prevent small signals from being effectively
+rectified
+- Is a circuit that uses an op-amp and a diode to fix the problem above
+*Explanation*: op amp increase voltage signals, so we can use this
+to fix the problem of the voltage drop of diodes
+*** Working Principle
+- Positive Half-cycle  the op amp output goes high, the diode conducts and
+\(V_o_u_t = V_i_n\)
+- Negative Half-Cycle the op amp goes low, the diode is reverse biased, and
+\(V_o_u_t = 0\)

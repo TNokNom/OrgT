@@ -1,0 +1,124 @@
+#+Title: DRL Note 2 Continued
+
+* First Example (*Bandit Walk Environment*):
+*Grid-World*: is a type of environment used for studying RL algorithms. They can be of any size and
+usually have a certain amount of actions/transition function/reward function.
+
+- The Bandit Walk is a walk with three states but only one none terminal state
+- The Agent starts in the middle state
+- It has two actions available *Left* (action 0) , *Right* (action 1)
+- The reward signal for landing on the right most cell is *+1* anything else is *0*
+  [[file:/home/tnom/Pictures/Screenshots/swappy-20250222-170825.png]]
+* Second Example (*Frozen Lake Environment*):
+[[file:/home/tnom/Pictures/Screenshots/swappy-20250222-180048.png]]
+Environment: *4x4 Grid with 16 cells*
+Actions: *Left,Down,Right,Up*
+Goal: *Go from start location to some goal location*
+Reward: *+1* for reaching goal location
+Restraints: *The surface is _"slippery"_ so the agent has a 33% chance of moving in some other direction than the one selected*
+- *There is also a fence around the lake so if the agent moves outside the grid it bounces back to the cell it made its last move from*
+- *There are also four holes in the lake if it falls into one of these holes game over (_Terminal State_)*
+
+* States:
+- A *state space* is a unique configuration of the problem.The set of all possible states
+- The set of all possible states is called the *State Space* is defined as the set S
+- A state space can be finite or infinite
+** State Math Breakdown:
+Here we have S (*the set/state space*) and Si (*each state within a set/state space*)
+  \[
+    S = \{ s_1, s_2, s_3, ... \}
+  \]
+Each state Si consists of a set of features (*variables*)
+\[
+s_i = \{ v_1, v_2, ..., v_n \}
+\]
+
+- The inner set must also be equal size and finite (*Si*)
+- But the outer set can be infinite  (*S*)
+
+*** FL (Frozen lake) example:
+
+  \begin{bmatrix}
+[0], & [1], & [2], & [3], \\
+[4], & [5], & [6], & [7], \\
+[8], & [9], & [10], & [11], \\
+[12], & [13], & [14] & [15]
+\end{bmatrix}
+
+- The set containing our environment (16 spaces for our 4x4 grid) so our set contains 16 spaces
+- For the environments so far the state is composed of a single variable containing the id of the cell
+* Math Behind the frozen lake environment
+*Transition Function:*
+\[
+P(s' \mid s, a) = P(St = s'| S_t_->_1 = s,A_t = a)
+\]
+- Where the first part defines the transition function
+- Second part... defines the probability of transitioning to state s'at time step t
+- Third part... Given action a was selected on state s in the previous time step t->1
+* Rewards
+
+** Reward Signals:
+- The reward function R maps a transition tuples,a,s' to a scalar
+- It gives a numerical signal of goodness to transitions
+  - When the signal is positive it is looked at as a reward
+    - Rewards are not always good. They can be negative and we can see this as a punishment/penalty
+*Formulas:*
+1. Reward function for \( r(s, a) \):
+\[
+R_t = r(s_t, a_t) \quad \text{where} \quad E[R_t | s_{t->1} = s, a_{t->1} = a] = r(s, a)
+\]
+2. Reward function for \( r(s, a, s') \):
+\[
+R_t = r(s_t, a_t, s_{t+1}) \quad \text{where} \quad E[R_t | s_{t->1} = s, a_{t->1} = a, s_t = s'] = r(s, a, s')
+r(s, a) = R(s, a) \\
+\]
+
+** Reward Signals{*In Frozen Lake*}:
+- In the Fl environment, the reward function is +1 for landing in state 15 and 0 otherwise.
+
+** Time Step:
+- A time step/cycle is a global clock syncing all parties
+- Having a clock is extremely useful in RL/DRL
+ - It allows the use of Task
+
+* Task Types:
+*** Episodic Task
+- A task in which there's a finite amount of time steps/cycles
+- Usually because the clock stops or beachhead the agent hits a terminal state
+  *EX:* Think about a task that has a clear goal like a chess game once you do a certain move its game over
+*** Continuing tasks
+- Like the name suggest these task go on forever there are no terminal state
+- The agent must be stopped manually
+  *Ex:* Think about a robot cleaning a room. The task never ends until someone shuts it off
+
+
+** Planning Horizon:
+- A planning horizon is just essentially just how far ahead an agent thinks about it's task
+*Types:*
+*** Finite Horizon:
+- The agent has and knows there is a set number of moves it can take to finish a task
+ - The task has a strict limit on how long it will take
+*** Greedy Horizon:
+- A type of _Finite Horizon_
+- The task completes immdieately after one action (*Almost like choosing between two options Right or Wrong*)
+    *EX:* The bandit walk is an example of the greedy horizon
+*** Infinite Horizon:
+- The agent dosen't know ahead of time when the task will end.
+ *Even if the task does have a finishing point*
+* Discounts
+- The issue with DRL/RL is the possibility of infinite sequences of time steps in infinite horizon tasks
+  - so we need a way to discount the value of rewards overtime( *We need a way to tel the agent that +1 is good*)
+- So the further into the future we recieve the rewards, the less valuable it is in the present.
+  - We call this the _Discount Factor/Gamma_
+    - The discount factor allows us to stabilize learning for most agents
+
+[[file:/home/tnom/Pictures/Screenshots/swappy-20250225-231915.png]]
+* Types of MPD's
+** Partially observable MPD:
+- When an agent cannot fully observe the environment state
+** Factored MPD:
+- Allows the representation of the transition and reward function more compactly
+** Continous MPD:
+- Allows the combination of probabilistic and relational knowledge
+** Multi-Agent MPD:
+- Allows the inclusion of mutiple agents in the same environment

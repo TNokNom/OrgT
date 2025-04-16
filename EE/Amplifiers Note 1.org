@@ -1,0 +1,128 @@
+#+title: Amplifiers Note 1
+* Background On Amplifiers
+
+** Amplification
+- Amplification is the multiplication of electrical signals
+- Can be voltage or current
+   *Ex:* (of operation performed by an amplifier):
+
+*** What specifically are amplifiers used for
+- amplifiers are used to increase the output singals from  tranducers,sensors,etc.
+- doing this makes it easiser to read what specific signal is being sent
+
+*** Amplifier characteristics
+ - Gain (the amount an output signal increases compared to the input signal)
+   May be designed for voltage,current or power gain
+  - Input resistance
+  - Output resistance
+**** Gain (formulas)
+Voltage Gain- Av = Vo/Vi
+ Current Gain- Ai = Io/Ii
+ Power Gain-  G + Po/Pi
+* Operational Amplifiers (Opamps)
+
+** Ideal Opamps Traits
+1.Infinite input resistance at both terminals
+   - No current flows into either input terminal
+   2.Infinite open-loop gain
+   - Any differential input will result in an infinite output
+3.Zero output resistance
+   Immune to the effect of loading
+4. Infinite Gain
+
+** Feedback
+- Feedback is when a portion of the output signal is sent back to one of the input
+ - use to change the way an output behaves
+
+*** Negative Feedback(The most common and the one we will work with 3401)
+- The feedback signal are applied to the inverting input (-)
+  -Reduces the overall gain but improves stability and accuracy
+*** Positive Feedback
+- The Feedback signal is applied to the non-inverting input (+)
+
+** Types of Opamps
+
+**** Non-Inverting Amplifier
+-Negative feedback so the summing-point constraint applies
+  -Gain = 1 + R2/R1
+    -Vout = -(Rf/Rin)vin
+**** Inverting Amplifier
+- Gain = -R2/R1
+- Vout = (1 + Rf/R1)Vin
+**** Summing Amplifier
+- uses an inverting op-amp configuration ( negative terminal is the input and positive terminal is grounded)
+  - Multiple input resistors connected to the input terminal
+    - uses a feedback resistor to manipulate the gain applied to each input
+      \[
+        V_{\text{out}} = -\left( \frac{R_f}{R_1} V_1 + \frac{R_f}{R_2} V_2 + \frac{R_f}{R_3} V_3 + \dots \right)
+      \]
+**** Voltage Follower(Buffer)
+- is classified as an non inverting amplifier
+  - Provides high input impedance and low output impedance
+    - used to isolate different stages of a circuit without a loading effect
+**** Difference Amplifier
+- Vout = Vin
+-Amplifies the difference between two input signals
+-High common-mode rejection (good for reducing noise)
+- where V1 is the input at the inverting terminal and V2 is the input at the non-inverting terminal
+*Ideal Difference Amplifier Formula:*
+
+ \[
+   V_{\text{out}} = \left( \frac{R_2}{R_1} \right) (V_2 - V_1)
+ \]
+
+*Voltage Gain formula:*
+
+ \[
+    A_d = \frac{R_2}{R_1}
+ \]
+
+*Vo Formula:*
+
+\[
+  V_{\text{out}} = A_d (V_2 - V_1)
+\]
+
+_Resistors in difference amplifiers must satisfy this formula in order to function:_
+\[
+  \frac{R_4}{R_3} = \frac{R_2}{R_1}
+\]
+
+
+**** Integrator
+- Key trait is it uses a capacitor
+- Produces an output proportional to the integral of the input signal
+  - uses a capacitor in the feedback path
+    -Vout(t) = -(1/RC) \int Vin(t) dt
+*Output voltage equation:*
+ \[
+ V_{\text{out}}(t) = -\frac{1}{RC} \int V_{\text{in}}(t) \, dt
+ \]
+*Frequency Domain Representation:*
+k\[
+H(s) = \frac{V_{\text{out}}(s)}{V_{\text{in}}(s)} = -\frac{1}{sRC}
+\]
+
+**** Differentiator
+-Produces an output proportional to the rate of change of the input signal.
+  -the capacitor is connected at the input (differentiating the current)
+    formula
+    Vout = -RC D Vin/dt
+ *Output voltage equation:*
+\[
+  V_{\text{out}}(t) = -RC \frac{dV_{\text{in}}(t)}{dt}
+\]
+ *Frequency domain representation:*
+\[
+  H(s) = \frac{V_{\text{out}}(s)}{V_{\text{in}}(s)} = -sRC
+\]
+*Frequency response:*
+\[|H(j\omega)| = \omega RC
+\]
+ -In decibels
+\[
+ 20 \log_{10} (\omega RC)
+\]
+
+
+**** Formula

@@ -1,0 +1,23 @@
+* EE 34o1/05,06 Rectifier Equations Reference Sheet
+
+| Unfiltered                   | Half-Wave Rectifier            | Center-Tapped Transformer Full-Wave Rectifier | Full-Wave Bridge Rectifier |
+|------------------------------+--------------------------------+-----------------------------------------------+----------------------------|
+| **Peak Output Voltage**        | VoP = Vs - NV_f              | V_oP = (2V_s)/π                              | VoP = (2Vs)/π             |
+| **Conduction Angle**           | θ_c = sin⁻¹(Vo/Vs)           | θ_c = sin⁻¹(V_o/V_s)                          | θ_c = sin⁻¹(2Vo/Vs)        |
+| **Average Output Voltage**     | VoAVG = (1/π) Vs - (1/2)V_f | VoAVG = (2/π)V_s                             | VoAVG = (2/π)Vs - 2Vf     |
+| **Diode Peak Inverse Voltage** | PIV = Vs                      | PIV = 2Vs - V_f                              | PIV = Vs - Vf              |
+
+* Notes:
+1) Vs is the peak magnitude of v_s, sometimes represented by Vi or V_m.
+2) If θ_r, B_s, or B_t are sought in radians, replace 18o° with π.
+
+* Filtered Rectifier Equations
+
+| Type                          | Filtered Half-Wave Rectifier  | Filtered Full-Wave Rectifier    |
+|-------------------------------+-------------------------------+---------------------------------|
+| **Peak Output Voltage**         | VoP = Vs - NV_f             | V_oP = V_s - NV_f               |
+| **Peak-to-Peak Ripple Voltage** | VoR = V_oAVG/(fRC)           | V_0R = V_0AVG/(2fRC)            |
+| **Average Output Voltage**      | VoAVG = V_oP - V_0R/2        | V_0AVG = V_0P - V_0R/2          |
+| **Conduction Interval**         | ΔT = (T/2)h(2√(Vo/Vs))      | ΔT = (T/2)h(2√(V_o/V_s))        |
+| **Average Diode Current**       | I_DAVG = I_L(1 + Vo/(2√Vs)) | I_DAVG = I_L(1 + V_o/(2√V_s))   |
+| **Peak Diode Current**          | I_DMAX = I_L(1 + 2πVo/√Vs)  | I_DMAX = I_L(1 + 2πV_o/(2√V_s)) |

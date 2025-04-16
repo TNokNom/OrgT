@@ -1,0 +1,76 @@
+#+TITLE:Three Phase Circuits Notes
+
+* Three Phase System
+- A three phase system is an AC system with three sine voltages
+  of equal magnitude and frequency
+- The thing that separates them is they're 120° out of phase with each other
+- They are denoted by:
+
+-> \(V_{A}(t) = V_{m}sin(\omega t)\)  
+-> \(V_{B}(t) = V_{m}sin(\omega t - 120)\) 
+-> \(V_{C}(t) = V_{m}sin(\omega t - 240)\)
+
+** Balanced 
+- If balanced
+  -> \(S_{total} = 3 \cdot S_{phase}\)
+  -> \(S_{phase} = \frac{S_{total}}{3}\)
+  -> \(p = \frac{V^{2}}{r}\)
+** Configurations
+
+- There are two main conflagrations to three-phase systems
+*** Rules
+- If the system has 3 .... It is
+**** Purely Resistive
+- Identical resistor
+  Z = R  S = P
+**** Purely Inductive
+- 3 inductors between phases
+**** Purely capacitive
+- 3 Capacitors between phases
+**** Complex
+- If its a mix of the three components between phases
+*** Y {*Wye or Start*} Connection
+- Each load or source is connected between a line and neutral
+- Has a neutral wire (sometimes)
+- Phase Voltage: Voltage across each branch
+- Line Voltage: Voltage between lines
+- Line current stays the same in both
+- Voltage is split evenly between phases
+- \(I_{line} = I_{phase}\)
+- \(V_{line} = \sqrt{3} \cdot V_{phase} < 30\)     \(V_{phase} = \frac{1}{\sqrt{3}} V_{line} <  -30\)
+- \( S = V_{phase} \cdot I_{phase}\)
+
+  
+***  E Delta Connection
+- Loads are connected between pairs of lines
+- No neutral
+- Line voltage = phase voltage
+- \(I_{line} = \sqrt{3} \cdot Iphase < -30 ° \)
+**** Balanced
+  - If balanced
+  -> \(S_{total} = 3 \cdot S_{phase}\)
+  -> \(S_{phase} = \frac{S_{total}}{3}\)
+
+
+*  Load Types:
+** Purely Resistive
+- The current and voltage are in phase
+- Power factor = 1 (or 100%)
+- All power supplied if converted into real active power
+- No power is lost or stored in reactive components
+** Purely Inductive
+- current lags voltage by 90
+- power factor = 1
+** Purely Capacitive
+- Current leads voltage by 90°
+- power factor = 0
+- No real power consumed, just reactive power
+if  Zin is purely resistive then its imaginary part must be 0
+
+\(Z_{in} = Z_{11} + \frac{Z^{2}_{M}} {Z_{22}}\) - sign depends on dot convention
+\(Z_{out} = Z_{22} - \frac{Z^{2}_{M}}{Z_{11}}\)  
+* Laplace Domain Rules
+- \(L_{1} \) => \(sL_{1}\) => \(2_{s} \Omega \)
+- \(\frac{1}{sC} = \frac{1}{s}\) (capacitor impedance)
+
+- Voltage source = +\(\frac{vc(0^{-})}{s}\)

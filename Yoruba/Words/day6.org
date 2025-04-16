@@ -1,0 +1,6 @@
+* yoruba
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+**

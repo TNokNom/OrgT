@@ -1,0 +1,297 @@
+
+#+ANKI_DECK: yoruba
+* Over There
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495125
+:END:
+ Síbè
+* Can i sit here?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495122
+:END:
+ Sè mò lè jòkòó síbì
+* can i go there?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495119
+:END:
+ Sè mò lè lọ síbè
+* I should
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495117
+:END:
+ Kí n...
+* I should come
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495114
+:END:
+ Kí n wá
+* Should i come?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495110
+:END:
+ Sè kí n wá
+* what
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742929495107
+:END:
+Kí ní
+* England
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742930076120
+:END:
+ile Gessi
+* I am English
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742930076118
+:END:
+mo jé òmò ilé Gésí
+* Country
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742930076116
+:END:
+òrìlé-èdè
+* I am Canadian
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742930076113
+:END:
+mo jé òmò orìlé-èdè kánàdà
+* When?
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014060859
+   :END:
+Nigba wo ni?
+
+* Where?
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014070210
+   :END:
+Nibo ni?
+
+* Who?
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014073560
+   :END:
+Ta ni?
+
+* To be sweet; to ache
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014077234
+   :END:
+Dun
+
+* Not sweet
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014079235
+   :END:
+Ko dun
+
+* My stomach
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014081359
+   :END:
+Inu mi
+
+* I am happy
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014083809
+   :END:
+Inu mi dun
+
+* I am not happy
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742014087185
+   :END:
+   Inu mi ko dun?
+* Yoruba
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+** where are you from
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538512
+:END:
+nibo lo ti wá?
+** I am American
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538510
+:END:
+mo jé ọmọ Amerika
+** land
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538509
+:END:
+ilé
+** English
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538505
+:END:
+Gẹ́esì
+* Yoruba
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+** where are you from
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538512
+:END:
+nibo lo ti wá?
+** I am American
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538510
+:END:
+mo jé ọmọ Amerika
+** land
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538509
+:END:
+ilé
+** English
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742641538505
+:END:
+Gẹ́esì
+
+* To be spoilt
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:ANKI_NOTE_ID: 1742093676714
+:END:
+bájé
+* I am sad
+:PROPERTIES:
+   :ANKI_NOTE_TYPE: Basic
+   :ANKI_DECK: Yoruba
+   :ANKI_NOTE_ID: 1742093695588
+   :END:
+ìnú mi bájé
+* so so
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:ANKI_NOTE_ID: 1742093698363
+:END:
+bákanbákan
+* To look like
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:ANKI_NOTE_ID: 1742093700087
+:END:
+ó rí
+* It's so so
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:ANKI_NOTE_ID: 1742093701787
+:END:
+ó rí bákanbákan
+* To be fast;to borrow
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:ANKI_NOTE_ID: 1742094486529
+:END:
+ya
+* to be unhealthy; not fast
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: yoruba
+:ANKI_NOTE_ID: 1742094488479
+:END:
+ko ya
+* my body
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: yoruba
+:ANKI_NOTE_ID: 1742094471755
+:END:
+ara mi
+* I am healthy
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: yoruba
+:ANKI_NOTE_ID: 1742094492080
+:END:
+ara mi ya
+* I am sick
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: yoruba
+:ANKI_NOTE_ID: 1742094481654
+:END:
+ara mi ko ya
+* to be
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+je
+* I am Nigerian
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+mo jẹ omo nígeria
+
+* truth
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+òótọ́
+* really?; is that so?
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+ṣé lóótọ́?
+* right?
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_DECK: Yoruba
+:END:
+àbí?
+* To live
+:PROPERTIES:
+:ANKI_NOTE_ID: 1743010652174
+:END:
+gbé
+* Where do you live?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1743010652172
+:END:
+nibo ló n gbé
+* I live in ...
+:PROPERTIES:
+:ANKI_NOTE_ID: 1743010652169
+:END:
+mo n gbé ní
+* I live in Canada but I am Nigerian
+:PROPERTIES:
+:ANKI_NOTE_ID: 1743010652167
+:END:
+mo n gbé ní kanada ṣùgbọ́n mo jẹ omo nígeria
+* To be big
+:PROPERTIES:
+:ANKI_NOTE_ID: 1743010652161
+:END:
+tóbi

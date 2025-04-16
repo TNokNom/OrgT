@@ -1,0 +1,59 @@
+#+ANKI_DECK: Quiz 5
+\(I_{E} = (\beta + 1)I_{B}\)
+* Transistor Need To Know
+Active mode - \(I_{c} = \beta I_{B}\)  & \(I_{E} = I_{c}+I_{B}\)
+Saturation Mode - \(I_{c} < \beta I_{B} \)
+* PNP Transistor
+
+
+* NPN Transistor
+
+* What current condition defines the cutoff in a BJT transistor
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742800618328
+:END:
+No current flows between the collector and emitter. This condition means that the transistor is effectively turned off, preventing any amplification of signals. In this state, the BJT acts like an open switch, which is crucial for applications requiring the transistor to not conduct.
+
+* What base emitter bias state {*forward or reverse*} a places a BJT in active mode or saturation mode
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742800618325
+:END:
+Forward bias on the base-emitter junction places a BJT in active mode. In this state, the transistor allows current to flow from the collector to the emitter, enabling amplification. When forward biased sufficiently, the BJT can enter saturation mode, where it operates as a closed switch, allowing maximum current to flow.
+
+* What base emitter voltage threshold must be exceeded before significant current flows in an npn transistor?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742801340224
+:END:
+The base-emitter voltage must typically exceed approximately 0.7 volts to allow significant current to flow in an npn transistor, enabling it to enter its active region.
+
+* What collector emitter voltage defines the edge of saturation for an npn transistor?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742801340222
+:END:
+The collector-emitter voltage at the edge of saturation is typically around 0.2 volts, where the transistor is fully turned on and conducting maximum current.
+
+* What collector emitter voltage is used to model an npn transistor that is deep in saturation?
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742801340219
+:END:
+In deep saturation, the collector-emitter voltage can be around 0.1 volts or lower, indicating that the transistor is fully on and has minimal voltage drop across it.
+
+* Starting with a BJT circuit symbol: identify the device type {*npn or pnp*}; the locations of its base, emitter, and collector; and the reference directions for IB, IC, and IE.
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742801340217
+:END:
+An npn transistor features an arrow on the emitter pointing outwards, indicating the direction of conventional current flow. The base is the middle terminal, while the collector is the terminal connected to the most positive voltage.
+
+* Be able to sketch a representative npn input characteristic like that presented in Lecture IV.6.a.
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742801340215
+:END:
+The input characteristic curve of an npn transistor illustrates the relationship between the base-emitter voltage and the base current, showing how small changes in voltage can lead to larger variations in current within the device.
+
+
+
+* Need to Know Values and Methods
+:PROPERTIES:
+:ANKI_NOTE_ID: 1742801340203
+:END:
+- \(v_{be}\) = 0.7V (forward-biased or saturated npn)  \(v_{be}\) = 0.7V (forward-biased or saturated pnp)

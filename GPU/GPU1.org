@@ -1,0 +1,52 @@
+#+title: GPU Notes
+* History of GPUs
+  -> Early days focused primarily on 2D graphics.
+  -> Introduction of programmable shaders in the early 2000s.
+  -> Rise of General-Purpose computing on GPUs (GPGPU) for scientific and AI applications.
+** Programmable Shaders
+->
+
+* Key Components:
+** Cores
+-> The fundamental processing units in NVIDIA GPUs that execute parallel tasks.
+-> Each GPU core executes a single-instruction multiple-thread(SIMT)
+-> Each core has thousands of threads
+*** Tensor Cores
+*** Shader Cores
+** Threads
+-> Threads execute  Instructions
+-> GPUS specifically use *SIMD*
+*** SIMD
+-> *SIMD* stands for Single Instruction Multiple Threads
+- It allows multiple threads to execute the same instruction but
+  on different data
+- Its what enables GPUs to excel in parallel
+**** Why SIMD is so useful in GPUs
+->
+** ALU
+** FPU
+** SFU
+
+*** Memory Hierarchy
+  -> Global Memory: Large but slower, used for all data storage.
+  -> Shared Memory: Faster and shared among threads within the same block.
+  -> Registers: Fastest local storage for individual threads.
+
+** Streaming Multiprocessors {*SMs*}
+  Groups of CUDA cores that manage thread execution and scheduling.
+
+* GPU Architecture Types
+** NVIDIA Architecture
+  -> Fermi, Kepler, Maxwell, Pascal, Volta, Turing, Ampere, and Ada Lovelace.
+  
+** AMD Architecture
+  -> GCN (Graphics Core Next) and RDNA (Radeon DNA).
+
+* Parallel Processing
+GPUs excel in parallel processing due to their high number of cores. They are ideal for tasks like:
+  -> Image processing
+  -> Machine learning and AI
+  -> Scientific simulations
+
+* Hierarchy
+** Threads

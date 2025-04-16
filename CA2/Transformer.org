@@ -1,0 +1,59 @@
+#+Title: Transformer Notes
+
+* Transformers
+- a Transformer is an electrical device consisting of two or more coils of wire
+  used to transfer electrical energy by means of a changing magnetic field
+- Transfer electric power from one circuit to another
+- It does so without a change of frequency
+- Decreases or Increase AC voltage
+
+** How transformers work
+- When current in the primary coil changes polarity a changing
+  magnetic field is produced
+-This changing magnetic failed gets associated with the secondary through the
+  soft iron core
+
+** Traits of an ideal transformer
+*Zero Leakage Flux:*
+- Fluxes produced by the primary and secondary current are
+    confined within the core
+*Zero Coil Resistance:*
+ - No voltage drops on the coils
+*Infinite core permeability:*
+- Zero core reluctance, meaning negligible current generates the flux
+
+Power IN = Power OUT
+
+*** Transformer Construction
+- Np = Number of primary windings
+- Ns = Number of Secondary windings
+- Vp = Primary Voltage
+- Vs = Secondary Voltage
+- Ip = Primary Current
+- Is = Secondary Current
+- n = Turn Ratio
+
+\[
+\frac{Np}{Ns} = \frac{V_p}{V_s} = \frac{I_s}{I_p} = n
+\]
+
+\[
+P_p = P_s
+\]
+
+
+\[
+N_p > N_s  (Step Down Transformer)
+\]
+\[
+N_p < N_s  (Step Up Transformer)
+\]
+
+** Dot Convention
+- The Dot Convention is a method used to identify the polarity of winding
+  in a transformer
+  - It helps understand the phase relationship between primary
+    and secondary voltages or currents.
+* Power factor
+\(V_{2} = I_{2} \cdot Z_{s}\)
+\( S = V_{2} \cdot I_{2} \) complex power

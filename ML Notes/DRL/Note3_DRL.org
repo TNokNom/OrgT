@@ -1,0 +1,226 @@
+#+title: DRL_NOTE3 Continued...
+* Chapter 3 Notes
+
+** slippery Walk Five Environment:
+- One row grid world environment(*similar to frozen lake*)
+- Has five non terminal states, with seven total states
+there are three formula that are important to remember from [[org:../Org/ML Notes/DRL/Note2_DRL.org][Chapter 2]]
+*1:* \(Gt = R_t_+_1 + R_t_+_2 + R_t_+_3 + R_t_+_4 .... + R_T\)
+*2:* \(Gt = R_t_+_1 + \gamma R_t_+_2 + \gamma^2 R_t_+_3 + \gamma^T^-^1R_t_+_4 .... + R_T\ \)
+- The gamma used for the second function is the [[file:Note2_DRL.org::*discounts][discount rate]]
+** Plan:
+- a plan is a sequence of actions from the *START* state to the *GOAL* state
+- Its important to note that plans are enough they can simply fail depending on the state
+- Take the slippery Walk Five environment the plan would typically be to go right
+  - This wouldn't work due to the stochastic nature of the environment
+** Policy:
+- typically denoted as \(\pi(s)\)
+- It tells the agent which action to take in each state
+- Policies help solve this problem think of them as *Universal Plans*
+- They help cover all possible states and they can be stochastic or deterministic
+  - A policy could look something like this:
+ -   \(\underbrace{\pi(s) = argmaxQ(s,a)}_{\text{In each state (s), choose the action (a) with the highest Q-value}}\)
+
+** State Value Function
+- Represents the expected return that an agent can achieve, given a starting state s
+- Essentially represents how good a specific state is
+- Using the policy \(\pi \)
+**** State value Equation:
+\[v(s) = \mathbb{E}_{\pi} \left[ G_t | s_t = s \right]\]
+- \(G_t\) is the return from time step \(t\) onward
+- \(R_t\)  is the reward received at time t
+
+***** Example:
+- *state* \(s_1\): *Reward* \(R_1 = 10\), *state* \(s_2\): *Reward* \(R_2 = 5\),  *state* \(s_3\): *Reward* :\(R_1 = 0\)
+*Discount Factor*: \(\gamma = 0.9\)
+- There are no rewards after \(s_3\)
+
+- so \(v(s_3) = 0\) (value of being in state 3 is 0)
+
+- \(v(s_2) = R_2 + \gamma v(s_3) = 5 + 0.9 \times 0 = 5\)
+
+- \(v(s_1) = R_1 + \gamma v(s_2) = 10 + 0.9 \times 5 = 10 + 4.5 = 14.5 \)
+- These values would be the future expected return
+
+** Bellman's Equation:
+- Gives us a way to express the value of a state in terms of the values of subsequent states.
+  - The Q value is made of two parts:
+\[
+Q(s, a) =
+\underbrace{R(s, a)}_{\text{Immediate reward}} +
+\underbrace{\gamma \cdot V(s')}_{\text{Future discounted reward & The value of the next state }}
+\]
+
+- We know that \(R(s,a)\) is the reward you get right after taking action \(a\) in state \(s\)
+- And that \(\gamma V(s') \) is the value of the next state (*the *future*), discounted
+
+    _EX:_ Say we have something similar to the board walk, A three state environment starting from 0 where the
+  third square is the goal state with a reward of +10 and a \(\gamma = 0.9\)
+-  if \(Q(1,RIGHT) = 10 + 0.9 \cdot 0 = 10\)  then that means the agents gets +10 immediately for reaching the final state (*Terminal State*)
+- \(V(2) = 0\)
+- _Immediate Reward_ is \(R(1,RIGHT) = 10\) and the _Future Reward_ is \(\gamma \cdot V(2) = 0.9 \cdot 0 = 0\)
+
+*** Code {*Showing how iterations work*}
+  #+BEGIN_SRC cpp :results output
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    const int num_states = 3;
+    const int num_actions = 2; // 0 = LEFT, 1 = RIGHT
+    const double gamma = 0.9;
+    const int iterations = 5;
+
+    // Initialize Q-table to zeros
+    vector<vector<double>> Q(num_states, vector<double>(num_actions, 0.0));
+    vector<double> V(num_states, 0.0); // Value of states under current policy
+
+    // Define deterministic transitions: transitions[s][a] = next_state
+    vector<vector<int>> transitions = {
+        {0, 1},  // state 0: LEFT→0, RIGHT→1
+        {0, 2},  // state 1: LEFT→0, RIGHT→2
+        {1, 2}   // state 2: LEFT→1, RIGHT→2 (terminal stays at 2)
+    };
+
+    // Define rewards: rewards[s][a] = R(s, a)
+    vector<vector<double>> rewards = {
+        {0.0, 0.0},   // state 0
+        {0.0, 10.0},  // state 1: RIGHT gives reward 10
+        {0.0, 0.0}    // state 2
+    };
+
+    // Fixed policy: always choose RIGHT (action = 1)
+    vector<int> policy = {1, 1, 1};
+
+    for (int it = 0; it < iterations; it++) {
+        // Update Q-values
+        for (int s = 0; s < num_states; s++) {
+            for (int a = 0; a < num_actions; a++) {
+                int next_state = transitions[s][a];
+                Q[s][a] = rewards[s][a] + gamma * V[next_state];
+            }
+        }
+
+        // Update V(s) = Q(s, π(s))
+        for (int s = 0; s < num_states; s++) {
+            int a = policy[s];
+            V[s] = Q[s][a];
+        }
+
+        // Print Q-table
+        cout << "Iteration " << it + 1 << ":\n";
+        for (int s = 0; s < num_states; s++) {
+            cout << "  Q(" << s << ", L) = " << Q[s][0]
+                 << ", Q(" << s << ", R) = " << Q[s][1]
+                 << ", V(" << s << ") = " << V[s] << endl;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+  #+END_SRC
+
+  #+begin_example
+  Iteration 1:
+    Q(0, L) = 0, Q(0, R) = 0, V(0) = 0
+    Q(1, L) = 0, Q(1, R) = 10, V(1) = 10
+    Q(2, L) = 0, Q(2, R) = 0, V(2) = 0
+
+  Iteration 2:
+    Q(0, L) = 0, Q(0, R) = 9, V(0) = 9
+    Q(1, L) = 0, Q(1, R) = 10, V(1) = 10
+    Q(2, L) = 9, Q(2, R) = 0, V(2) = 0
+
+  Iteration 3:
+    Q(0, L) = 8.1, Q(0, R) = 9, V(0) = 9
+    Q(1, L) = 8.1, Q(1, R) = 10, V(1) = 10
+    Q(2, L) = 9, Q(2, R) = 0, V(2) = 0
+
+  Iteration 4:
+    Q(0, L) = 8.1, Q(0, R) = 9, V(0) = 9
+    Q(1, L) = 8.1, Q(1, R) = 10, V(1) = 10
+    Q(2, L) = 9, Q(2, R) = 0, V(2) = 0
+
+  Iteration 5:
+    Q(0, L) = 8.1, Q(0, R) = 9, V(0) = 9
+    Q(1, L) = 8.1, Q(1, R) = 10, V(1) = 10
+    Q(2, L) = 9, Q(2, R) = 0, V(2) = 0
+
+  #+end_example
+
+
+*** Equation:
+\[v(s) = R(s) + \gamma \sum_{s'} P(s' | s, a) v(s')\]
+\(v(s)\) is the value of state \(s\)
+\(v(s')\) is the value of some future state \(s'\)
+\(R(s)\) is the immediate reward received after transitioning from state s
+\(\gamma \) is the discount factor
+\( P(s' | s, a) \) is the probability of transitioning to state \( s' \) from state \( s \) under action \( a \).
+
+- suppose we have a simple MP with 3 states: \( s_1, s_2, s_3 \).
+- Let’s assume the following:
+  - From state \( s_1 \), the action leads to state \( s_2 \) with a probability of 0.8 and to \( s_3 \) with a probability of 0.2.
+  - The immediate reward \( R(s_1) \) for taking the action in state \( s_1 \) is +5.
+  - Let's say the values of states \( s_2 \) and \( s_3 \) are known:
+    - \( v(s_2) = 3 \)
+    - \( v(s_3) = 1 \)
+- Choose \( \gamma = 0.9 \).
+
+Using the Bellman equation for state \( s_1 \):
+
+\[
+v(s_1) = R(s_1) + \gamma \sum_{s'} P(s' | s_1, a) v(s')
+\]
+- First, we calculate the expected future value:
+
+\[
+v(s_1) = 5 + 0.9 \left( 0.8 \cdot v(s_2) + 0.2 \cdot v(s_3) \right)
+\]
+
+\[
+= 5 + 0.9 \left( 0.8 \cdot 3 + 0.2 \cdot 1 \right)
+\]
+
+\[
+= 5 + 0.9 \left( 2.4 + 0.2 \right)
+\]
+
+\[
+= 5 + 0.9 \cdot 2.6
+\]
+
+\[
+= 5 + 2.34
+\]
+
+\[
+= 7.34
+\]
+
+** Action Value Function:
+- Unlike the *state value Function* it gives us the value of taking a specific action
+in a state
+
+** Action Advantage Function
+- Measures the relative value of a specific action \(a\) compared to the average value of a
+all actions in state \(s\)
+-  \[A(s, a) = Q(s, a) - v(s)\]
+This formula tells us how much better or worse taking action \(a\) is compared to average
+action when in state \(s\)
+
+** Optimality
+- Policies, state-value functions, action-value functions, and action-advantage functions
+are the components we use to describe,evaluate, and improve behaviors.
+- *Optimality* is what we call it when these components are the best they can be
+- An optimal policy is a policy that for every state can obtain expected returns greater than
+or equal to any other policy
+
+
+
+#+BEGIN_ai
+
+#+end_ai

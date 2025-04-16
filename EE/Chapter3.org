@@ -1,0 +1,57 @@
+#+title: 2->6 Chapter 3
+page: 205
+* Chapter 3.1:
+** Semiconductor Theory:
+-> Semiconductors are materials whose conductivity lies between copper and insulators like glass
+
+*** Physic Behind Semiconductors:
+ -> A silicon atom has four valence electrons (*Valence Electrons being the electrons in the outermost shell*)
+ -> _This would cause an element to be unstable_
+ -> To counteract this silicon shares it's Valence Electrons with 4 surrounding atoms making it 8 total valence electrons for each atom
+  -> This ends up creating an almost crystal like lattice structure
+** Types:
+*** Single element semiconductors:
+-> Germanium
+-> Silicon
+*** Compound semiconductors:
+-> gallium-arsenide
+
+** Chapter 3.2 {*Doped Semiconductor*}
+-> In order to use silicon crystal as a semiconductor we have to fix the problem of the lack of free electron holes at certain temperatures
+
+** Doping:
+-> Doping involves introducing impurity atoms into the silicon crystal in sufficient numbers to substantially increase the concentration of free electrons or holes
+*** N Type:
+-> N type materials are created when we *increase the concentration of free electrons*
+*** P Type:
+-> P type materials are created when we *increase the concentration of holes*
+*** Ex:
+-> Say we want to increase the concentration of free electrons
+  -> We can dope silicon with an element with a valence of 5 (*Phosphorus*) this would cause
+    the resulting material to be *n type*
+
+* Chapter 3.4{*The PN Junction*}
+-> The pn junction is an example of a p-type silicon structure being brought in contact
+   with a n-type silicon structure
+
+
+* Diode:
+** Foward Bias Reigon:
+-> a condition in a semiconductor device where a positive voltage is allied to the p-type material and a negative voltage to
+  the n-type material
+** Reverse Bias Reigon:
+-> a condition in a semiconductor device where it does not conduct current
+
+** Ideal diode:
+-> No current flow until we get above zero volts
+-> Infinite resistance until theirs come current flow
+-> once flow starts the resistance is zero
+*** Acutal Model
+[[File:/home/tnom/Downloads/Screenshot 2025-02-06 at 19-37-21 diode current vs actual voltage graph - Google Search.png]]
+
+
+* Modeling Analysis
+** Laad Line Analysis:
+-> load analysis is a graphical means to solve a linear and non-linear equation simultaneously
+
+* Constant Voltage drop

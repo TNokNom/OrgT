@@ -1,0 +1,111 @@
+* Environment
+- creating an environment is probably the most important thing in DRL
+- Here we go over way to get started with creating new environments
+
+** Using Vectors To Create Environments in C and Python
+#+BEGIN_SRC cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<vector<double>> Qtable(3, vector<double>(4, 0));
+#+END_SRC
+
+#+RESULTS:
+
+- In this snippet we can see we initialize vector which contains another vector
+- The use of this format helps us create a 2D vector/array
+- We can then define the size of the Qtable by defining the rows and columns
+- So in the end we have a *3x4* Matrix that would look something like this:
+  \begin{bmatrix}
+x & x & x & x \\
+x & x & x & x \\
+x & x & x & x \\
+\end{bmatrix}
+
+*** 3D Vector
+- Now for 3D Vectors things are very similar just a little different
+
+#+BEGIN_SRC cpp :results output
+#include <iostream>
+#include <vector>
+using namespace std;
+int main (){
+  vector<vector<vector<double>>> Qtable(2, vector<vector<double>>(2,vector<double>(4,0.0)));
+
+    Qtable[0][0] = {0.1, 0.2, 0.1, 0.3};  // Q-values at (0,0)
+    Qtable[0][1] = {0.0, 0.4, 0.2, -0.2};  // Q-values at (0,1)
+    Qtable[1][0] = {-0.1, 0.1, 0.0, 0.3};  // Q-values at (1,0)
+    Qtable[1][1] = {0.2, 0.3, -0.2, 0.1};  // Q-values at (1,1)
+
+    cout << "3D Q-table (2x2 states, 4 actions each):\n";
+    for (size_t x = 0; x < Qtable.size(); x++) {
+        for (size_t y = 0; y < Qtable[x].size(); y++) {
+            cout << "State (" << x << "," << y << "): ";
+            for (double q : Qtable[x][y]) {
+                cout << q << "\t";
+            }
+            cout << endl;
+        }
+    }
+
+    return 0;
+}
+#+end_SRC
+
+#+RESULTS:
+#+begin_example
+: 3D Q-table (2x2 states, 4 actions each):
+: State (0,0): 0.1	0.2	0.1	0.3
+: State (0,1): 0	0.4	0.2	-0.2
+: State (1,0): -0.1	0.1	0	0.3
+: State (1,1): 0.2	0.3	-0.2	0.1
+#+end_example
+- We can also use the eigen library to achieve the same thing
+  - We declare a matrix using eigen
+    - We initialize the matrix to all zeros
+    - We then print each element in said matrix using two loops one for our rows and one for
+      our columns
+      - We then change on value to show how we
+        could potentially update Qtable values
+  #+Begin_src cpp :results output
+  #include <iostream>
+  #include <eigen3/Eigen/Eigen>
+Eigen::Matrix<double, 9,4> Qtable;
+
+
+
+void eigen () {
+    Qtable.setZero();  // Initialize all elements to zero
+
+    // Modify one element
+    Qtable(2, 0) = 42;
+
+    // Print each element in "Q(row, col) value" format
+    std::cout << "Qtable:\n";
+    for (int x = 0; x < Qtable.rows(); x++) {
+        for (int y = 0; y < Qtable.cols(); y++) {
+            std::cout << "Q(" << x << "," << y << ") " << Qtable(x, y) << "  ";
+        }
+        std::cout << std::endl;  // Newline after each row
+    }
+}
+int main(){
+    eigen();
+}
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  Qtable:
+  Q(0,0) 0  Q(0,1) 0  Q(0,2) 0  Q(0,3) 0
+  Q(1,0) 0  Q(1,1) 0  Q(1,2) 0  Q(1,3) 0
+  Q(2,0) 42  Q(2,1) 0  Q(2,2) 0  Q(2,3) 0
+  Q(3,0) 0  Q(3,1) 0  Q(3,2) 0  Q(3,3) 0
+  Q(4,0) 0  Q(4,1) 0  Q(4,2) 0  Q(4,3) 0
+  Q(5,0) 0  Q(5,1) 0  Q(5,2) 0  Q(5,3) 0
+  Q(6,0) 0  Q(6,1) 0  Q(6,2) 0  Q(6,3) 0
+  Q(7,0) 0  Q(7,1) 0  Q(7,2) 0  Q(7,3) 0
+  Q(8,0) 0  Q(8,1) 0  Q(8,2) 0  Q(8,3) 0
+  #+end_example

@@ -1,0 +1,69 @@
+#+title: Chapter 6 Notes
+#+page: 305
+
+* BJT's Basics
+:PROPERTIES:
+:ID:       b0adc3c5-66a8-4918-8cd4-d5ac6d59853e
+:END:
+- Bipolar Junction Transistor are a semiconductor device that can amplify current or act as a switch
+- There are two types of transistors
+  - Each BJT consist of three terminals
+    - It has two junctions the *Base-Emitter* and *Base-Collector*
+   [[file:../../Pictures/BJT's_Basics/2025-03-22_21-00-40_screenshot.png]]
+
+** Terminals:
+*** Emitter
+The terminal through which the majority charge carries leave the transistor
+*** Base
+ - Where voltage is applied. The control terminal
+*** Collector
+- The terminal through which the majority charge carriers enter the transistor
+** NPN
+- Comprised of two N-type materials and one P-type Material between them
+** PNP
+- Comprised of two P-type materials and one N-type material between them
+
+* Modes:
+BJTS have three different modes that define their behavior
+** Active Mode
+- BE is forward biased and the BC is reverse biased
+
+*** NPN
+\(V_{B} > V_{E}\) Forward
+\(V_{C} > V_{B}\) Reverse
+
+*** PNP
+\(V_{E} > V_{B} \) by about .7V
+\(v_{B} > v_{C}\)
+
+** Saturation Mode
+- BE if forward biased and BC is forward biased
+
+*** NPN
+ \(V_{B} > V_{E}\) Forward
+\(V_{B} > V_{C}\) Forward
+
+*** PNP
+\( V_{E} > V_{B}\)
+\(V_{C} > V_{B}\)
+
+** Cut Off Mode
+*** NPN
+ \(V_{BE} < .7v\)
+\(V_{B} < V_{E}\)
+\(I_{B} = 0,,,I_{C} = 0 ,,, I_{E}= 0\)
+
+*** PNP
+ \(V_{EB} < .7v\)
+ \(V_{E} < V_{B}\)
+ \(I_{B} = 0,,, I_{C} = 0 ,,, I_{E}= 0\)
+
+* Alpha
+- \(\alpha \) (alpha) is the common base current of gain of BJT
+ - It tell you what fraction of the emitter current becomes collector current
+   - It only applies in active mode when the BE junction if forward biased
+     and the BC junction is reverse biased
+ \(\alpha = \frac{I_{C}}{I_{E}}\)
+\( \alpha =\frac{\beta}{\beta + 1}\)
+
+* Small Signal BJT's

@@ -1,0 +1,42 @@
+*                                    EE 3401 Quiz 4 Study Guide
+** Quantitative Problems
+
+-Be able to sketch the basic structure of an npn or pnp transistor—see Figures 6.1 and 6.2 or the notes.
+
+
+- Be familiar with the operation of an npn transistor in the active region as depicted in Fig. 6.3.
+Recall that an electron moving to the right produces a [conventional] current flowing to the left.
+Emitter-Base Junction: A forward-bias on the base-emitter junction causes a rightward flow of electrons
+from emitter to base and a leftward flow of holes from base to emitter. Since electrons in the emitter and
+holes in the base are both majority carriers, an increased forward bias across the base-emitter junction
+increases the flow rate of each. Due to use of a heavily doped emitter and a lightly doped base, the
+concentration of electrons in the emitter far exceeds that of holes in the base. Thus, the rightward flow of
+electrons across the emitter-base junction far exceeds the leftward flow of holes.
+Base-Collector Junction: The base region is narrow, the electrons in the base are minority carriers,
+and the base-collector junction is reverse-biased, so most electrons that cross the emitter-base
+junction also cross the base-collector junction. A fraction of the electrons in the base region are lost
+as carriers via the electron-hole recombination process. Hole current entering the base supplies both
+electron-hole recombinations and the base-to-emitter hole current. Few of the holes in the base cross
+the base-collector junction since they are majority carriers and the junction is reverse-biased.
+- What current condition defines the cutoff mode in a BJT transistor?1
+- What base-emitter bias state (forward or reverse) places a BJT in either active mode or saturation mode?2
+- What base-emitter voltage threshold must be exceeded before significant current flows in an npn transistor?3
+- What collector-emitter voltage defines the edge of saturation for an npn transistor?4
+- What collector-emitter voltage is used to model an npn transistor that is deep in saturation?5
+- Starting with a BJT circuit symbol: identify the device type (npn or pnp); the locations of its base, emitter, and
+collector; and the reference directions for IB, IC, and IE.
+- Be able to sketch a representative npn input characteristic like that presented in Lecture IV.6.a.
+Need-to-Know Values and Methods
+- VBE = 0.7V (forward-biased or saturated npn) VEB = 0.7V (forward-biased or saturated pnp)
+- Be able to apply circuit analysis as demonstrated in class to find the dc operating conditions in a BJT bias circuit.
+- Determine the Thevenin equivalent of a voltage-divider base-bias subcircuit and use it to find V’s & I’s as needed.
+Equations Given on Quiz 4
+IC = βIB IE = (β+1)IB IC = αIE α = β / (β + 1)
+
+-  Intended to serve as a helpful, but not all-inclusive list of concepts, values, and methods you need to know.
+Footnotes 1-5 refer to answers on the second page. BJ 3-29-23, Rev. 3-20-25
+1Approximately 0A
+2Forward bias
+30.5V [see Fig. 6.16]
+40.3V [see p317.5]
+50.2V [see p317.5]

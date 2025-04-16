@@ -1,0 +1,108 @@
+#+page: 274
+* Mostfets
+:PROPERTIES:
+:ID:       12a80e2a-e290-42d2-9520-11cadccf63eb
+:END:
+[[file:../../Pictures/Mostfets/2025-04-12_19-33-02_screenshot.png]]
+
+
+** Device Structure
+- Composed of semiconductor materials
+- Includes source, drain, gate, and substrate
+- Utilizes electric fields for operation
+
+** Zero Gate Operation
+- Device is off when no voltage is applied
+- Channel is devoid of charge carriers
+- Drain current is minimal
+
+** Channel Creation
+-> Fig 5.2
+- Downward electric field from G to the substrate
+- Draws electrons out of the substrate 
+- Creates a depletion region
+
+*** Threshold Voltage
+- \(V_{th}\) is the minimum voltage to attract electrons
+- Defines the onset of conduction in a n-type channel
+  - Critical parameter for device operation
+
+*** Overside Voltage
+- \( V_{ov} = V_{GS} - V_{th}\)
+- Overdrive voltage, often denoted as \( V_{ov} \), is the difference between the gate-source voltage (\( V_{GS} \)) and the threshold voltage (\( V_{th} \)) of a MOSFET.
+- Represents excess voltage beyond \(V_{th}\)
+- Influences channel conductivity
+
+
+** Small Drain Source Voltage
+- Device acts as a voltage-controlled resistor
+- \(V_{GS}\) is the control voltage
+- Inverse slope represents resistance
+
+** Larger Drain Source Voltage
+- \(V_{GS}\) is held constant to study \(V_{DS}\)
+- Voltage decreases from source to drain
+- Channel width narrows along the device length
+
+** Pinch Off and current saturation
+- Condition where the channel becomes fully depleted
+- Results in saturation of drain current
+- Important for analog applications
+** Overide Voltage
+
+* NMOS
+
+** Symbol
+- Represents n-channel MOSFET
+- Indicates source, drain, and gate connections
+- Often depicted in circuit diagrams
+
+** Cutoff Region
+- Device is off, no current flows
+- Occurs when \(V_{GS} < V_{th}\)
+- Resistance is extremely high
+
+** Triode Region
+- Device operates as a linear resistor
+- Drain current increases with \(V_{DS}\)
+- Depends on \(V_{GS}\) and channel length
+
+** Saturation Region
+ - Device reaches maximum current flow
+ - Occurs when \(V_{DS}\) exceeds pinch-off voltage
+ - \(i_{d}\) becomes relatively constant
+
+** Output Characteristics
+ - Curves illustrate \(I_{D}\) vs. \(V_{DS}\)
+ - Shows device behavior across regions
+ - Useful for understanding performance
+* PMOS
+:PROPERTIES:
+:ID:       05253c8f-0fcd-484d-82b1-d872623c3534
+:END:
+[[file:../../Pictures/PMOS/2025-04-14_18-44-18_screenshot.png]]
+
+** Symbol
+ - Represents p-channel MOSFET
+ - Shows reversed connections compared to NMOS
+ - Important for CMOS technology
+
+** Cutoff Region
+ - Device is off, no current flows
+- Occurs when \(V_{GS} > V_{th}\)
+ - Highly resistive condition
+
+** Triode Region
+ - Operates as a variable resistor
+ - Drain current depends on \(V_{DS}\) and \(V_{GS}\)
+ - Useful for amplification purposes
+
+** Saturation Region
+ - Current reaches a maximum value
+ - \(V_{DS}\) exceeds pinch-off voltage
+ - Behavior similar to NMOS saturation
+
+** Output Characteristics
+ - Demonstrates \(I_{D}\) vs. \(V_{DS}\) for PMOS
+ - Key for analyzing device performance
+ - Exhibits similar trends to NMOS but in inverse direction

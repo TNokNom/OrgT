@@ -1,0 +1,15 @@
+#+title: Chapter 7 Notes
+
+* DC Analysis
+
+- Note \(I_{E}\) is DC emitter current
+
+* Ac Analysis
+** Source Conversion
+- During AC analysis /source conversion/ is very important
+
+* Models:
+
+** T Model
+
+** Hybrid π Model

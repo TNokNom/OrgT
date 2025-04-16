@@ -1,0 +1,9 @@
+* Pronouns
+|-------------------------------+------------------------------|
+| Englsih                       |   Yoruba                     |
+| You(singular)                 |   Mo                         |
+| You(singular)                 |   Iwo(formal)/ O (casual)    |
+| He / She / it                 |   O                          |
+| We                            |   A                          |
+| You(plural)                   |   Eyin                       |
+| They                          |   Won                        |
