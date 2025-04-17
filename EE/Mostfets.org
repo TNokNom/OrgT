@@ -48,7 +48,26 @@
 - Condition where the channel becomes fully depleted
 - Results in saturation of drain current
 - Important for analog applications
-** Overide Voltage
+* Modes
+
+** Cutoff
+- The MOSFET is "turned off" when in cutoff mode
+- the gate source voltage \(V_{GS}\) is lower than the threshold voltage \(V_{th}\) which means the MOSFET does not conduct or conducts very little current
+- acts as a open switch
+** Saturation Region
+- A MOSFET enters saturation region when \(V_{GS}\) is greater than \(V_{th}\) and the drain-source voltage \(V_{DS}\) exceeds a certain level
+  usually its -> \(V_{DS} \geq V_{GS} - V_{th}\)
+- In this region the drain current is constant and primarily controlled by \(V_{GS}\)
+- In this region the MOSFET behaves like a controlled current, source making very useful in amplification
+** Triode Region
+- The triode region in MOSFET is somewhere between saturation and cutoffof
+- It has two conditions => \(V_{GS} > V_{th}\) (*MOSFET is on*) => \(V_{DS} < V_{GS} - V_{th}\) (*MOSFET is not in saturation yet*)
+- Unlike in the saturation region the MOSFETS \(I_{D}\) current is dependent on both \(V_{GS}\) and \(V_{DS}\)
+- The device behaves like a variable resistor, and the current increases linearly with \(V_{DS}\) as long as \(V_{DS}\) is below the saturation threshold.
+- This region is useful for applications requiring variable resistance, such as analog switches or certain types of amplifiers.
+
+
+
 
 * NMOS
 

@@ -1,9 +1,0 @@
-* Tools To Use 
-- KiCad + Ngspice
-- Xschem
-- Magic + KLayout
-
-* Why Analog Is So Important
--  Analog design is essential for processing real-world signals, such as sound and light, providing high performance and energy efficiency in various applications. It forms the foundation for integrating and interfacing with digital systems, making it crucial in fields like telecommunications, consumer electronics, and sensor technology.
-- Analog circuits is not only used for just analog signals they can
-  interact with digital signals in order to amplify/boost or manipulate them in any capacity
