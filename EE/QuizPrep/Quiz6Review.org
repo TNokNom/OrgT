@@ -1,0 +1,40 @@
+* Quiz 6 Study Guide
+
+** Concepts
+- [ ] Know that an applied gate-source
+     voltage \(V_{GS}\) is required to induce a conductive channel between the drain and source in an enhancement MOSFET
+
+- [ ] know that appreciable drain current (ID) does not flow in an n-channel EMOS device until a positive overage voltage \(V_{OV} = V_{GS} - V_{t}\) obtained.
+
+
+- [ ] Know that an n-channel EMOS device is saturated when \(V_{GD}\) ≤ \(V_{t}\) or \(V_{DS}\) ≥ \(V_{OV}\)
+
+- [ ] Understand the three MOSFET DC examples and the first two MOSFET small-signal examples worked in class.
+
+- [ ] Be able to find the two solutions of ID = ½ kn (VGS – Vt )2 , preferably in a minute or less.
+
+  
+- [ ] Be able to effortlessly sketch the MOSFET hybrid-π model:
+
+** Problems
+:PROPERTIES:
+:ID:       1d77d910-e528-4f5b-ae0e-8f317d685117
+:END:
+- [X] 5.17
+
+- ([X] 5.51 => Comeback Partially Complete)
+
+- [ ] S5.1
+
+- [X] 7.3
+
+- [ ] S7.3
+
+- [ ] 7.33
+
+- [ ] 7.39
+
+- [ ] 7.92
+
+** Given Equations
+[[file:../../../Pictures/Quiz_6_Study_Guide/2025-04-20_19-12-11_screenshot.png]]
