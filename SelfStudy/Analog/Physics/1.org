@@ -35,7 +35,7 @@ The Gate Voltage is denoted as -> \(v_{GS}\)
 ** Threshold Voltage
 - We know that as \(V_{G}\) increases the width of the depletion region also does too
 - The value at which this occurs is called the "/threshold voltage/" -> \(V_{TH}\)
-- If \(V_{G}}\) continues to rise the charge density in out depletion reigons also continues to increase
+- If \(V_{G}}\) continues to rise the charge density in out depletion region also continues to increase
   providing an increase in current from source(S) to drain(D)
 => \(V_{TH} = \phi_{MS} + 2\phi_{F} + \frac{Q_{dep}}{C_{ox}}\)
 
