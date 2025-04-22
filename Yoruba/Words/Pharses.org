@@ -1,4 +1,3 @@
-
 #+ANKI_DECK: yoruba
 * Over There
 :PROPERTIES:
@@ -123,22 +122,22 @@ Inu mi dun
 :ANKI_NOTE_TYPE: Basic
 :ANKI_DECK: Yoruba
 :END:
-** where are you from
+* where are you from
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538512
 :END:
 nibo lo ti wá?
-** I am American
+* I am American
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538510
 :END:
 mo jé ọmọ Amerika
-** land
+* land
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538509
 :END:
 ilé
-** English
+* English
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538505
 :END:
@@ -148,22 +147,22 @@ Gẹ́esì
 :ANKI_NOTE_TYPE: Basic
 :ANKI_DECK: Yoruba
 :END:
-** where are you from
+* where are you from
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538512
 :END:
 nibo lo ti wá?
-** I am American
+* I am American
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538510
 :END:
 mo jé ọmọ Amerika
-** land
+* land
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538509
 :END:
 ilé
-** English
+* English
 :PROPERTIES:
 :ANKI_NOTE_ID: 1742641538505
 :END:
@@ -295,3 +294,73 @@ mo n gbé ní kanada ṣùgbọ́n mo jẹ omo nígeria
 :ANKI_NOTE_ID: 1743010652161
 :END:
 tóbi
+* Kuurole
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745257829884
+:END:
+good evening
+* nnkan
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745257866484
+:END:
+things
+* I
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015094
+:END:
+mo
+* to go
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015093
+:END:
+lọ
+* at a place
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015091
+:END:
+sòdò
+* friend
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015090
+:END:
+ọrẹ
+* his/her/its friend
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015088
+:END:
+ọrẹ-ẹ
+* it is not bad/it's okay
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015086
+:END:
+kò burú
+* to return 
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015085
+:END:
+pada wá
+* goodbye
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015083
+:END:
+o dábọ
+* thank you (honorific)
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015082
+:END:
+e se
+* don't mention it
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015080
+:END:
+kò tó pé 
+* at home
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015079
+:END:
+n'lé
+* how is/where is
+:PROPERTIES:
+:ANKI_NOTE_ID: 1745259015075
+:END:
+n'kọ

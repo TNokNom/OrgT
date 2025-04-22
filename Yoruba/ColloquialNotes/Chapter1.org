@@ -1,0 +1,58 @@
+* Alphabet
+<><><><><><><><><>
+| Letter | Name | Pronunciation | Yoruba Example | English Equivalent |
+|--------+------+---------------+----------------+--------------------|
+| a      | a    | /a/             | a              |                    |
+| b      | bi   | /b/             | bàbá           |                    |
+| d      | di   | /d/             | dìdì           |                    |
+| e      | e    | /e/             | edé            |                    |
+| ẹ     | ẹ   | /ɛ/            | ẹ̀bẹ̀           | bet                |
+| f      | fi   | /f/             | fúnfún         |                    |
+| g      | gi   | /g/             | ga             |                    |
+| gb     | gbi  | /gb/            | gbà            |                    |
+| h      | hi   | /h/             | halẹ̀          |                    |
+| i      | i    | /i/             | ilé            |                    |
+| j      | ji   | /dʒ/           | jalè           | judge              |
+| k      | ki   | /k/             | kò             |                    |
+| l      | li   | /l/             | làlè           |                    |
+| m      | mi   | /m/             | ìmú            |                    |
+| n      | ni   | /n/             | inú            |                    |
+| o      | o    | /o/             | òjò            | hole               |
+| ọ     | ọ   | /ɔ/            | ọ̀jọ́           | hot                |
+| p      | pi   | /p/             | ipò            |                    |
+| r      | ri   | /r/             | rárá           |                    |
+| s      | si   | /s/             | sáré         |                    |
+| ṣ      | ṣi   | /ʃ/            | àṣà            | shoe               |
+| t      | ti   | /t/             | ata            |                    |
+| u      | u    | /u/             | ìlú            |                    |
+| w      | wa   | /w/             | walé           |                    |
+| y      | yi   | /y/             | iyá            | young              |
+|        |      |               |                |                    |
+
+** Tones
+<><><><><><><><><><>
+- Yoruba is a tonal language
+- Every vowel has a meaningful tone
+  -> Low tone bì => "to throw up"
+  -> mid tone bi => "to ask a question"
+  -> high tone bí => "to deliver a baby"
+- Mid tones are generally not marked in Yoruba
+
+* Dialogue {*Friends House*}
+<><><><><><><><><><><><>
+** Yoruba
+KÚNLẸ́: Ẹ kúùròlẹ́ Mà.
+MÀMÁ TÚNJÍ: Òo, kúùròlẹ́. Bàwo ni nǹkan?
+KÚNLẸ́: Dáadáa ni. Ẹ jọ̀ọ́ mà, Túndí ńkọ́? Ṣé ó wà n’ílẹ̀?
+MÀMÁ TÚNJÍ: Rárá, kò sí n’ílẹ̀. Ó lọ sódọ̀ ọ̀rẹ́ ẹ Délé.
+KÚNLẸ́: Kò burú, mo máa padà wá. Ẹ ṣé, ó dàbọ̀ Mà.
+MÀMÁ TÚNJÍ: Kò tọ́pẹ́. Ó dàbọ̀.
+** English
+KUNLE: Good evening, Ma’am.
+MAMA TUNJI: Yes, good evening. How are things?
+KUNLE: Fine. Please Ma’am, where is Tunji? Is he home?
+MAMA TUNJI: No, he is not home. He went to his friend Dele’s house.
+KUNLE: No problem, I’ll come back. Thank you [honorific], goodbye Ma’am.
+MAMA TUNJI: Don’t mention it. Goodbye.
+
+* Breakdown

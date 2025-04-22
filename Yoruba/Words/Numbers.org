@@ -1,4 +1,4 @@
-#+ANKI_DECk: YorubaNumbers
+#+ANKI_DECk: Yoruba::Numbers
 * 1
  ọkan
 * 2
