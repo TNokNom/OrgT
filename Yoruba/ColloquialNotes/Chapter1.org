@@ -1,5 +1,4 @@
 * Alphabet
-<><><><><><><><><>
 | Letter | Name | Pronunciation | Yoruba Example | English Equivalent |
 |--------+------+---------------+----------------+--------------------|
 | a      | a    | /a/             | a              |                    |
@@ -30,7 +29,6 @@
 |        |      |               |                |                    |
 
 ** Tones
-<><><><><><><><><><>
 - Yoruba is a tonal language
 - Every vowel has a meaningful tone
   -> Low tone bì => "to throw up"
@@ -39,7 +37,6 @@
 - Mid tones are generally not marked in Yoruba
 
 * Dialogue {*Friends House*}
-<><><><><><><><><><><><>
 ** Yoruba
 KÚNLẸ́: Ẹ kúùròlẹ́ Mà.
 MÀMÁ TÚNJÍ: Òo, kúùròlẹ́. Bàwo ni nǹkan?
@@ -55,4 +52,21 @@ MAMA TUNJI: No, he is not home. He went to his friend Dele’s house.
 KUNLE: No problem, I’ll come back. Thank you [honorific], goodbye Ma’am.
 MAMA TUNJI: Don’t mention it. Goodbye.
 
-* Breakdown
+* Negative Sentence Markers
+- The word kò is use as a negative marker
+** Exmaple
+- so for example we can say something like Túnjí wà ń lé => Tunji is/was home
+-> and using kò gives => Túnjí kò sí ń lé => Tunji is/was not home
+** Important to Note
+- If subject pronouns are used with negative marker kò, the
+  pronoun for "she/he/it" is usually delted before kò.
+- Same thing for the pronoun mo "I" changes to N before kò
+Mo lo soja => N ko lo soja
+
+* Commands
+- In Yoruba to command someone (specifically a younger person or colleague) to do something
+  you drop the O before the verb
+- So O jòkòó => you sat down *turns into* Jókòó! => Sit down!
+** Honorific
+- For someone older than you the pronoun is not dropped
+- So Ė Jókòó => Ė Jókòó
