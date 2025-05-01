@@ -83,7 +83,7 @@ Voltage Gain- Av = Vo/Vi
   V_{\text{out}} = A_d (V_2 - V_1)
 \]
 
-_Resistors in difference amplifiers must satisfy this formula in order to function:_
+*Resistors in difference amplifiers must satisfy this formula in order to function*:
 \[
   \frac{R_4}{R_3} = \frac{R_2}{R_1}
 \]

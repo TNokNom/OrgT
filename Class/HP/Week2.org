@@ -1,0 +1,81 @@
+* CPU Basic Units
+** AlU
+- the ALU performs arithmetic and logic operations
+** GPR {*General Purpose Registers*}
+
+** PC {*Program Counter*}
+- Stores the address of the next instruction
+* Registers
+- Made using flip-flops in parallel to store bits
+- Small storage space in the CPU
+- The fastest data storage within a computing system
+- Has two different categories
+** General Purpose
+- Can be used to store virtual any instruction or data
+** Special Purpose
+- Has a predetermined usage and more access restriction
+** Arm Processor Registers
+- The STM32l476RG has registers with the size of 32 bits
+- R0-R12: 13 general purpose registers
+- R13: Stack pointer (SP)
+- R14: Link register (LR)
+- R15: Program Counter (PC)
+* Memory
+- Memory is arranged as a series of locations
+- Each location has a unique address
+- Each location holds byte-size data
+- Depending on memory size, the number of addresses are limited
+- Values can represent either data or program instructions
+=>  4 GB of RAM means it has 4,294,967,296 Addresses
+** Ex:
+:PROPERTIES:
+:ID:       60745951-b2a8-4b04-bd59-1753b004269e
+:END:
+[[file:../../../Pictures/Memory/2025-04-30_00-20-48_screenshot.png]]
+
+- The memory space with the address *0x080001B0*
+ -> contains a byte size data value of 0x70
+* Computer Architectures
+** Von Neumann
+- Instructions and data are stored in the same memory
+-> Keeps this data in read-write Random Access Memory (*RAM*)
+*** Cons
+- Only one "bus" can be accessed at a time
+-> So the CPU stays idle
+- Accidental "re-writing" can happen => Lost data
+** Harvard
+- Data and instructions are stored into separate memories
+- Has separate buses for data transfer and instruction fetches
+- So it can fetch data and instructions simultaneously
+*** Pros
+- Smaller chance of data corruption
+- Higher performance
+*** Cons
+:PROPERTIES:
+:ID:       77df27a4-0f38-4e3a-9ad0-32a38ce16bef
+:END:
+- More Complex -> more difficult to develop -> more expensive
+* Program Running in C and then ASM
+  #+BEGIN_SRC cpp :results output
+#include <stdio.h>
+int main (void){
+    int a = 0;
+    int b = 1;
+    int c;
+    c = a + b;
+    printf("%d", c);
+    return 0;
+}
+
+
+  #+END_SRC
+
+  #+RESULTS:
+  : 1
+#+BEGIN_SRC Assembly :results output
+MOVS r1, #0x00
+MOVS r2, #0x01
+ADDS r3, r1,r2
+MOVS r0, 0x00
+BX lr
+#+END_SRC

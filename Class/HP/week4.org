@@ -1,0 +1,52 @@
+* Instruction Set Architecture
+- A specified set of instruction a processor
+  must support and the format for each instruction
+** Reduced Instruction Set Computer {*RISC*}
+** Complex Instruction Set Computer {*WISC*}
+- Defines the opcode, operands, and formant of each instruction
+* ARM Assembly Instruction Sets
+- ARM32(A32)
+  -> old Instruction set
+  -> Each instruction is 32 bit
+- Thumb-1
+  -> Each instruction is only 16 bit
+  -> Objective is to improve code density
+  -> Can encode fewer operand,fewer addressing -> Runs slower
+- Thumb-2
+  -> Consist of 16 bit Thumb-1 Instructions and a subset
+  of ARM32 instructions
+  -> Aims to optimize performance and code density trade-offs
+- ARM64
+   -> Instructions have a fixed length of 32 bits
+   -> 64 bit general purpose registers and 64 bit memory addresses
+   -> More general-purpose registers
+   -> Offers greater flexibility to compiler designers
+
+*  Instruction Format
+Label: mnemonic operand1, operand2, operand3 // comments
+or
+Label: mnemonic operand1, operand2, operand3 @ comments
+or
+Label: mnemonic operand1, operand2, operand3 / comments /
+** Labels
+- Place marker, marking the memory address of the current instruction
+- Must be unique within the same assembly file
+- Most important is its optional
+** mnemonic
+- name of the instruction
+- the operation to be performed by the processor core
+** Operands
+- registers
+- immediate values/constants
+- Number of operand varies depending on the instruction(mnemonic)
+*** normally
+- Operand 1 is destination register, and
+  operand 2,3 are source operands
+- Operand 2 is usually a register and the first source operand
+- Operand 3 may be a register, an immediate number, a register shifted to a constant
+  number of bits, or a register plus and offeset
+** Ex
+:PROPERTIES:
+:ID:       e5b5864d-24b8-4e97-a077-46ccb1c964ea
+:END:
+[[file:../../../Pictures/Instruction_Format/2025-04-30_01-49-47_screenshot.png]]

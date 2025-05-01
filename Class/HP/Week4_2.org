@@ -1,0 +1,19 @@
+* Arithmetic And Logic Instructions
+:PROPERTIES:
+:ID:       789c777e-e0c2-42a4-8f7a-fc765ab9b4de
+:END:
+[[file:../../../Pictures/Arithmetic_And_Logic_Instructions/2025-04-30_15-53-25_screenshot.png]]
+* Instruction Suffix: S {*Set Condition Flag*}
+- For instructions we can add a suffix *S* in order to update
+  the N,Z,C,V flags in APSR register
+** EX:
+start:
+LDR r0, = 0xFFFFFFF
+LDR r1, = 0x000000001
+ADD *S* r0, r0,r1
+stop:
+B stop
+** Ex: {*64 bit addition*}
+- A register can only store 32 bits
+- A 64-bit integer needs two register
+- Split 64-bit addition into two 32-bit additions

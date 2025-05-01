@@ -1,0 +1,15 @@
+* Memory
+- Stored values can be accessed by their addresses
+- Most computers are byte addressable
+- We group bits to store more value
+** Ex:
+- 8 bits = 1 byte
+- 16 bits = 2 bytes = 1 half-word
+- 32 bits = 4 bytes = 1 word
+* Endianess
+- Regardless of endian the address of a word is defined as the lowest address of all bytes it occupies
+- ARM is little endian by default but can be made big endian
+** Little Endian
+- Least significant byte (LSB) is stored at lowest address of a word
+** Big Endian
+- Most significant byte (MSB) is stored at the lowest address of a word

@@ -1,0 +1,22 @@
+* Bit,Byte,Word
+** Bit
+- Computers store data as a sequence of binary bits
+- A bit is simply a 1 or 0 one singular unit of data
+** Byte
+- A group of 8 bits
+- A computer memory is byte-addressable
+- every byte in memory has its unique address
+** Word
+- A natural Unit of data used by a particular processor design
+- The size is machine dependent
+- Handled as unit by the instruction set or hardware of the
+  processor
+*** Ex
+During the Fetch,Decode,Execution pipeline process, The ARM Cortex-M4
+fetches 32 bits( 4 bytes, one "word" ) of instruction from memory each time
+* Data
+- in data represented with mutiple bits, the bit at the leftmost
+  position is called the Most Significant Bit (MSB) and the rightmost position
+  is called the (LSB)
+  - By convention data represented with multiple bytes in memory, the processor uses
+    the lowest memory address of these bytes as the memory address of the data

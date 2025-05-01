@@ -6,7 +6,7 @@ page: 205
 
 *** Physic Behind Semiconductors:
  -> A silicon atom has four valence electrons (*Valence Electrons being the electrons in the outermost shell*)
- -> _This would cause an element to be unstable_
+ -> This would cause an element to be unstable
  -> To counteract this silicon shares it's Valence Electrons with 4 surrounding atoms making it 8 total valence electrons for each atom
   -> This ends up creating an almost crystal like lattice structure
 ** Types:
@@ -36,22 +36,22 @@ page: 205
 
 
 * Diode:
-** Foward Bias Reigon:
+** Forward Bias Region:
 -> a condition in a semiconductor device where a positive voltage is allied to the p-type material and a negative voltage to
   the n-type material
-** Reverse Bias Reigon:
+** Reverse Bias Region:
 -> a condition in a semiconductor device where it does not conduct current
 
 ** Ideal diode:
 -> No current flow until we get above zero volts
 -> Infinite resistance until theirs come current flow
 -> once flow starts the resistance is zero
-*** Acutal Model
+*** Actual Model
 [[File:/home/tnom/Downloads/Screenshot 2025-02-06 at 19-37-21 diode current vs actual voltage graph - Google Search.png]]
 
 
 * Modeling Analysis
-** Laad Line Analysis:
+** Load Line Analysis:
 -> load analysis is a graphical means to solve a linear and non-linear equation simultaneously
 
 * Constant Voltage drop

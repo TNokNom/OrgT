@@ -1,3 +1,0 @@
-#+Title: Amplifier Note Continued
-* Frequency Dependence of open-loop gain
-- Differential open gain of an op-amp is not infinite
