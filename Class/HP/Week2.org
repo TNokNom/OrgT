@@ -63,7 +63,7 @@ int main (void){
     int b = 1;
     int c;
     c = a + b;
-    printf("%d", c);
+    printf("a&c %d", c);
     return 0;
 }
 
@@ -71,7 +71,7 @@ int main (void){
   #+END_SRC
 
   #+RESULTS:
-  : 1
+  : a&c
 #+BEGIN_SRC Assembly :results output
 MOVS r1, #0x00
 MOVS r2, #0x01

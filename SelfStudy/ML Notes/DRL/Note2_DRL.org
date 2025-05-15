@@ -118,7 +118,7 @@ r(s, a) = R(s, a) \\
 - When an agent cannot fully observe the environment state
 ** Factored MPD:
 - Allows the representation of the transition and reward function more compactly
-** Continous MPD:
+** Continuous MPD:
 - Allows the combination of probabilistic and relational knowledge
 ** Multi-Agent MPD:
-- Allows the inclusion of mutiple agents in the same environment
+- Allows the inclusion of multiple agents in the same environment

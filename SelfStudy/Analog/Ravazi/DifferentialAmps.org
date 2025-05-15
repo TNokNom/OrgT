@@ -1,6 +1,12 @@
 * Single Ended And Differential Operations
 ** What is a differential amplifier
+:PROPERTIES:
+:ID:       3fbda70f-0211-4531-a004-737c60ae141f
+:END:
+[[file:../../../../Pictures/Single_Ended_And_Differential_Operations/2025-05-15_15-26-37_screenshot.png]]
 
+- A differential amplifier is an amplifier that can is meant to amplify the difference in signal between
+  two inputs
 ** Background
 *** Single Ended Signal
 - A singled-ended signal is one that is measured with respect to a fixed reference point,
@@ -18,6 +24,7 @@
   the difference between them would stay consistent
 
 * In Depth
+
 ** Differential Victims And Differential Aggressors
 *** Differential Victims
 - Differential Victims are signals or circuits experiencing
