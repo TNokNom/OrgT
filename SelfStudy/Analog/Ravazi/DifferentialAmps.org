@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #+Title: Differential Amps
 #+filetags: :AnalogNotes:Ravazi:
 
@@ -17,10 +18,25 @@
 
 * Single Ended Signal
   * A singled-ended signal is one that is measured with respect to a fixed reference point,
+=======
+* Single Ended And Differential Operations
+** What is a differential amplifier
+:PROPERTIES:
+:ID:       3fbda70f-0211-4531-a004-737c60ae141f
+:END:
+[[file:../../../../Pictures/Single_Ended_And_Differential_Operations/2025-05-15_15-26-37_screenshot.png]]
+
+- A differential amplifier is an amplifier that can is meant to amplify the difference in signal between
+  two inputs
+** Background
+*** Single Ended Signal
+- A singled-ended signal is one that is measured with respect to a fixed reference point,
+>>>>>>> 144a62ec4b4daf90dc759c88a8f1eb858ef7e845
   usually ground
   * So given a simple audio signal, the signal would vary based on amplitude, but all measurements would
   be taken relative to ground
 
+<<<<<<< HEAD
 * Differential Signal
  * A differential signal is one that is the voltage difference between two points in a circuit
  * Each Node oscillates around a common reference point, but in opposite directions
@@ -33,6 +49,11 @@
   the difference between them would stay consistent
 ** Differential Victims And Differential Aggressors:
 
+=======
+* In Depth
+
+** Differential Victims And Differential Aggressors
+>>>>>>> 144a62ec4b4daf90dc759c88a8f1eb858ef7e845
 *** Differential Victims
    * Differential Victims are signals or circuits experiencing
   interference or degradation

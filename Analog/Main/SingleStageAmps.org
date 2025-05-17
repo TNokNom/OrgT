@@ -1,0 +1,6 @@
+#+Book: Ra.pdf
+#+Chapter:3
+
+* Single Stage Amplifiers
+- An ideal amplifier generates output, y(t) that is a linear
+  replica of the input x(t)
