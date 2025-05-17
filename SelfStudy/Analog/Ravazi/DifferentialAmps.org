@@ -1,31 +1,53 @@
-* Single Ended And Differential Operations
-** What is a differential amplifier
+#+Title: Differential Amps
+#+filetags: :AnalogNotes:Ravazi:
 
-** Background
-*** Single Ended Signal
-- A singled-ended signal is one that is measured with respect to a fixed reference point,
+** What Is A Differential Amplifier
+ * A differential amplifier is one that responds only to the difference between two signals
+  applied at its input
+ * \(V_{o} = A_{d}(v_{1} - v_{2})\)
+  - For Differential amplifiers we should have these five things
+1. Infinite input impedance
+   - No current leaks out from either of our input terminals
+2. Infinite gain for the differential signal
+   - The gain \(A_{d}\) should be very high
+3. Zero common-mode gain
+   - The increase or decrease of v1 and v2 shouldn't show up at the output
+4. Zero output impedance
+   - The amplifier should act like a perfect voltage source i.e no internal resistance
+
+* Single Ended Signal
+  * A singled-ended signal is one that is measured with respect to a fixed reference point,
   usually ground
-- So given a simple audio signal, the signal would vary based on amplitude, but all measurements would
+  * So given a simple audio signal, the signal would vary based on amplitude, but all measurements would
   be taken relative to ground
-*** Differential Signal
-- A differential signal is one that is the voltage difference between two points in a circuit
-- Each Node oscillates around a common reference point, but in opposite directions
-*** Common Mode Level
-- Common Mode Level is the average of the voltage level of the two signals
-*** Advantages
-- Noise Immunity => Differential signaling is great for noise rejection
-- It can do this because if some noise were to affect both signals equally
-  the difference between them would stay consistent
 
-* In Depth
-** Differential Victims And Differential Aggressors
+* Differential Signal
+ * A differential signal is one that is the voltage difference between two points in a circuit
+ * Each Node oscillates around a common reference point, but in opposite directions
+
+** Common Mode Level
+  * Common Mode Level is the average of the voltage level of the two signals
+** Advantages
+ * Noise Immunity => Differential signaling is great for noise rejection
+ * It can do this because if some noise were to affect both signals equally
+  the difference between them would stay consistent
+** Differential Victims And Differential Aggressors:
+
 *** Differential Victims
-- Differential Victims are signals or circuits experiencing
+   * Differential Victims are signals or circuits experiencing
   interference or degradation
+
 *** Differential Aggressors
-- Signals or Circuits that introduce interference on other signals
+   * Signals or Circuits that introduce interference on other signals
+
 **** Example
-- Noise from a clock line on differential pairs can corrupt data
-- The clock acts as the aggressor
-- The differential pair is the victim
-** How to amplify differential signals
+ * Noise from a clock line on differential pairs can corrupt data
+ * The clock acts as the aggressor
+ * The differential pair is the victim
+
+* Gilbert Cell
+ * *Things we know from previous sections* =>
+   1. the small-signal gain of a circuit is a function of the tail current
+   2. the two transistors in a differential pair provide a simple means of steering the tail current
+      to one of two destination
+ * A gilbert cell is a circuit that's known for its multiplication of two distinct circuits

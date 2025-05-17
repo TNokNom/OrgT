@@ -53,7 +53,6 @@ int main (){
     return 0;
 }
 #+end_SRC
-
 #+RESULTS:
 #+begin_example
 : 3D Q-table (2x2 states, 4 actions each):
