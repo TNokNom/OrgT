@@ -13,7 +13,7 @@
  * Assuming its in saturation we're are given this equation
  - \( I_{out} = \frac{1}{2} U_{{n}} C_{ox} \frac{W}{L} (\frac{R_{2}{R_{1} + R_{2}} V_{DD} - V_{TH})^{2} \)
  * This equation allows us to see various PVT dependencies of \(I_{out}\)
- * From this equation we can come to to the  conclusion that even if our gate source voltage
+ * From this equation we can come to the  conclusion that even if our gate source voltage
    is precisely defined our drain current is not
 * Current Sources
  * In analog circuits for the reasons stated above it is far easier to copy currents from a reference,

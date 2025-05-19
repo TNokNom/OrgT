@@ -1,0 +1,52 @@
+#+title: Transistor Amplifier Classes
+#+filetags: :Analog:Extra:
+
+* Class A Transistor Amplifiers
+:PROPERTIES:
+:ID:       98110679-4cda-4db9-aea9-104d86b032f3
+:END:
+[[file:../../../../MacShots/Class_A_Transistor_Amplifiers/2025-05-18_12-07-36_screenshot.png]]
+ * This is a class A transistor amplifier
+ * Its max theoretical efficiency is 25% => We can calculate it using the formula \(n =\frac{P_{L}}{P_{DC}} \cdot 100 \)
+ - n being the efficiency PL being the ac lower power PDC being the power delivered by the dc power source
+ * conducts for 360 degrees of the input cycle
+ * In order to maximize efficiency for this circuit we set => \(V_{CE} = \frac{1}{2} V_{cc} \)
+** Advantages
+ * conducts for 360 degrees of the input cycle
+ * Has very little to no distortion
+*** Improvements
+ * In order to improve efficiency for this circuit we can replace
+   RC with a transformer that contains a load resistor
+ * The output is the second part of the transformer
+ * The maximum theoretical efficiency improves to 50 percent
+* Class B Amplifier
+:PROPERTIES:
+:ID:       ecea93f5-64ce-40bc-a9c7-25fe0e3ea149
+:END:
+[[file:../../../../MacShots/Class_B_Amplifier/2025-05-18_12-42-24_screenshot.png]]
+ * Theoretical efficiency for this circuit is 78.5%
+ * For this circuit during the positive half cycle of the input sine wave Q1 conducts
+ * During the Negative half cycle Q2 conducts
+** Disadvantages
+:PROPERTIES:
+:ID:       a84701cf-75d6-4e43-9eb3-4f3a1f4bc84d
+:END:
+ * Suffers from cross over distortion
+  [[file:../../../../MacShots/Class_B_Amplifier/2025-05-18_12-48-00_screenshot.png]] => Which looks something Like this
+ * This is due to the Vbe 0.7v drop across both transistors.
+   The neither transistors conducts until that 0.7v threshold is met
+*** Improvements
+ * The improvement used for this amplifier is creating the class ab amplifier
+* Class AB
+:PROPERTIES:
+:ID:       515edf84-e43b-4b59-a4d2-dde0b7aceac3
+:END:
+[[file:../../../../MacShots/Class_AB/2025-05-18_12-52-31_screenshot.png]]
+ * Here we add two diodes in series after the R3 resistor in order to
+   counteract the voltage drop fo the two transistors
+ * Lower cross over distortion than the class B amplifier
+* Class C Amplifier
+ * Theoretical efficiency is 99 %
+** Disadvantages
+ * This amplifier suffers from distortion and noise, more so than an other class of amplifiers
+ * Conducts for less than 180 degrees of the input cycle

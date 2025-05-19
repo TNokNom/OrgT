@@ -1,4 +1,5 @@
 #+title: GPU Notes
+#+filetags: :Digital:GPU:
 * History of GPUs
   -> Early days focused primarily on 2D graphics.
   -> Introduction of programmable shaders in the early 2000s.

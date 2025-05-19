@@ -15,7 +15,7 @@ X = \begin {bmatrix} 1 \\ 2 \\ 4 \\ 5 \\ 6 \end{bmatrix}
   can be useful to us, could be anything from predicting if a person is dying, to the color of the next pixel
   on a screen
 *** Unsupervised Learning(*The Focus*)
-- In Unsupervised Learning the dataset is a collection of unlabeled examples meaning there's no physical representation of each number not be _confused with random we just don't know what each number represents_
+- In Unsupervised Learning the dataset is a collection of unlabeled examples meaning there's no physical representation of each number *Note* => _not be _confused with random we just don't know what each number represents_
   - we are trying to find a pattern using this data
     - the output is either another vector or a value that can be used to solve a practical problem
 

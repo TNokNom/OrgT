@@ -25,24 +25,24 @@
 :END:
 [[file:../../../../Pictures/Single_Ended_And_Differential_Operations/2025-05-15_15-26-37_screenshot.png]]
 
-\(\bullet\) A differential amplifier is an amplifier that can is meant to amplify the difference in signal between
+ * A differential amplifier is an amplifier that can is meant to amplify the difference in signal between
   two inputs
-\(\bullet\) Caveat is all three transistors have to be in saturation in order for the circuit to function correctly
+  * Caveat is all three transistors have to be in saturation in order for the circuit to function correctly
 ** Background
 
 *** Single Ended Signal
- \(\bullet\) A singled-ended signal is one that is measured with respect to a fixed reference point,
+ * A singled-ended signal is one that is measured with respect to a fixed reference point,
   usually ground
- \(\bullet\) So given a simple audio signal, the signal would vary based on amplitude, but all measurements would
+ * So given a simple audio signal, the signal would vary based on amplitude, but all measurements would
   be taken relative to ground
 *** Differential Signal
- \(\bullet\) A differential signal is one that is the voltage difference between two points in a circuit
- \(\bullet\) Each Node oscillates around a common reference point, but in opposite directions
+  * A differential signal is one that is the voltage difference between two points in a circuit
+ * Each Node oscillates around a common reference point, but in opposite directions
 *** Common Mode Level
- \(\bullet\) Common Mode Level is the average of the voltage level of the two signals
+ * Common Mode Level is the average of the voltage level of the two signals
 *** Advantages
- \(\bullet\) Noise Immunity => Differential signaling is great for noise rejection
- \(\bullet\) It can do this because if some noise were to affect both signals equally
+ * Noise Immunity => Differential signaling is great for noise rejection
+ * It can do this because if some noise were to affect both signals equally
   the difference between them would stay consistent
 =======
 - A singled-ended signal is one that is measured with respect to a fixed reference point,
@@ -65,18 +65,19 @@
 
 ** Differential Victims And Differential Aggressors
 *** Differential Victims
- \(\bullet\) Differential Victims are signals or circuits experiencing
+ * Differential Victims are signals or circuits experiencing
    * Differential Victims are signals or circuits experiencing
   interference or degradation
 
 *** Differential Aggressors
- \(\bullet\) Signals or Circuits that introduce interference on other signals
+ * Signals or Circuits that introduce interference on other signals
 **** Example
-\(\bullet\) Noise from a clock line on differential pairs can corrupt data
- \(\bullet\) The clock acts as the aggressor
- \(\bullet\) The differential pair is the victim
+ * Noise from a clock line on differential pairs can corrupt data
+ * The clock acts as the aggressor
+ * The differential pair is the victim
 ** How to amplify differential signals
-   * Signals or Circuits that introduce interference on other signals
+   *
+     Signals or Circuits that introduce interference on other signals
 
 **** Example
  * Noise from a clock line on differential pairs can corrupt data
