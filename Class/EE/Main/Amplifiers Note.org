@@ -99,7 +99,7 @@ Voltage Gain- Av = Vo/Vi
  V_{\text{out}}(t) = -\frac{1}{RC} \int V_{\text{in}}(t) \, dt
  \]
 *Frequency Domain Representation:*
-k\[
+\[
 H(s) = \frac{V_{\text{out}}(s)}{V_{\text{in}}(s)} = -\frac{1}{sRC}
 \]
 
