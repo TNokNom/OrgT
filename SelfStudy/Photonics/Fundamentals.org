@@ -1,0 +1,49 @@
+#+title: Photonic Circuit Fundamentals
+#+filetags: :PhotonicCircuits:
+* Phase
+ * Phase in terms of optical waves is the proportion of a periodic waveform that passes
+   some reference point after a time \(t\)
+ * the symbol omega  \(\omega\) is often used to describe the angular frequency
+ * \(\omega = 2\pi f\)
+ * The phase of a function like \(\sin(\omega t)\) is the angle -> so in this case \(\omega t\)
+
+ * The period of an angle is always \(2\pi\) & The plot for a function is always on the time axis and not the \(\omega t\) axis
+ * When propagating an optical wave its expressed as \(E = E_{o} exp[j(kz \pm \omega t)\) or \(E = E_{o} sin [(kz \pm \omega t)\)
+   - with \(k\) being a constant and \(z\) being the progress of the wave in the z direction
+* What is Light
+:PROPERTIES:
+:ID:       e00d69d2-b873-4be5-819b-d6a2a7746adc
+:END:
+ * Light is an electromagnetic wave it has properties of both electric and magnetic fields that vary with time
+   -> So essentially we can look at light as a wave
+[[file:../../../MacShots/Phase/2025-05-25_03-20-16_screenshot.png]]
+ ^=> Here we can see both electric field and the magnetic field in terms of a sinusoidal plane wave
+ * There are three characteristics
+   1. The wave is a *plane wave* due to the fact that the value of the electric field(*x direction*) and the magnetic
+      field (*y direction*), are constant throughout any z-plane
+   2. The wave is *transverse* because both electric and magnetic fields are transverse to the direction of propagation
+      (*z-direction*)
+   3. The wave if *polarised* because the electric and magnetic field exist in only a in single direction
+      (*For this wave its polarised in the x direction*) because the electric field only exist in the x direction
+* What Is Interference
+:PROPERTIES:
+:ID:       329b8055-a73b-4135-9e26-8b567de62348
+:END:
+ * In optical circuits two waves are coincident at a given point in space
+   the fields of the wave add together (*both electric and magnetic fields*)
+ - Two things to note is that if the two waves are in phase something called *constructive interference occurs*
+  [[file:../../../MacShots/What_Is_Interference/2025-05-25_14-13-18_screenshot.png]]
+
+ - If they are out of phase they cancel one another
+  [[file:../../../MacShots/What_Is_Interference/2025-05-25_14-13-39_screenshot.png]]
+
+ - And if they are out of phase by some set amount the resultant field sum is still a sinusoid of the same frequency
+   just shifted in phase and amplitude
+[[file:../../../MacShots/What_Is_Interference/2025-05-25_14-13-57_screenshot.png]]
+** Assumptions
+ * For the interference above two assumptions are made
+ * The two waves that are adding are either electric field or magnetic field
+ + This implies that they are aligned in terms of Polarisation
+ * Also two waves will only intefere if they are coherent
+ + coherence describes the phase relationship between two or more waves
+  => if two waves are coherent they have a constant phase relationship

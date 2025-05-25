@@ -5,7 +5,7 @@
  * A differential amplifier is one that responds only to the difference between two signals
   applied at its input
  * \(V_{o} = A_{d}(v_{1} - v_{2})\)
-  - For Differential amplifiers we should have these five things
+  - For Differential amplifiers we should have these four things
 1. Infinite input impedance
    - No current leaks out from either of our input terminals
 2. Infinite gain for the differential signal
@@ -17,7 +17,6 @@
 
 * Single Ended Signal
   * A singled-ended signal is one that is measured with respect to a fixed reference point,
-=======
 * Single Ended And Differential Operations
 ** What is a differential amplifier
 :PROPERTIES:
