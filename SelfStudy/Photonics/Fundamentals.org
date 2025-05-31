@@ -47,3 +47,9 @@
  * Also two waves will only intefere if they are coherent
  + coherence describes the phase relationship between two or more waves
   => if two waves are coherent they have a constant phase relationship
+ + *Coherence Length* is the distance over which the light retains coherence
+   - or the maximum path difference two waves from the same source can experience
+     such that interference can still occur
+   - It is denoted as => \(L_{c} = \frac{c}{\triangle f \)
+   *f* being the change in the spectrum of frequencies contained within the light source
+   *C* being the velocity of light

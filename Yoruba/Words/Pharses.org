@@ -364,3 +364,45 @@ n'lé
 :ANKI_NOTE_ID: 1745259015075
 :END:
 n'kọ
+* Im not doing anything
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748202970316
+:END:
+Mi O Se Nkan Nkan
+* Im doing something
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748203185752
+:END:
+ Mo un Se Nkan
+* I am eating right now
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748203185750
+:END:
+Moun jeun lowo
+* He/She is eating
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748203185748
+:END:
+oon jeun
+* They are eating
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748203185747
+:END:
+won jeun
+* Those people are eating
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748203185745
+:END:
+awon yen jeun
+* Awa jeun
+:PROPERTIES:
+:ANKI_NOTE_ID: 1748203185743
+:END:
+we are eating
+* That woman/man is eating
+obirin/okunrin yen jeun
+
+* I am sleeping right now
+Moun sun lowo
+* I am talking
+Moun Soro

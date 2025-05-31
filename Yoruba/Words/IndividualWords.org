@@ -1,51 +1,20 @@
-
-** Sè
-:PROPERTIES:
-:ANKI_DECK: yoruba::IndiWords
-:ANKI_NOTE_TYPE: Basic
-:ANKI_NOTE_ID: 1745285569118
-:ANKI_NOTE_HASH: 63a7f23708b1c0687649132c4bebad4d
-:END:
+#+Anki_deck
+* Sè
 "to do" or "to make."
 
 
-** mò
-:PROPERTIES:
-:ANKI_DECK: yoruba::IndiWords
-:ANKI_NOTE_TYPE: Basic
-:ANKI_NOTE_ID: 1745285569141
-:ANKI_NOTE_HASH: f6a460dedd8afbe41b8109d8b238c9fd
-:END:
+* mò
 "I know" or "I am aware."
 
-
-** lè
-:PROPERTIES:
-:ANKI_DECK: yoruba::IndiWords
-:ANKI_NOTE_TYPE: Basic
-:ANKI_NOTE_ID: 1745285569143
-:ANKI_NOTE_HASH: cae24ac7193722fc2748f3411cd53395
-:END:
-
+* lè
  "can" or "able to."
 
 
-** lọ
-:PROPERTIES:
-:ANKI_DECK: yoruba::IndiWords
-:ANKI_NOTE_TYPE: Basic
-:ANKI_NOTE_ID: 1745285569146
-:ANKI_NOTE_HASH: 6c69485a5b609cdd1f0d7b32e1197398
-:END:
-
+* lọ
  "to go."
 
 
-** síbè
-:PROPERTIES:
-:ANKI_DECK: yoruba::IndiWords
-:ANKI_NOTE_TYPE: Basic
-:ANKI_NOTE_ID: 1745285569148
-:ANKI_NOTE_HASH: 7722190161fc53418421ce5083cd3f6a
-:END:
+* síbè
 "there" or "to that place."
+* I Am
+Moun

@@ -27,7 +27,7 @@
 - Defines the onset of conduction in a n-type channel
   - Critical parameter for device operation
 
-*** Overside Voltage
+*** Overdrive Voltage
 - \( V_{ov} = V_{GS} - V_{th}\)
 - Overdrive voltage, often denoted as \( V_{ov} \), is the difference between the gate-source voltage (\( V_{GS} \)) and the threshold voltage (\( V_{th} \)) of a MOSFET.
 - Represents excess voltage beyond \(V_{th}\)
