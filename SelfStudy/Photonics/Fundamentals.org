@@ -17,7 +17,7 @@
  * Light is an electromagnetic wave it has properties of both electric and magnetic fields that vary with time
    -> So essentially we can look at light as a wave
 [[file:../../../MacShots/Phase/2025-05-25_03-20-16_screenshot.png]]
- ^=> Here we can see both electric field and the magnetic field in terms of a sinusoidal plane wave
+ => Here we can see both electric field and the magnetic field in terms of a sinusoidal plane wave
  * There are three characteristics
    1. The wave is a *plane wave* due to the fact that the value of the electric field(*x direction*) and the magnetic
       field (*y direction*), are constant throughout any z-plane
@@ -53,3 +53,40 @@
    - It is denoted as => \(L_{c} = \frac{c}{\triangle f \)
    *f* being the change in the spectrum of frequencies contained within the light source
    *C* being the velocity of light
+* Waveguide
+:PROPERTIES:
+:ID:       be527663-fc94-4327-bf75-810e1a320059
+:END:
+[[file:../../../MacShots/Waveguide/2025-06-01_14-10-02_screenshot.png]]
+ - This figure shows the concept of waveguide
+ - We know that the refractive index of medium 1 (n1) is higher than the refractive index of medium 2 (n2)
+    since the angle 2 is greater than the angle 1
+ + Because of this we can define the critical angle \(\theta_{c}\) as \(sin \theta_{c} = \frac{n_{2}}{n_{1}}\)
+ * For angles of incidence greater than the critical angle defined above
+    NO light is transmitted and internal reflection (*TIR*) occurs
+ * So essentially what waveguide does, is traps light in between two materials using their refractive index in such a way
+   it can't escape the medium
+** Reflection Coefficients
+:PROPERTIES:
+:ID:       cfc243a6-e24b-4b0c-bbac-7e1818c6faa1
+:END:
+ * For a wave that is reflected and transmitted we can describe them using the Fresnel Formula
+ + We know the reflected wave will have a complex amplitude \(E_{r}\) at the interface
+    related to the complex amplitude \(E_{i}\) of the incident wave by
+ +  \(E_{r} = rE_{i}\)
+ + r being the complex reflection coefficient
+ -> The reflection coefficient is a function of both angle of incidence and the Polarisation of light
+ * We know that the electromagnetic and magnetic fields of a wave are always orthogonal (*Separated by 90 degrees*)
+ + While both of them are orthogonal to the direction of propagation (*the way in which energy moves through a medium*)
+ * *Transverse Electric* (TE) is a condition defined as the condition when the electric field of the waves
+    are perpendicular to the plane of incidence.
++ *Transverse Magnetic* (TM) condition occurs when the magnetic fields are perpendicular to the plane of incidence
+ [[file:../../../MacShots/Waveguide/2025-06-02_00-42-08_screenshot.png]]
+*** Formulas For TE Polarisation and TM Polarisation
+ TE => \[
+ r_{TE} = \frac{n_{1} cos\theta_{1} - n_{2}cos\theta_{2}}{ n_{1} cos\theta_{1} + n_{2}cos\theta_{2}}
+ \]
+
+ TM =>  \[
+ r_{TE} = \frac{n_{2} cos\theta_{1} - n_{1}cos\theta_{2}}{ n_{2} cos\theta_{1} + n_{1}cos\theta_{2}}
+ \]
