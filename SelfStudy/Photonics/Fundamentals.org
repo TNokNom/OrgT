@@ -31,6 +31,7 @@
 :END:
  * In optical circuits two waves are coincident at a given point in space
    the fields of the wave add together (*both electric and magnetic fields*)
+
  - Two things to note is that if the two waves are in phase something called *constructive interference occurs*
   [[file:../../../MacShots/What_Is_Interference/2025-05-25_14-13-18_screenshot.png]]
 
