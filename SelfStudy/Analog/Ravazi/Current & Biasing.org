@@ -22,6 +22,20 @@
  * In analog circuits for the reasons stated above it is far easier to copy currents from a reference,
    with the assumptions that somewhere in our circuit there is already a precisely defined current source
  * In order to bias a MOSFET to produce a stable current source we use this equation
- + \(I_{out} = \frac{1}{2} \mu_{n} C_{ox} \frac{W}{L} (\frac{R_{2}}{R_{1} + R_{2}} V_{DD} - V_{TH})^{2}\)
+ + \[
+   I_{out} = \frac{1}{2} \mu_{n} C_{ox} \frac{W}{L} (\frac{R_{2}}{R_{1} + R_{2}} V_{DD} - V_{TH})^{2}\
+  \]
 [[file:../../../../MacShots/Current_Sources/2025-05-25_14-48-32_screenshot.png]]
 -> So taking this circuit assuming the box *Analog Circuit* puts M2 into active mode then the current from \(I_{REF}\) should  be mirrored to M2
+* Cascade Current Mirrors
+ * *Channel Length Modulation* is the phenomenon that occurs with changes in \(V_{DS}\)
+ + When a voltage \(V_{DS}\) is applied to a *FET* the depletion region expands and subsequently shortens the
+    channel length
+ + During this the gate voltage as less of an impact on the change in \(I_{DS}\) as the FET approaches
+    the *breakdown region*
+ + The parameter \(\lambda\) is known as the channel length modulation parameter
+ + So we now get the following equation for the drain current in saturation =>
+ \[
+     I_D = \frac{1}{2} \mu_n C_{ox} \frac{W}{L} (V_{GS} - V_{th})^2 (1 + \lambda V_{DS})
+     \]
+
