@@ -24,5 +24,4 @@
  * In order to bias a MOSFET to produce a stable current source we use this equation
  + \(I_{out} = \frac{1}{2} \mu_{n} C_{ox} \frac{W}{L} (\frac{R_{2}}{R_{1} + R_{2}} V_{DD} - V_{TH})^{2}\)
 [[file:../../../../MacShots/Current_Sources/2025-05-25_14-48-32_screenshot.png]]
--> So taking this circuit assuming the box *Analog Circuit* puts M2 into active mode then the current from \(I_{REF}\) should
- be mirrored to M2
+-> So taking this circuit assuming the box *Analog Circuit* puts M2 into active mode then the current from \(I_{REF}\) should  be mirrored to M2

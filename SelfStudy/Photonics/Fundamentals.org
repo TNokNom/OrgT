@@ -83,6 +83,7 @@
     are perpendicular to the plane of incidence.
 + *Transverse Magnetic* (TM) condition occurs when the magnetic fields are perpendicular to the plane of incidence
  [[file:../../../MacShots/Waveguide/2025-06-02_00-42-08_screenshot.png]]
+
 *** Formulas For TE Polarisation and TM Polarisation
  TE => \[
  r_{TE} = \frac{n_{1} cos\theta_{1} - n_{2}cos\theta_{2}}{ n_{1} cos\theta_{1} + n_{2}cos\theta_{2}}
