@@ -6,7 +6,7 @@
 :END:
 [[file:../../../../Pictures/Basic_Current_Mirrors_Examples/2025-05-17_13-16-16_screenshot.png]]
  * Here we can see the M1 acts as a current source
-  [[file:../../../../Pictures/Basic_Current_Mirrors_Examples/2025-05-17_13-24-03_screenshot.png]]
+[[file:../../../../Pictures/Basic_Current_Mirrors_Examples/2025-05-17_13-24-03_screenshot.png]]
 
  * Here we have a transistor and we want to know to bias it so it operates as
    a stable current source
@@ -25,9 +25,13 @@
  + \[
    I_{out} = \frac{1}{2} \mu_{n} C_{ox} \frac{W}{L} (\frac{R_{2}}{R_{1} + R_{2}} V_{DD} - V_{TH})^{2}\
   \]
+ + \[
+   I_{out} = \frac{(W/L)_{2}}{(W/L)_{1}} I_{REF}
+   \]
 [[file:../../../../MacShots/Current_Sources/2025-05-25_14-48-32_screenshot.png]]
 -> So taking this circuit assuming the box *Analog Circuit* puts M2 into active mode then the current from \(I_{REF}\) should  be mirrored to M2
 * Cascade Current Mirrors
+ * A cascade device can shield a current source, reducing the voltage variations across it
  * *Channel Length Modulation* is the phenomenon that occurs with changes in \(V_{DS}\)
  + When a voltage \(V_{DS}\) is applied to a *FET* the depletion region expands and subsequently shortens the
     channel length
@@ -39,3 +43,20 @@
      I_D = \frac{1}{2} \mu_n C_{ox} \frac{W}{L} (V_{GS} - V_{th})^2 (1 + \lambda V_{DS})
      \]
 
+** Channel Length Modulation {*How to Counter*}
+:PROPERTIES:
+:ID:       e4d26ec1-7df4-4e68-bac9-13a8ace5f044
+:END:
+ + In order to suppress the effects of channel length modulation
+    we typically force \(V_{DS}\) for the transistors to match
+ -> Take this circuit for example
+[[file:../../../../MacShots/Cascade_Current_Mirrors/2025-06-06_01-16-26_screenshot.png]]
+ + Couple things we need to note
+ * M3 is being used as a shield M2 from potential voltage swings
+ * So we need to set \(V_{b}\) in such a way that everything is able to stay in the saturation region
+ -> So in this example is one proposed addition to the circuit is provided
+[[file:../../../../MacShots/Cascade_Current_Mirrors/2025-06-06_01-22-16_screenshot.png]]
+ + The above essentially sets up another diode connected device in series with M1
+ * Provided that \(V_{GS0} + V_{GS1} = V_{GS3} + V_{GS1}\) which then sets \(V_{GS0} = V_{GS3}\)
+ * Here we can see that both transistors will have a *voltage drop* split evenly so the voltage
+    at \(V_{b}\) is equal to both of those drops
