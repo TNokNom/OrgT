@@ -92,3 +92,14 @@
  TM =>  \[
  r_{TE} = \frac{n_{2} cos\theta_{1} - n_{1}cos\theta_{2}}{ n_{2} cos\theta_{1} + n_{1}cos\theta_{2}}
  \]
+ * In reality the field of a wave if hard to measure
+ + So power (or intensity) is easier to measure
+ * The propagation of power is  described as the *Pointing Vector* usual denoted as \(S\) measure in \(\frac{W}{m^{2}}\)
+ + The *Pointing Vector* is defined as the vector product of the electric and magnetic vectors
+ * So it indicates both the magnitude and direction of power flow
+ * It is expressed as \[S = \frac{1}{Z}E^{2 = \sqrt{\frac{\epsilon_{m}}{\micro_{m}}}} E^{2}\]
+  -> E is the electric field
+  -> E_m is the permittivity of the medium
+  -> micro_m is the permeability of the medium
+  -> Z is the impedance of the medium
+  ->  R relates the incident and reflected powers associated with the wave as => \[\]

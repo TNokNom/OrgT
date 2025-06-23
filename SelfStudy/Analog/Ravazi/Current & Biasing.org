@@ -1,12 +1,6 @@
 #+title: Razazi Chapter 5 Current Mirrors And Biasing Techniques
 #+filetags: :AnalogNotes:Ravazi:
 * Basic Current Mirrors Examples
-:PROPERTIES:
-:ID:       12fa0e0e-99fd-4876-b8be-58c3a8a92927
-:END:
-[[file:../../../../Pictures/Basic_Current_Mirrors_Examples/2025-05-17_13-16-16_screenshot.png]]
- * Here we can see the M1 acts as a current source
-[[file:../../../../Pictures/Basic_Current_Mirrors_Examples/2025-05-17_13-24-03_screenshot.png]]
 
  * Here we have a transistor and we want to know to bias it so it operates as
    a stable current source
@@ -60,3 +54,5 @@
  * Provided that \(V_{GS0} + V_{GS1} = V_{GS3} + V_{GS1}\) which then sets \(V_{GS0} = V_{GS3}\)
  * Here we can see that both transistors will have a *voltage drop* split evenly so the voltage
     at \(V_{b}\) is equal to both of those drops
+ + Its important to note that two transistors in series will each have their own voltage drop based on a number
+   of different parameters

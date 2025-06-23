@@ -1,0 +1,40 @@
+#+TITLE: Daily Journal - 13-06
+#+AUTHOR: Tomide
+#+DATE: Fri Jun 13 12:17:36 AM EDT 2025
+
+* Journal
+- Mood:
+- What went well today?
+- What could have gone better?
+- Lessons learned:
+- Random thoughts:
+
+* TODOs
+** TODO Gym
+- [ ] {*Push*}
+- [ ] {*Pull*}
+- [ ] {*Legs*}
+
+
+** TODO Homework
+** TODO Self-study
+** TODO Drawing
+** TODO Yoruba
+** TODO Hobby
+
+- [ ] {*Drawing*}
+- [ ] {*Crochet*}
+- [ ] {*Circuits*}
+
+* Gratitude
+- I'm grateful for:
+
+* Sleep & Health
+- Hours slept:
+- Exercise done:
+- Meals:
+
+* Tomorrow's Plan
+- Priorities:
+- Schedule:
+

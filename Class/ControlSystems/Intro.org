@@ -1,0 +1,71 @@
+#+title: Intro To Control Systems
+#+filetags: :ControlSystmes:
+* Systems
+ + In control systems there are two types of systems
+ * *Open Loop Systems*
+ * *Closed Loop Systems*
+** Open Loop Systems
+:PROPERTIES:
+:ID:       291f7b82-0911-474e-ba2b-ec2018bfa537
+:END:
+ + Open Loop Systems don't have any feedback
+ + Controller generates controlled signal with the information of the input
+ + Control action is independent of output plant
+ + Controlled signal is also referred to as /Manipulated signal/
+[[file:../../../MacShots/Systems/2025-06-15_19-20-23_screenshot.png]]
+*** Example
++ Volume of audio systems
++ Hair dryer
++ Washing machine
+*** Advantages
++ Very simple, and easy to implement
++ Cost effective
++ Most stable (*Due to lack of feedback*)
++ Fast response
+*** Disadvantages
++ Can be inaccurate
++ Can be unreliable
++ Very sensitive to disturbances
++ Doesn't work great in complex systems
+
+** Closed Loop Systems
+:PROPERTIES:
+:ID:       6d590169-56a4-4620-9b2a-7aee492c5193
+:END:
++ Closed Loop Systems introduce feedback from the output
++ Controller generates controlled signal with information of the error signal
++ Control action is dependent on the input and output of the plant
++ Feedback allows for the output response of the system to be more accurate
+[[file:../../../MacShots/Systems/2025-06-15_19-29-37_screenshot.png]]
+*** Example
++ Air Conditioner
++ Water Level Controller
+*** Advantages
++ Accurate even in the presence of Non-linearity (*Noise*)
++ Accurate even if an error arises
++ Large Bandwidth
++ Good in automation
++ Easy to adopt
+*** Disadvantages
++ Can be both costly and complex
++ Feedback may make system unstable
++ Feedback my reduce the gain of the system
++ More maintenance
++ Slower response
+
+*** Negative Feedback
+:PROPERTIES:
+:ID:       79436cd9-4bf6-40c1-8df8-b869b403f93c
+:END:
++ Subtracting the feedback signal concerning the input gives us *Negative Feedback*
+[[file:../../../MacShots/Systems/2025-06-15_19-44-17_screenshot.png]]
+*** Positive Feedback
+:PROPERTIES:
+:ID:       f175f02a-ed08-4fea-b36c-a44542029bd0
+:END:
++ If we add the feedback signal concerning the input, its *Positive Feedback*
+[[file:../../../MacShots/Systems/2025-06-15_19-45-07_screenshot.png]]
+**** Effects Of Feedback
++ Effect of feedback on gain
++ Effect of feedback on sensitivity
++ effect of feedback on stability
