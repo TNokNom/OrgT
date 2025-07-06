@@ -1,0 +1,17 @@
+#+title: Baker Mixed Signal Notes Chapter 1
+#+filetags: :MixedSignal:Baker:
+* Background
+
+**  Sinusoidal Signals {Pendulum Analogy}
+:PROPERTIES:
+:ID:       6e3e9506-897f-45e1-94ed-01248c454763
+:END:
+[[file:../../../../MacShots/Background/2025-06-27_03-08-23_screenshot.png]]
++ The *period* is the it takes to go to one side and back to the middle
+   so from Point 1 to Point 2 and Point 3 back to Point 2
+
+ + *Frequency* is how many cycles happen per second \(f =\frac{1}{T}\)
+
+ + *Position Over time*
+   - If we call the maximum displacement A, the position can be expressed as
+    -> \(x(t) = Asin(2 \pi ft)\)

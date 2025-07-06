@@ -46,7 +46,7 @@
  -> Take this circuit for example
 [[file:../../../../MacShots/Cascade_Current_Mirrors/2025-06-06_01-16-26_screenshot.png]]
  + Couple things we need to note
- * M3 is being used as a shield M2 from potential voltage swings
+ * M3 is being used as a shield for M2 from potential voltage swings
  * So we need to set \(V_{b}\) in such a way that everything is able to stay in the saturation region
  -> So in this example is one proposed addition to the circuit is provided
 [[file:../../../../MacShots/Cascade_Current_Mirrors/2025-06-06_01-22-16_screenshot.png]]
@@ -54,5 +54,29 @@
  * Provided that \(V_{GS0} + V_{GS1} = V_{GS3} + V_{GS1}\) which then sets \(V_{GS0} = V_{GS3}\)
  * Here we can see that both transistors will have a *voltage drop* split evenly so the voltage
     at \(V_{b}\) is equal to both of those drops
- + Its important to note that two transistors in series will each have their own voltage drop based on a number
-   of different parameters
+ + Its important to note that two transistors in series will each have their own voltage drop based on a number of different parameters
+*** Things To Note
+:PROPERTIES:
+:ID:       3490f136-a301-4884-a13a-bdc0ec1f6031
+:END:
+[[file:../../../../MacShots/Cascade_Current_Mirrors/2025-06-28_13-41-18_screenshot.png]]
++ We have two cascade mirrors here *a* and *b*
+ * They both have drawbacks and advantages so lets go over them
+**** Circuit A
++ For circuit A we know it isn't a cascade mirror but instead we have to find the voltage level to
+   set Vb to
+ * The benefit to setting Vb ourselves is we can actually set Vb quite low while still keeping the
+    circuit in saturation
+ * If we were to introduce M0 the voltage level at B/N would be lowered
+
+* Voltage Headroom
++ Voltage Headroom is the amount of voltage left between a circuit's node voltage and a power rail
+  that allows transistors to stay in their desired operating region
+** Example
++ Given these parameters
+ * \(V_{DD} = 1.2V\)
+ * Mosfet needs \(V_{DS} > 0.2 V \) to be in saturation
+ * If the drain is at 1.1 V and the Source at 1.0 V \(V_{DS} = 1.1 - 1.0 = 0.1V\)
+ * There is simply not enough voltage headroom given that to be in saturation
+    the \(V_{DS} \geq V_{GS} - V_{TH} \)
+ *

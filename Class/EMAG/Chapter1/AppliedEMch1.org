@@ -1,0 +1,40 @@
+#+title: AppliedEMch1 Notes
+#+filetags: :EMAG:
+
+* Fundamental Forces OF Nature
+** Nuclear Force
++ The Strongest of all the four forces
++ But is only seen at the *subatomic* scales
+*EX:* Nuclei
+** Electromagnetic force
+ + Force that exist between all charged particles
+ + dominant force in *microscopic* systems
+ *EX:* atoms and molecules
++ Strength is on the order of \(10^{-2}\) that of nuclear force
+** Weak Force
++ Strength is only \(10^{-14}\) that of nuclear force
++ Primarily involved in the interaction of certain radioactive elementary particles
+** Gravitational Force
++ Weakest of the four forces,
++ Has a strength on the order of \(10^{-41}\) weaker than nuclear force
++ Dominant force in *macroscopic* systems
+*EX:* Planets in the solar system
+* Gravitational Force
+:PROPERTIES:
+:ID:       4bd84f94-a850-4dd3-b81c-c7a23ac304bb
+:END:
+[[file:../../../../MacShots/Gravitational_Force/2025-06-30_17-46-23_screenshot.png]]
+
+\[
+F_{g21} = -R_{12} \frac{G_{m1m2}}{R^{2}_{12}}
+\] -> Force exerted on mass 2 by mass 1
+* Charge: Electrical Property Of particles
+ + A coulomb is the amount of charge accumulated in one second by a current of one ampere
+   * 1 coulomb represents the charge on \(6.241 * 10^{18}\) electrons
+   * Charge of an electron is -> \(e = 1.602 * 10^{-19} C\)
+* Electrical Force
+ + It's important to note Coulomb stated three things
+   * Two like charges repel one another, whereas two charges of opposite polarity attract
+   * The force acts along the line joining the charges
+   * Its strength is proportional to the product of the magnitude of the two charges and is
+      inversely proportional to the square of the distance between them

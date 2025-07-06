@@ -1,0 +1,18 @@
+#+title: Ravazi Electronics 2 Lecture 1: MOS and Bipolar Cascode Current Sources
+#+filetags: :Ravazi:Analog:
+#+author: Tomide
+
+* Background
++ What is an *Ideal Current Source*
+ * An ideal current source is one that has a constant current regardless of the voltage across it
+** Building A Current Source
+ + A current source can be built with a single transistor given the that
+    it is in saturation
+ * Remember that even though we can build a current source with a single transistor or multiple transistors
+    we have to take into account the current source cannot be ideal due to *Channel Length Modulation*
+*** How We Improve This Current Source
++ Say we have a mosfet if we insert a *source degeneration resistor*
+   we can improve our current source
+ * We simply just add a resistor Rs in series with our mosft at the source terminal
+ * It allows for a higher output resistance
++ Now the equation for Rout becomes -> \[Rout = 1 + \underbrace{g_{m}r_{o}}_{\text{Intrinsic Gain}}R_{s} + r_{o}\]

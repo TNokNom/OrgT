@@ -1,0 +1,3 @@
+#+title: Ravazi Electronics 3 Lecture 1: MOS and Bipolar Cascode Current Sources
+#+filetags: :Ravazi:Analog:
+#+author: Tomide
