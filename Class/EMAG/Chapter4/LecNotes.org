@@ -1,0 +1,60 @@
+#+title: AppliedEMch4_Notes
+#+filetags: :EMAG:
+* Maxwell Equations
++ Maxwell Equations describe how electric fields and magnetic fields
+  originate and interact
++ In electrostatics charges are stationary
+
+* Charge Distribution And Density
++ Charge distribution refers to how electric charge is spread within a region of space
+  it can be characterized in three primary ways
++ Its important to note that current density is typically zero in electrostatics since charges are stationary
+
+** Volume Charge Density
++ \(\rho\) Represents the amount of charge per unit of volume within a three dimensional region
+ * This density is used when charges are distributed throughout a volume, such as in charged dielectric
+   or plasma
+** Surface Charge Density
++ \(\sigma\) Represents the charge per unit area on a surface, expressed as \(\frac{C}{m^{2}\)
+  * Describes charges confined to a surface , such as on a conductor's surface or a charged sheet.
+** Line Charge Density
++ \(\lambda\) Represents the charge unit per length along a line , expressed as \(\frac{C}{m}\)
+  * Describes charges distributed along a wire or filament
+
+** Current Density
+\(J\) Represents the flow of electric charge per unit area through a surface, it is a vector field
+  that indicates both magnitude and direction of current flow at each point in space
+  * Describes how charges move within materials and across boundaries
+*** Convection Current
++ Aries from the bulk movement of free charges, such as electrons drifting in a wire
+  * Directly related to the velocity of charge carries and their density
+*** Conduction Current
++ Results from the movement of charges due to an electric field within a conductive material
+   * described by Ohm's law as \(J=\sigma E\) where \(\sigma\) is the conductivity and E is the electric field
+* Coulomb's Law And Electric Force
++ Coulomb's law quantifies the electric force between two point charges
+   * It states that the electric field (*E*) at point *P* is due to a signle charge *q* located at *Q* is given by
+     \(E = (\frac{1}{4\pi\epsilon_{o}}) * (\frac{q}{r^{2}} * r^{^})\)
+    * Where (*r*) is the distance between *Q* and *P*, and (*r^*) is the unit vector from (*Q*) to (*P*) and \(\epsilon_{o}\)
+       is the permittivity of free space
++ The electric force (*F*) on a test charge \(q_{o}\) placed at (*P*) is
+  + \(Q = \int \rho_{v} dV\)-> total charges in a volume
+  -> \( F = q_{o} \cdot E\)
+* Electric Field Due to Multiple Charges And Distributions
+ + The electric field at a point resulting from multiple charges is obtained by vector superposition
+   * Adding the individual fields due to each charge
+  -> \(E_{total} =\sum E_{i}\)
+ + For continuous charge distributions the electric field is calculated by
+     integrating over entire charge distribution
+** Volume Charge
++ \(E = \frac{1}{4\pi\epsilon_{o}} \int \frac{\rho(r^{'})}{(r - r^{'})^{2}} dV\)
+** Surface Charge
+ + \(E = \frac{1}{4\pi\epsilon_{o}} \int \frac{\sigma}{(r - r^{'})^{2}} dA\)
+** Line Charge
+ + \(E = \frac{1}{4\pi\epsilon_{o}} \int \frac{\lambda}{(r - r^{'})^{2}} dl\)
+
+* Electric Flux Density
++ (*D*) represents ow much electric flux passed trhough a given area considering the medium's properties
+  * Its related to the electric field through this formula
+    -> \(D = \epsilon E \)
+    -> \(\Delta \cdot D = \rho_{free} \)
