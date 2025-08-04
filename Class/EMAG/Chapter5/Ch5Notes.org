@@ -1,0 +1,45 @@
+#+title: AppliedEMch5_Notes
+#+filetags: :EMAG:
+
+* Electric vs Magnetic Comparison
++ In *electrostatics* the charge are stationary but in *magnetostatics* the charges do move
+  but they move at a steady rate
+  + Magnetic fields only exist when charges move (*Charges*)
+** Fields and Fluxes
++ *H* is the magnetic field density and *B* is the electric field
+** Magnetic Vector Potential
++ \(B = \Delta * A\)
+** Circuit Element
++ Inductors
+
+* Lorentz Force
++ Lorentz force combines both electric and magnetic effects into a single expression
+  -> \(F = q(E + v \times B)\)
+
+* Magnetic Force
++ The direction of magnetic force exerted on a charged particle moving in a magnetic field
+   is perpendicular to both (*B*) and (*u*) and depends on the charge polarity
++ \(F_{m} = qu \times B\)
+ * Is stating that if a charge moves in magnetic space there is a force on that charge
+
+** Electromagnetic (Lorentz) Force
++ \( F = F_{e}+ F_{m} = qE + qu \times B = q(E + u \times B)\)
+  * Combination of the electric and magnetic force hence the name
+
+* Magnetic Force On A Current Element
++ For a closed circuit of contour (*C*) carrying a current (*I*) the total magnetic force is
+  + \(F_{m} = I  \oint_{C}dl \times B \)
+    * If the closed wire resides in a uniform external magnetic field (*B*) then it can be
+       taken outside the integral
+       + \(F_{m} = I (\oint_{C}dl) \times B = 0 \)
+* Torque
++ Torque is \( T = d \times F\) where (*d*) is the moment arm and (*F*) is the force and (*T*) is the torque
+
+** Magnetic Torque On Current Loop
+
+
+* Biot Sava rt Law
++ Magnetic field induced by a differentia current
+  -> \(dH = \frac{1}{4\pi} \frac{dI \times \hat{R}}{R^{2}\)
+  * For the entire length its
+    -> \(H = \frac{1}{4\pi} \int_{t} \frac{dI \times \hat{R} }{R^{2}\)

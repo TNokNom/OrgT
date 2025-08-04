@@ -4,3 +4,17 @@ me:meme
 Hello:Yes me me
 :me em
 Today: lets make something Remarkable
+
+
+
+\[
+x = L_{1}cos(\theta_{1}) + L_{2}cos(\theta_{1} + \theta_{2})
+\]
+
+\[
+y = L_{1}cos(\theta_{1}) + L_{2}cos(\theta_{1} + \theta_{2})
+\]
+
+\[
+u(t) = K_{p}e(t) + Ki \int e(t)dt + K_{d} \frac{de(t)}{dt}
+\]

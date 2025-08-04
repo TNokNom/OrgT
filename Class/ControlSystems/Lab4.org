@@ -1,0 +1,16 @@
+#+title: Lab 4 Report
+#+Author: Tom Abidakun & Pablo Velasquez
+* Report Screen Shots Of Calculated gain vs Actual Motor Gain
+:PROPERTIES:
+:ID:       2c312635-5f3a-4c30-90fa-b3a656109933
+:END:
+[[file:../../../MacShots/Report_Screen_Shots_Of_Calculated_gain_vs_Actual_Motor_Gain/2025-07-22_15-53-48_screenshot.png]]
+
+** Model Design Screen Shots And Explanation
+:PROPERTIES:
+:ID:       9681bfd0-f466-4227-b139-ee1bacd396d8
+:END:
+[[file:../../../MacShots/Report_Screen_Shots_Of_Calculated_gain_vs_Actual_Motor_Gain/2025-07-22_15-54-38_screenshot.png]]
+
+* Questions
+1.

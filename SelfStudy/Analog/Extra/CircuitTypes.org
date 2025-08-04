@@ -24,12 +24,52 @@
  * High input impedance
  * Follows the input voltage
  * Low output impedance
+
 ** Common Source
- * Input is the gate terminal
- * Output is read at the drain terminal
-*** Characteristics
- * Provides high voltage gain
- * Inverts the signal
+:PROPERTIES:
+:ID:       aee5449a-ef30-41bc-b035-fe36107a37e8
+:END:
++ We start of with a simple common source amplifier with a resistive load at the source terminal
+[[file:../../../../MacShots/Fet's/2025-07-08_21-28-03_screenshot.png]][[file:../../../../MacShots/Fet's/2025-07-08_21-30-37_screenshot.png]]
+
++ The graph of Vin vs Vout it helps describe the large signal behavior of the circuit
+  * From that graph we know that a M1 starts to turn on (*Saturation*) Vout starts to drop
+    * When Vin reaches Vth M1 turns on
++ Mosfets always amplifiy best when in saturation
+*** Small Signal Analysis
+:PROPERTIES:
+:ID:       93d5abff-5b14-4a7e-a498-9a24cc1ad97a
+:END:
++ For this analysis we assume the mosfet to be in saturation
+  * We also know that the body of the circuit is shorted to the source terminal
+ [[file:../../../../MacShots/Fet's/2025-07-08_21-38-58_screenshot.png]]
+
+\[
+\frac{V_{out}}{r_{o}||R_{D}} = -g_{m}v_{in} \rightarrow \frac{V_{out}}{v_{in}} = -gm(r_{o}||R_{D})
+\]
+ + From this equation we know that in order to maximize gain we should be looking at \(g_{m}\) and
+   or \(R_{D}\)
+**** Finding the output resistance
++ In order to find the output resistance we inject a test voltage into \(v_{out}\) and measure the
+   voltage and current through it
+  * We also ground the gate terminal
++ We are left with \(R_{out} = r_{o}||R_{L}\)
+*** Diode Connected  Common Source
++ For this circuit we replace the resistor with a diode connected transistor load
+  * we do this by shorting the gate and drain together
++ Due to the short the gate voltage is always equal to the drain voltage
+   * therefore the mosfet is always in saturation when current is flowing
+     -> \(v_{ds} = v_{gs}\)
++ Calculating the output resistance we get
+   * assuming we connect a test voltage to the drain of transistor
+   \(R_{out} = g_{m}v_{th} + \frac{v_{th}}{r_{o}} = i_{t} \rightarrow \frac{v_{th}}{i_{t}} = \frac{1}{g_{m}}||r_{o} = \frac{1}{g_{m}}\)
+
+**** Important Note
++ its important to note the difference between (*gm*) and (*gmb*)
+  * (*gm*) is the Transconductance and it is how much the drain current changes with gate voltage
+    * (*gmb*) is the Body Transconductance and it is how much drain current changes with the body source voltage due to the body effect
+
+
 ** Common Gate
  * Input is the source terminal
  * Output is read at the drain terminal

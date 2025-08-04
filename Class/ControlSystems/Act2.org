@@ -1,0 +1,111 @@
+#+title: Lab 2 Report
+#+author: Tom Abidakun & Pablo Velasquez
+
+* DC Motor Speed Control Simulink Simscape Report
+:PROPERTIES:
+** Objective
+- Simulate and analyze DC motor speed control using Simscape models in Simulink.
+- Evaluate system response using:
+  + Lag compensator
+  + Lead compensator
+- Extend the baseline model with:
+  + Input voltage saturation
+  + Sensor feedback delay
+
+** Motor Model Setup
+:PROPERTIES:
+:ID:       bbb435d3-c2d0-4664-b7a8-765313cc1942
+:END:
+[[file:../../../MacShots/DC_Motor_Speed_Control_Simulink_Simscape_Report/2025-07-10_22-22-05_screenshot.png]]
+
+
+** Lag Compensator
+:PROPERTIES:
+:ID:       14c8b95f-9b4c-4bd9-874d-529aecfdf7c2
+:END:
+- Transfer Function:
+  \[
+  C_{\text{lag}}(s) = \frac{44s + 44}{s + 0.01}
+  \]
+
+- Observations:
+  - The motor gradually accelerates to the desired speed.
+  - Settles without overshooting the setpoint.
+  - Control effort is moderate and consistent.
+
+- Explanation:
+  - Lag compensation increases low-frequency gain, which improves steady-state accuracy.
+  - It does not respond aggressively to rapid changes, hence the slower response.
+  - Ideal when smoothness and low overshoot are more important than speed.
+
+[[file:../../../MacShots/DC_Motor_Speed_Control_Simulink_Simscape_Report/2025-07-10_22-24-22_screenshot.png]]
+
+
+** Lead Compensator
+- Transfer Function:
+  \[
+  C_{\text{lead}}(s) = \frac{160000s + 5.6 \times 10^6}{s + 1035}
+  \]
+- This controller is more aggressive and reactive than lag.
+
++ Observations:
+  - Fast rise time — motor accelerates quickly.
+  - Noticeable overshoot before stabilizing.
+  - May demand high input voltage initially.
+
++ Explanation:
+  - Lead compensators boost the high-frequency response.
+  - They add phase lead which helps speed up response and reduce delay.
+  - But this can result in sharp inputs and overshoot if not tuned carefully.
+
+
+** Comparison of Lag vs Lead
+:PROPERTIES:
+:ID:       907b82cb-d2b1-43af-b1b9-c7fd38ad5547
+:END:
++ Summary:
+  - Lag = slow, smooth, stable.
+  - Lead = fast, overshoots, high control energy.
+
++ What I Learned:
+  - Trade-off between speed and stability.
+  - Choosing a compensator depends on system goals:
+    + Lag for smooth regulation.
+    + Lead for speed-critical systems.
+
+[[file:../../../MacShots/DC_Motor_Speed_Control_Simulink_Simscape_Report/2025-07-10_22-25-38_screenshot.png]]
+
+
+** Additional Test: Input Voltage Saturation
+:PROPERTIES:
+:ID:       0b89f154-e566-4125-b089-3b6a2a3046b4
+:END:
++ Setup:
+  - Added a `Saturation` block between the controller and the motor input.
+
++ Result:
+  - Response with both controllers became slower.
+  - Lead controller was more affected — hit saturation early and lost edge.
+  - Lag controller behaved similarly but was less aggressive to begin with.
+
++ Explanation:
+  - Actuator limits restrict the available control force.
+  - Controllers must be designed knowing these limits to avoid integrator wind-up or long rise times.
+
+[[file:../../../MacShots/DC_Motor_Speed_Control_Simulink_Simscape_Report/2025-07-10_22-35-50_screenshot.png]]
+
+** Additional Test: Sensor Feedback Delay
+:PROPERTIES:
+:ID:       81f9cf52-cbae-448f-9fc2-8335b86f85d5
+:END:
++ Setup:
+  - Inserted a `Transport Delay` block with 0.01s delay in the speed feedback path.
+
++ Result:
+  - Lead controller became unstable at times — overshoot increased significantly.
+  - Lag controller showed more tolerance to delay but still lost performance.
+  - Overall response became slower and less predictable.
+
++ Explanation:
+  - Delay introduces phase lag in the feedback loop.
+[[file:../../../MacShots/DC_Motor_Speed_Control_Simulink_Simscape_Report/2025-07-10_22-36-42_screenshot.png]]
