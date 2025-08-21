@@ -1,0 +1,57 @@
+:PROPERTIES:
+:ID:       b5df8309-be73-406a-aebd-b3d0055d0fc4
+:END:
+#+title: Basic Current Mirrors And Single-Stage Amplifiers
+#+filetags: :Tony:Analog:
+
+[[file:../../../MacShots/2025-08-02_23-49-32_screenshot.png]]
+
+* Current Mirror
++ The image above is a simple current mirror
+  * It allows for an ideal current source with low input resistance and high output resistance
+  * We look to replicate the \(I_{in}\) current to the Q2 transistor through \(I_{out}\)
+
+** Circuit Breakdown
++ The small signal model and the output resistance derivation is shown below
+  * For Q1 the output resistance would be \(R_{in}\)
+*** Small signal model of Q1
+:PROPERTIES:
+:ID:       552b9858-6e49-4d70-8f7b-1c1e47d37eaa
+:END:
+[[file:../../../MacShots/Current_Mirror/2025-08-02_23-55-13_screenshot.png]]
++ We inject a small test voltage Vy in order to calculate the output resistance \(r_{ds1}\)
+ * Using OHMS law, we know that the output resistance \(r_{in}\) has to equal \(r_{in} = \frac{V_{y}}{r_{ds1}\)
+ * Using KCL we get \(i_{y}  = g_{m1}V_{gs1} + \frac{V_{y}}{r_{ds1}}\)
+
+* Source Follower Or Common Drain Amplifier
+:PROPERTIES:
+:ID:       ec6736fe-e55b-411e-ae0b-cedc62ee3df3
+:END:
+[[file:../../../MacShots/Source_Follower_Or_Common_Drain_Amplifier/2025-08-05_01-40-34_screenshot.png]]
++ Before we talk about this circuit, we must describe what a *voltage buffer* is
+  * A voltage buffer is a circuit that outputs the same voltage as it receives as the input
+  * The thing that makes it so special is -> It isolates the source from the load
+  * It becomes a voltage controlled current source i.e *High input impedance* , *Low output impedance*
+  * It can protect the signal and prevents distortion
++ Now for the circuit above Q2 the current mirror is an active load that supplies the bias current for Q1
+  * This gain for this circuit is unity which is < 1. This is due to the fact that this circuit isn't needed for voltage gain
+     it's there to help drive loads
+** Circuit Analysis
++ For this circuit the body effect comes into play
+   * The source isn't held at small signal ground
+*** Small Signal Model
+:PROPERTIES:
+:ID:       d562b83b-4e2d-46bb-87d1-6e7e9162aaf5
+:END:
+[[file:../../../MacShots/Source_Follower_Or_Common_Drain_Amplifier/2025-08-05_01-46-02_screenshot.png]]
+
+: Come back to this
+https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
+* Common Gate Amplifier
+:PROPERTIES:
+:ID:       0448bb31-622f-495f-b7f8-3a51328ac708
+:END:
+[[file:../../../MacShots/Common_Gate_Amplifier/2025-08-05_18-59-45_screenshot.png]]
+ + The Common Gate amplifier is known for its relatively small input impedance
+   * It can also be used in applications where the first stage has an input signal that is a current
+   * This is useful due to the fact we want to preserve all of the current signal

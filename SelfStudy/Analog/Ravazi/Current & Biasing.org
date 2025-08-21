@@ -29,7 +29,7 @@
  * *Channel Length Modulation* is the phenomenon that occurs with changes in \(V_{DS}\)
  + When a voltage \(V_{DS}\) is applied to a *FET* the depletion region expands and subsequently shortens the
     channel length
- + During this the gate voltage as less of an impact on the change in \(I_{DS}\) as the FET approaches
+ + During this the gate voltage has less of an impact on the change in \(I_{DS}\) as the FET approaches
     the *breakdown region*
  + The parameter \(\lambda\) is known as the channel length modulation parameter
  + So we now get the following equation for the drain current in saturation =>
@@ -75,8 +75,7 @@
 ** Example
 + Given these parameters
  * \(V_{DD} = 1.2V\)
- * Mosfet needs \(V_{DS} > 0.2 V \) to be in saturation
+ * MOSFET needs \(V_{DS} > 0.2 V \) to be in saturation
  * If the drain is at 1.1 V and the Source at 1.0 V \(V_{DS} = 1.1 - 1.0 = 0.1V\)
  * There is simply not enough voltage headroom given that to be in saturation
     the \(V_{DS} \geq V_{GS} - V_{TH} \)
- *

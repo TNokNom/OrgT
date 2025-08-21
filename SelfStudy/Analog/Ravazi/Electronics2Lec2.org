@@ -1,3 +1,6 @@
 #+title: Ravazi Electronics 2 Lecture 2: MOS and Bipolar Cascode Current Sources
 #+filetags: :Ravazi:Analog:
 #+author: Tomide
+
+
+\(H(s) = \frac{w^{2}_{c}}{s^{2} + \sqrt2w_{c}S + w^{2}_{c}}\)

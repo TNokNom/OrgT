@@ -214,8 +214,6 @@ are the components we use to describe,evaluate, and improve behaviors.
 - An optimal policy is a policy that for every state can obtain expected returns greater than
 or equal to any other policy
 
-
-
 #+BEGIN_ai
 
 #+end_ai

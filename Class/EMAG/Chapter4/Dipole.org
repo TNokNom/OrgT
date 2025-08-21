@@ -1,0 +1,55 @@
+#+title: Dipole Antenna Project
+
+* Introduction
+This project aims to simulate and analyze the performance of a half wave dipole antenna under different environmental conditions, specifically focusing on its interaction with a human body model. The primary objective is to observe the changes in the antenna's S11 parameter (return loss) and radiation patterns when the antenna is in free space, placed on top of a human body model, and embedded within different layers (fat and muscle) of the human body model.
+
+* Specifications
+Specific measurements were used for the antenna and a simple body model based on the student ID (*000980504*).
+| Parameter           | Value       | Description                 |
+|---------------------+-------------+-----------------------------|
+| *Operating Frequency* | 1.980 GHz   | Target signal frequency      |
+| *Antenna Length*      | 67.89 mm    | Antenna size                |
+| *Antenna Diameter*    | 2.53 mm     | Antenna thickness           |
+| *Feeding Gap*         | 10.10 mm    | Power input gap             |
+| *Port Impedance*      | 50 $\Omega$ | Connection resistance       |
+
+The body model consisted of three stacked blocks: skin, fat, and muscle, with custom material settings.
+
+* Results
+Here’s what happened to the antenna's signal (S11 and pattern) in different situations. Human tissues have high \(\epsilon_r\) (they electrically load the antenna, shifting its frequency) and a \(\sigma\) means (they absorb signals, wasting power).
+* Case 0:
+This describes the antenna in empty space. Its S11
+
+ S11 (Return Loss) of the dipole antenna in free space, showing resonance at 1.98 GHz.
+
+The signal pattern in empty space looks like a neat "doughnut."
+
+
+ 3D Radiation Pattern of the dipole antenna in free space at 1.98 GHz.
+
+* Case 1: Antenna 1mm Above Human Body Model
+Putting the antenna just above the skin worsened its S11. The skin's high \(\epsilon_r\) affected the antenna's tuning, and its $\sigma$ absorbed some signal. Thus, less signal could be transmitted efficiently.
+
+#+CAPTION: S11 (Return Loss) of the dipole antenna placed 1mm above the human body model.
+[[file:S11(Above).png]]
+The signal pattern was less clean, as the body soaked up signals aimed downwards.
+
+* Case 2: Antenna Inside Fat Layer {Just Beneath Skin}
+Inside the fat, the antenna's ideal frequency shifted significantly lower. Fat has lower $\epsilon_r$ and $\sigma$ than skin/muscle, so it absorbed less signal. If tuned for fat, the antenna could perform well, but it was mismatched at the original 1.98 GHz.
+#+CAPTION: S11 (Return Loss) of the dipole antenna placed inside the fat layer.
+[[file:InsideFatS11.PNG]]
+The signal pattern was still affected but less than in muscle, indicating that more signal was transmitted compared to deeper tissues.
+#+CAPTION: 3D Radiation Pattern of the dipole antenna inside the fat layer at 1.98 GHz.
+[[file:Farfield(InsideFat).jpg]]
+* Case 3: Antenna Inside Muscle Layer {Just Beneath Fat}
+This was the worst case. Inside the muscle, the S11 was poor. Muscle has very high $\epsilon_r$ and $\sigma$, which drastically mismatched the antenna and absorbed almost all the signal.
+#+CAPTION: S11 (Return Loss) of the dipole antenna placed inside the muscle layer.
+[[file:InsideMuscleS11.PNG]]
+The signal pattern was extremely weak and distorted.
+#+CAPTION: 3D Radiation Pattern of the dipole antenna inside the muscle layer at 1.98 GHz.
+[[file:Farfield(InsideMuscle).jpg]]
+
+** Errors and Debugging
+Typical simulation problems were encountered, such as getting the antenna size just right for the frequency and ensuring material properties were entered correctly.
+** Conclusion
+This project demonstrated that human body tissues severely affect antenna performance. As an antenna moves from open air to being near or inside the body, its tuning (S11) worsens, and it transmits much less signal.

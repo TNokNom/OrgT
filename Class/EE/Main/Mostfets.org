@@ -117,9 +117,12 @@
  - Useful for amplification purposes
 
 ** Saturation Region
- - Current reaches a maximum value
- - \(V_{DS}\) exceeds pinch-off voltage
- - Behavior similar to NMOS saturation
+ - Current reaches a maximum value, indicating that the transistor is in a state of full conduction
+ - \(V_{DS}\) exceeds pinch-off voltage, which defines the boundary between saturation and the active region
+ - Behavior similar to NMOS saturation, characterized by a constant current that is less influenced by \(V_{DS}\)
+ - The drain current \(I_{D}\) remains almost constant despite increases in \(V_{DS}\)
+ - The transistor is fully on, and additional increases in \(V_{GS}\) do not significantly affect \(I_{D}\)
+ - Important for amplifying signals in analog applications and maintaining a stable output current
 
 ** Output Characteristics
  - Demonstrates \(I_{D}\) vs. \(V_{DS}\) for PMOS

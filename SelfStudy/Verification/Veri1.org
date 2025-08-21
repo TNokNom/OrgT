@@ -1,0 +1,30 @@
+#+title: Verification Guidelines
+#+filetags:  :verification:RTL:
+
+* Verification Process
++ The goal of verification is to find bugs
+  * Or more specifically ensure that a device can perform a given task under numerous conditions
+*** Verification Plan
++ The verification plan is derived from the hardware specification
+  * It tells us what features to testing and the techniques that need to be used
++ Techniques include =>
+  : Random Testing, Assertions, HW/SW co-verification, emulation, formal proofs, and verification IP
+
+* Directed Testing
++ Directed Test are ones that are manually created to test a specific stimulus to a design
+  * We go into it with an idea of what we're putting in and what we expect to come out
+  * They are usually created for a specific feature,case, or bug
+** Pros
+ * It creates a good starting point for basic functional coverage
+ * Usually quick and easy to draft up
+ * Easy to debug since we know what specifically we're testing
+** Cons
+ * Very hard to scale up to larger designs
+ * Typically doesn't cover random cases
+ * Due to the manual nature, it becomes exponentially hard when dealing with larger designs
+
+* Constrained Random Stimulus
++ In random stimulus we generate a random amount of test cases to cover a wide range os possible situations or conditions
+  * These test are constrained means we abide by some set of rules or limitations that ensure that the input test still make sense
+  * The data field is usually the easiest to test. We can call on the $random() function in order to do this
++

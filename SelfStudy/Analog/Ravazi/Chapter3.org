@@ -1,19 +1,25 @@
+:PROPERTIES:
+:ID:       6d3d642c-c18e-4b91-a928-e15f3bd95276
+:END:
 #+title: Chapter 3 Notes{Common Source Stage}
 #+filetags: :Ravazi:Analog:
 #+Author: Tomide
+
+[[file:../../../../MacShots/2025-07-21_03-08-38_screenshot.png]]
 
 * Common Source Stage
 :PROPERTIES:
 :ID:       d650a0c2-0601-4c70-a906-b2dcb8d9f400
 :END:
-+ In MOSFETS the transconductance(*gm*) converts changes in the \(V_{GS}\) to a small signal drain current
++ In MOSFETS the Transconductance (*gm*) converts changes in the \(V_{GS}\) to a small signal drain current
 + Using the common source setup with a resistor we can generate an output voltage as shown
 [[file:../../../../MacShots/Common_Source_Stage/2025-07-05_21-25-37_screenshot.png]]
+
  -> For this circuit we can make the conclusion that as \(V_{in}\)approaches \(V_{th}\) M1 begins to turn on
   or enter the saturation region. This action draws current from \(R_{D}\) subsequently lowering \(V_{out}\)
   + This leaves us with this equation \(V_{out} = V_{DD} - R_{D} \frac{1}{2} \mu_{n} C_{ox} \frac{W}{L}(V_{in} - V_{TH})^{2}\)
     * Here channel length modulation is neglected
     * The transistor is able to operate in saturation until \(V_{in} > V_{out}\)
-  + Recall that the *Triode Current* is  \(I_{d} = \mu_{n}C_{ox}\frac{w}{L}[(V_{GS}-V_{TH})V_{DS}-\frac{V_{DS}^{2}}{2}]\)
+  + Recall that the *Triode Current* is ->  \[I_{d} = \mu_{n}C_{ox}\frac{w}{L}[(V_{GS}-V_{TH})V_{DS}-\frac{V_{DS}^{2}}{2}]\]
    * Now if M1 was to be in the triode region the following equation can be derived
     [[file:../../../../MacShots/Common_Source_Stage/2025-07-05_21-37-20_screenshot.png]]

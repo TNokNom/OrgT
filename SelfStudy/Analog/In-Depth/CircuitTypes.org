@@ -1,0 +1,39 @@
+#+title: Circuit Types
+#+filetags: :Extra:Analog:
+* BJT'S
+** Common Emitter
+ * Configuration where the emitter terminal is common to both the input and output
+ * Good voltage gain and phase inversion (180 degrees)
+** Common Collector
+ * Also known as emitter follower
+ * The collector terminal is common to both input and output
+ * Input is applied to the base
+ * Output voltage is read from the emitter
+*** Characteristics
+ * High current gain
+ * Low output impedance
+** Common Base
+ * Base terminal is common to both input and output
+ * Input is applied to the emitter
+ * Output is read from the collector
+* Fet's
+** Source Follower
+ * Input is applied to the Gate
+ * Output is read at the source
+*** Characteristics
+ * High input impedance
+ * Follows the input voltage
+ * Low output impedance
+** Common Source
+ * Input is the gate terminal
+ * Output is read at the drain terminal
+*** Characteristics
+ * Provides high voltage gain
+ * Inverts the signal
+** Common Gate
+ * Input is the source terminal
+ * Output is read at the drain terminal
+*** Characteristics
+ * Low input impedance
+ * No voltage gain
+ * Used in rf applications

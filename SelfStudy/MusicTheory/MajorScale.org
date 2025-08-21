@@ -1,0 +1,19 @@
+#+title: Major Scale
+#+filetags: :MusicTheorry:
+
+* Major Scale of C
+:PROPERTIES:
+:ID:       6db31770-37ee-45b2-a3f3-49f201e992cc
+:END:
++ This scale includes 7 notes
+  * C,D,E,F,G,A
+[[file:../../../MacShots/Major_Sclae_of_C/2025-08-13_23-45-28_screenshot.png]]
+** Understanding Intervals
++ Major scales follow a pattern of intervals
+  * An interval is the gap between two notes
+  * The interval between two adjacent notes is called the *semitone*
++ In our Major C Scale there is a total of 12 semitones
+  * The gap between C and D has a black key in between this means there is two semitones between the two notes
+     and a gap of two is called a *Tone*
++ Each major scales follows this format
+  * WWHWWWH    W being a Whole Gap and H being a Half Gap

@@ -1,0 +1,207 @@
+#+title: Data Types
+#+filetags:  :verification:RTL:
+* Logic Types
++ In verilog we have reg and wire as our drivers of ports
+  * SystemVerilog improves on the confusion behind a reg data type
+  * It can now be driven by continuous assignments,gates, and modules in addition to also being a variable
+  * Because of this its given the synonym logic
++ A logic signal can be used anywhere a net is used
+  * It cannot be driven by multiple structural drivers i.e modeling a bidirectional bus
+  * For this we use a wire instead
+** Example Using The Logic Type
+#+begin_src verilog
+module logic_data_type (
+  input  logic rst_h,
+  input  logic d        // drive 'd' from outside
+);
+  parameter CYCLE = 20;
+  logic q;
+  logic q_1;
+  logic clk;
+  logic rst_1;
+
+  // Clock generator (testbench-style)
+  initial begin
+    clk = 0;
+    forever #(CYCLE/2) clk = ~clk;  // use CYCLE (case-sensitive)
+  end
+
+  // make active-low reset for child module
+  assign rst_1 = ~rst_h;
+
+  // logic inversion (clearer than gate primitive)
+  assign q_1 = ~q;
+
+  // instantiate child with named mapping (safer)
+  my_diff d1 (
+    .q   (q),
+    .d   (d),
+    .clk (clk),
+    .rst (rst_1)
+  );
+endmodule
+#+end_src
+*** Code Explanation
++ In the module we declare our ports so rst_h and d
++ We declare a constant CYCLE as a parameter which defines our clock period
++ Our internal signals are defined right after
+  * q will hold data from the child module
+  * q_1 will hold the inverted value of q
+  * clk signal we will generate inside the module
+  * rst_1 an active-low reset that will be passed to the child module
++ forever #(CYCLE/2) clk = ~clk;
+  * makes it so our clock steps once for 10 cycles
++ assign rst_1 takes the value of rst_h and inverts it
+ * Same with q_1
++ my_diff d1 creates another module (our child module) named d1 and uses port mapping
+
+
++ Since the logic type can only have a single driver you can use it to find bugs
+  * This only works for logic types since wire and tri can both have multiple drivers
+* 2 State Data Types
+:PROPERTIES:
+:ID:       6587718f-0f03-4145-8e04-2f853b408d7f
+:END:
++ SystemVerilog introduces several 2-state data types to improve simulator performance and reduce memory usage
+  * This is possible because variables are declared as 4-state types.
++ The new data types include
+[[file:../../../MacShots/2_State_Data_Types/2025-08-09_18-29-11_screenshot.png]]
++ A byte can only count up to 127 in a 8 bit register so for example
+  * logic [7:0] counts to 255 but byte [7:0] encompasses -128 to 127
+    * You could use byte unsigned but signed variables can cause unexpected results with randomization
+
++ When connecting 2 state variables in DUTs especially outputs caution must be exercised
+  * The hardware my try to drive X or Z and these values are converted to a 2 state value and your testbench code may never know
+  * The best practice is to use the *$isuknown()* operator
+  * It returns 1 if any bit of the expression is X or Z
+
+** Example
+#+begin_src verilog
+if (isunknown(iport) == 1)
+  $display ("@%0t: 4-state value dected on iport %b",$time,iport);
+#+end_src
++ The format %0t and the argument *$time* print the current simulation time,
+  formatted as specified with the *$timeformat()* routine
+* Creating Fixed Size Arrays
++ Verilog requires that low and high array limits must be given in the declaration
+  * Since most arrays start their index at 0 you can use shortcuts
+
+** Example 1
+#+begin_src verilog
+int lo_hi [0:15];    /// 16 ints
+int c_style [16];   // 16 ints
+
+#+end_src
++ How can you compute the number of bits needed to address a given array size
+  * We can use the *$clog2()* function
+  * It allows us to calculate the ceiling of log base 2
+** Example 2
+#+begin_src verilog
+parameter int mem_size =  256;
+parameter int ADDR_WIDTH = $clog2(MEM_SIZE); //$clog2(256) = 8
+bit [15:0] mem[MEM_SIZE];
+bit [ADDR_WIDTH-1:0] addr; // [7:0]
+#+end_src
++ Using this logic we can also create multi-dimensional fixed-size arrays by specifying the dimensions
+
+** Example 3
+#+begin_src verilog
+int array2 [0:7] [0:3];
+int array3 [8] [4];
+array2 [7] [3] = 1;
+#+end_src
++ As you can see the arrays have been generated using the methods above
+** Unpacked Array
++ In SystemVerilog simulators they often store each element on a 32-bit word boundary
+  * So byte,shortint,and int are allocated a single word to store on
+  * longint is stored in two words
++ For an Unpacked Array the value is stored in the lower portion of the word whereas the upper bits are unused
+*** Example 4
+:PROPERTIES:
+:ID:       48517f9e-9289-4e6d-ac09-3e6ec0cfdc78
+:END:
+#+begin_src verilog
+bit [7:0] b_unpack[3]; //unpacked
+#+end_src
+[[file:../../../MacShots/Creating_Fixed_Size_Arrays/2025-08-09_22-57-52_screenshot.png]]
+
+* Array Literal
++ An array literal is just a way to specify values for an entire array in your code
+** Example
+#+begin_src verilog
+initial begin
+   static int ascend [4] = '{0,1,2,3}; // Initialize 4 elements
+   int descend [5];
+
+   descend = '{4,3,2,1,0}; // Set 5 elements
+   descend [0:2] = '{7,6,5}; // Set just first 3 elements
+   ascend = '{4{8}}; // Four values of 8
+   ascend = '{default:42}; // All elements are set to 42
+end
+
+#+end_src
++ We can also display the values
+#+begin_src verilog
+initial begin
+   ascend = '{0,1,2,3};
+   $display {"%p", ascend}; // '{0,1,2,3}
+   ascend = '{4{8}};
+   $display {"%p", ascend}; // '{8,8,8,8}
+   end
+#+end_src
+
+* For and Foreach
++ Using for or foreach loops are the most common way to manipulate an array
+#+begin_src verilog
+initial begin
+   bit [31:0] src[5], dst[5];
+   for (int i = 0; i<$size(src); i++)
+     src [i] = i;
+   foreach (dst[j])
+     dst[j] = src[j] * 2;
+   end
+#+end_src
+** Explanation
++ First we declare two 5 element 32 bit wide arrays *src* and *dst*
++ The for loop section specifies our starting point *0*, the amount we want to iterate to *$size(src) = 5* , *i++ increase by 1*
++ The foreach loop automatically iterates for us until we reach the size of the array
+
+#+begin_src verilog
+int md[2] [3] = '{'{0,1,2}, '{3,4,5}};
+initial begin
+   $display ("Initial Value:");
+   foreach (md [i,j])
+     $display ("md,[%0d][%0d] = %0d",i, j, md[i][j];)
+
+#+end_src
++ Essentially the same concepts as what we learned before
+  * But the %0d operator allows us to print a value with a certain amount of padding
+  * the *0* specifies to padding just print the value
+  * We can add things like *[%54d]* which allows us to print the value with 5 in front of it and 4 spaces of padding assuming
+    the number doesn't exceed the amount of padding
++ Remember the $display operator prints the text adds a newline
++ The $write operator does not add a newline
+#+begin_src verilog
+initial begin
+   byte twoD [4] [6]; // 4 arrays each has 6 elements
+   foreach (twoD [i,j])
+   twoD [i] [j] = i*10+j
+#+end_src
+* Packed Arrays
++ For some data types sometimes we want to access the entire value or smaller elements
+  * So if we have a 32 bit registers sometimes we want four different 8 bit values
++ A packed array is treated as both an array and a single value
+  * It is stored as a contiguous set of bits with no unused space, unlike an unpacked array
+** Example
+#+begin_src verilog
+bit [3:0] [7:0] bytes //4 bytes packed into 32-bits
+bytes = 32'hCAFE_DADA
+$displayh (bytes ,, //shows all 32 bits
+           bytes [3] ,, //shows most significant byte "CA"
+           bytes [3][7]); //Most significant bit "1" of "CA"
+
+           )
+#+end_src
+*** Which To Choose
++ ComebaL
+* Dynamic Arrays
