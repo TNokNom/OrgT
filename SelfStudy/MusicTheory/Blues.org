@@ -1,0 +1,10 @@
+#+title: Blues Notes
+#+filetags: :Blues:MusicTheory:
+* Blues Scale
+:PROPERTIES:
+:ID:       207df9c3-6ee1-4bc0-b3ea-de62d63555d6
+:END:
++ Here are all the major scales for reference
+[[file:../../../MacShots/Blues_Scale/2025-08-26_01-50-39_screenshot.png]]
++ Followed after is all the blues scales
+ [[file:../../../MacShots/Blues_Scale/2025-08-26_01-52-01_screenshot.png]]

@@ -55,3 +55,4 @@ https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
  + The Common Gate amplifier is known for its relatively small input impedance
    * It can also be used in applications where the first stage has an input signal that is a current
    * This is useful due to the fact we want to preserve all of the current signal
++ Acts as a *Current Buffer*
