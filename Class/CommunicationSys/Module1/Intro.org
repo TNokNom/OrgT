@@ -1,0 +1,32 @@
+#+title: Intro Notes
+#+filetags: :CommunicationSystems:
+* Lossy & Lossless
+
+* Modulation
+
+\( c(t) = Acos(2\pi f t)\)
+
+** Analog Modulation
+-> AM
+-> FM
+-> PM
+
+** Pulse Modulation
++ Uses baseband
+- PAM/PPM/PWM/PCM
+*** Baseband
+** Digital Modulation
++ Uses passband
+-> ASK
+-> FSK
+-> PSK
+-> QAM
+*** Passband
+** How they differ
+
+* Propagation
+
+* Mathematical Models
+
+
+- Multiplication in time domain becomes convolution in frequency domain
