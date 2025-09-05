@@ -1,0 +1,77 @@
+#+title: Senior Design Top Down Architecture
+#+filetags: :SD:
+
+
+* Sound {*Tom*}
+:PROPERTIES:
+:ID:       03591c8b-1798-4839-97d4-0a632f77eac9
+:END:
++ Microphone setup
+  * Use a electret microphone for audio
+  * Apply some type of filter for noise, and add an additional gain stage
+  * Send the data into one of the microcontrollers ADC pins
+  * Use LEDS to indicate volume level
+
+[[file:../../MacShots/Sound/2025-09-05_04-38-58_screenshot.png]]
+
+  + Ultrasonic Setup
+    * Uses ultrasonic to detect distance from targets
+    * HC-SR04 provides a base for this
+    * Make sure to show distance measurements on interface
+ [[file:../../MacShots/Sound/2025-09-05_04-03-26_screenshot.png]]
+
+
+
+* Radar/Communication {*Joseph*}
++ Extending the wifi range of the truck seems to be a main drawback
+
+* Vision {*Team*}
+** Thermal
+:PROPERTIES:
+:ID:       1fba5fa6-8ed4-4a31-b450-138aba6d8024
+:END:
++ MLX90640 Sensor
+  * This seems to be the best option for thermal without breaking the bank, Has good reviews too
+  * Same thing as the others we can display this to some user interface
+  [[file:../../MacShots/Vision/2025-09-05_04-50-14_screenshot.png]]
+
+
+** FPV
+:PROPERTIES:
+:ID:       cdb8ebe3-60f0-48ad-bfab-40be2c5027a1
+:END:
+
+[[file:../../MacShots/Vision/2025-09-05_04-53-46_screenshot.png]]
+
++ Innomaker Raspberry Pi Camera
+  * Pretty simple to integrate and also can film in 1080p
+* Additional Sensors {*Team*}
+:PROPERTIES:
+:ID:       ead9ff28-d82a-4b02-93ec-46791a894681
+:END:
++ LD2410C Sensor
+  * Provides human body detection capabilities using frequency-modulated continuous waves
+  * Useful for places thermal and FPV can't be used
+  * And a good backup in case the environments renders the other modules non-functional
+
+[[file:../../MacShots/Additional_Sensors/2025-09-05_04-23-39_screenshot.png]]
+
+
+
+* User Interface {*Noah*}
++ Gonna setup a github for this where we can design the website and the opencv code
+
+* Module Chassis Design {*Jaden*}
++ Something that encloses all the sensors and hardware
+
+* Embedded {*Team**}
++ At least two microcontrollers maybe three
++ Leaning towards raspberry pi instead of esp32 (*TBD)*
+  * ESP32/Raspberry Pi on board receiving communications between sensors (*Master*)
+  * Another ESP32/Raspberry Pi for receiving data and sending it to display interface (*Slave*)
+  * A Jetson Nano for additional GPIO pins and computer power  if needed
+
+
+* Potential Things To Incorporate {*Maybe*} {*Tom*}
++ Potentially a situational light source
+   * Like a high power LED searchlight with strobe capabilities

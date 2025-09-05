@@ -1,0 +1,37 @@
+#+title: Power Processing
+#+filetags: :PowerElectronics:
+* Intro
++ Power electronics is the processing of electric power using electronic devices
++ A key element in allowing for this is *switching converters*
+* Converters
++ The main goal when using converters is efficiency
+  * Not only from a financial standpoint, but also because low efficiency converters simply can't produce high
+     output power
++ The efficiency parameters is \(\eta = \frac{P_{out}} {P_{in}}\)
+  * And the power lost in a converter is \(P_{loss} = P_{in} - P_{out} = P_{out}(\frac{1}{\eta} -1)\)
+** Switching Converter
++ A switch converter contains three modules
+  * Power input (Batteries,Power Supplies)
+  * Control input (To control the amount of voltage/current)
+  * Power output (Where we receive our output through something like a load resistor)
+** DC DC Converter
++ One such example of a switching converter is a dc-dc converter
++ The dc input voltage is converted to a dc output voltage with a different magnitude or polarity
+* Simple Converter Construction
+:PROPERTIES:
+:ID:       0fe6e6e4-3797-4357-9f6f-7e451a7df529
+:END:
++ We are given the constraints of designing a simple dc-dc converter
+  * With an input voltage of 100v
+  * With 50v across a \(5 \Omega\) load such that the dc load current is 10A
+   [[file:../../../MacShots/Simple_Converter_Construction/2025-08-30_23-53-06_screenshot.png]]
++ This example uses a power transistor to achieve such results
++ But we can also use a SPDT switch instead
+  * When using this switch we can change the period of time the switch is in each position
+  * Such that the output waveform \(v_{s}(t)\) is a rectangular waveform of a certain frequency
+  * With a period \(T_{s} = \frac{1}{f_{s}}\)
++ This behavior of switching is referred to as the duty cycle *D* the fraction of time
+   in which the switch occupies position 1
+  * In real practice this switching device is usually some semiconductor device
++ We can calculate the dc component of our wave form with this formula =>
+  \(V_{s} = \frac{1}{T_{S}} \int^{T_{S}}_{0} v_{s}(t)dt = DV_{g}\)

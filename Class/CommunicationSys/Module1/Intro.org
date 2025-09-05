@@ -1,15 +1,33 @@
 #+title: Intro Notes
 #+filetags: :CommunicationSystems:
 * Lossy & Lossless
++ Data compression is the process of encoding digital information using fewer bits than the original file size
+  * It allows for more efficient storage and faster transmission over networks
++ Lossy and Lossless ar both types of data compression
+** Lossless
++ Losless reduces a file size by removing any unnecessary metadata
+  * The file data is restored and rebuilt in its original form after decompression
+    * No data is lost during this and it's reversible
+** Lossy
++ Lossy reduces a file size by permanently removing some of the original data
+  * Its typically only used when you can afford to lose some data or
+    if the storage spaces needs to be freed up
+  * It uses an algorithm to decides the bits they aren't necessary or less important
+
 
 * Modulation
++ Modulation is process of manipulating a transmitted carrier in order to convey information
 
 \( c(t) = Acos(2\pi f t)\)
 
 ** Analog Modulation
--> AM
--> FM
--> PM
+*** AM
++ Amplitude Modulation is the simplest version of modulation to implement
+  * A signal is used to slowly vary the amplitude of the carrier according to the level of the modulating signal
+  * So essentially in AM we  change the amplitude in order to convey information
+** Application
+*** FM
+*** PM
 
 ** Pulse Modulation
 + Uses baseband
