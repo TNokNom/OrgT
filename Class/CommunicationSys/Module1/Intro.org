@@ -48,3 +48,13 @@
 
 
 - Multiplication in time domain becomes convolution in frequency domain
+* Linear time variant filter
+
+\( h(\tau ; t) = \sum^{L}_{k = 1} a_{k}(t) \sigma (t-\tau_{k})\)
+\( E(R(t)) = E (s(t)H(t)) \)
+pilots
+
+* Time Division
++ TDMA
++ FDMA
+** Why
