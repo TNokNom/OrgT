@@ -3,20 +3,20 @@
 * Lossy & Lossless
 + Data compression is the process of encoding digital information using fewer bits than the original file size
   * It allows for more efficient storage and faster transmission over networks
-+ Lossy and Lossless ar both types of data compression
++ Lossy and Lossless are both types of data compression
 ** Lossless
-+ Losless reduces a file size by removing any unnecessary metadata
++ Lossless reduces a file size by removing any unnecessary metadata
   * The file data is restored and rebuilt in its original form after decompression
     * No data is lost during this and it's reversible
 ** Lossy
 + Lossy reduces a file size by permanently removing some of the original data
-  * Its typically only used when you can afford to lose some data or
-    if the storage spaces needs to be freed up
-  * It uses an algorithm to decides the bits they aren't necessary or less important
-
+  * It's typically only used when you can afford to lose some data or
+    if the storage space needs to be freed up
+  * It uses an algorithm to decide the bits that aren't necessary or less important
+  * Common examples include JPEG for images and MP3 for audio
 
 * Modulation
-+ Modulation is process of manipulating a transmitted carrier in order to convey information
++ Modulation is the process of manipulating a transmitted carrier in order to convey information
 
 \( c(t) = Acos(2\pi f t)\)
 
@@ -24,37 +24,71 @@
 *** AM
 + Amplitude Modulation is the simplest version of modulation to implement
   * A signal is used to slowly vary the amplitude of the carrier according to the level of the modulating signal
-  * So essentially in AM we  change the amplitude in order to convey information
-** Application
+  * So essentially in AM we change the amplitude in order to convey information
 *** FM
++ Frequency Modulation varies the frequency of the carrier wave according to the amplitude of the input signal
+  * It offers better sound quality than AM and is less susceptible to noise
 *** PM
++ Phase Modulation changes the phase of the carrier wave in accordance with the modulating signal
+  * It can be seen as a special case of frequency modulation
 
 ** Pulse Modulation
-+ Uses baseband
-- PAM/PPM/PWM/PCM
++ Uses baseband signals to represent information in discrete pulses, enabling efficient transmission of digital data over various media.
+- PAM (Pulse Amplitude Modulation): Varies the amplitude of the pulse to represent data.
+- PPM (Pulse Position Modulation): Varies the position of the pulse in time to encode information.
+- PWM (Pulse Width Modulation): Varies the width of each pulse to communicate information.
+- PCM (Pulse Code Modulation): Encodes analog signals into a digital format by sampling the amplitude at uniform intervals.
+
 *** Baseband
+- Baseband signals represent digital data directly in the form of pulses. They do not modulate a carrier frequency, making them suitable for short-distance communication and high data rates. Baseband transmission remains unaffected by the frequency response of the channel, which is ideal for wired connections and digital signaling.
+
 ** Digital Modulation
-+ Uses passband
--> ASK
--> FSK
--> PSK
--> QAM
++ Uses passband signals to transmit digital data over a physical medium, allowing data to be sent over greater distances and through various media.
+-> ASK (Amplitude Shift Keying): Represents data by varying the amplitude of the carrier signal.
+-> FSK (Frequency Shift Keying): Encodes data by varying the frequency of the carrier signal.
+-> PSK (Phase Shift Keying): Represents data by changing the phase of the carrier signal.
+-> QAM (Quadrature Amplitude Modulation): Combines amplitude and phase variations to transmit multiple bits per symbol, increasing the data rate.
+
 *** Passband
 ** How they differ
+- Passband modulation techniques differentiate based on how they manipulate the carrier wave. For instance, ASK focuses on changing the amplitude, while FSK alters the frequency. PSK shifts the phase to encode data, making these techniques uniquely suited for various applications depending on the channel's characteristics and the desired robustness against noise.
+
+** Enhanced Pulse Modulation Details
++ In pulse modulation, the choice of modulation affects bandwidth, power requirements, and resistance to noise. PAM is simpler but more susceptible to noise, while PPM and PWM offer improved noise resilience by encoding information in the pulse's position or width rather than amplitude. PCM provides digital representation with sampling and quantization, enabling effective compression and error detection. Different pulse modulation schemes are suitable for audio, video, and data transmission, each with specific benefits and constraints based on the application's requirements.
+
++ Digital modulation techniques differ in terms of how data is encoded in the signal
+  * ASK encodes data in the amplitude of the signal
+  * FSK encodes data in the frequency of the signal
+  * PSK encodes data in the phase of the signal
+  * QAM combines both amplitude and phase to convey more bits per symbol
 
 * Propagation
++ The way in which radio waves travel through the environment is known as propagation
+  * Factors affecting propagation include frequency, terrain, and atmospheric conditions
 
 * Mathematical Models
-
-
++ Mathematical models in communication systems describe signal behavior using equations and algorithms
 - Multiplication in time domain becomes convolution in frequency domain
 * Linear time variant filter
++ The Linear time variant models two real world effect
+  * Multipath(*delays*): The same transmitted pulse can arrive by a large amount of different paths
+     due to this the receiver get multiple copies added together
+  * Time variation(*motion*): Those path strengths and delays can change over time
++ So we use this model to predict,measure, and design systems for how signals get distorted in real world environments
+** Equation Explanation
++ take our core formula \( h(\tau;t) = \sum^{L}_{k=1} a_{k}(t)\delta(\tau - \tau_{k} (t)\) which gives -> \(r(t) = \sum^{L}_{k=1} a_{k}(t) s(t-\tau_{k}(t)) + n(t)\)
+  * L being the total amount of reflector/paths. Each path K contributes the following:
+  * *Delay* \(\tau_{k}(t)\): How late the path is compared to the direct signal
+  * *Amplitude & Phase* \(a_{k}(t)\): How strong that path is and it's instantaneous phase
+  * *Noise* \(n(t)\): any noise along the path
+  *
 
-\( h(\tau ; t) = \sum^{L}_{k = 1} a_{k}(t) \sigma (t-\tau_{k})\)
-\( E(R(t)) = E (s(t)H(t)) \)
-pilots
+
+
++ Pilots are reference signals inserted into the transmission to aid in synchronization and channel estimation
 
 * Time Division
-+ TDMA
-+ FDMA
++ TDMA (Time Division Multiple Access) allows multiple users to share the same frequency channel by dividing the time into slots
++ FDMA (Frequency Division Multiple Access) allocates different frequency bands to each user
 ** Why
++ Time Division and Frequency Division allow efficient use of available bandwidth by enabling multiple users to transmit simultaneously without interference

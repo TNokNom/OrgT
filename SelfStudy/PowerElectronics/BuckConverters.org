@@ -29,7 +29,7 @@
 + But we can also use a SPDT switch instead
   * When using this switch we can change the period of time the switch is in each position
   * Such that the output waveform \(v_{s}(t)\) is a rectangular waveform of a certain frequency
-  * With a period \(T_{s} = \frac{1}{f_{s}}\)
+  * With a period \(T_{s} = \frac{1}{f_{s}}\) -> Known as the switching period
 + This behavior of switching is referred to as the duty cycle *D* the fraction of time
    in which the switch occupies position 1
   * In real practice this switching device is usually some semiconductor device
