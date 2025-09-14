@@ -27,4 +27,4 @@
 [[file:../../../MacShots/Linear_DC_Machine/2025-09-09_00-28-29_screenshot.png]]
 + For this circuit after the switch is closed a current flows into the bar
  * Using KVL for this machine we get
-  * \(v_{b} - iR - e_{ind} = 0\)
+ * \(v_{b} - iR - e_{ind} = 0\)
