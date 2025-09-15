@@ -1,5 +1,0 @@
-* Analog Versus RF
-- RF = "Analog with inductors"
-- RF signal is sally narrow band (*sinusoidal*)
-- Analog impedance are high (low) for voltage (current) gain
-- Basically the main difference is the speed in which you are dealing with

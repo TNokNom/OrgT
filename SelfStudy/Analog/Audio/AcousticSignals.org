@@ -1,0 +1,32 @@
+#+title: Acoustic Signals
+#+filetags: :Signals:
+* Types Of Systems
++ Below is shown how general properties or behaviors of systems can be classified
+** Linearity
++ To test if a system is linear we can use the *superposition theorem*
+  * If the superposition theorem can be applied the system is linear
+  * Otherwise it can be seen as non linear
++ An Example of this would be
+ * if two valid inputs x1(t) and x2(t) result in system outputs y1(t) and
+y2(t), then the input ax1(t) + bx2(t) should result in ay1(t) + by2(t), where a
+and b are any arbitrary real scalars.
++ Often times linear systems are favorable in acoustic and audio applications
+  * Non linear systems also have their place
+** Time Variance
++ This is how much the system depends on time
+  * In a system with no *time variance* the input-output relationship
+    is not dependent on time
+  * For most systems timer variance is seen as a negative attribute
+** Stability
++ Stability is a property that can't easily be quantified
+  * But it is generally seen as a system that can yield a finite output to any valued finite input
++ \(|x(t)| \leq a < \infty\) -> \(|y(t)| \leq b < \infty\)
+  * This specific stability is called *bounded-input-bounded-ouput* stability
+** Causality
+
+** Memory
++ A system has memory if the output from the system is depenedent on the past inputs to the system
+  * Memoryless systems are easiest to work with since we can mathemaitically descirbe them with
+     with little to not effort
+
+** Invertibility
