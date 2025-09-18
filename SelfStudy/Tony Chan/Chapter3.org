@@ -56,3 +56,10 @@ https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
    * It can also be used in applications where the first stage has an input signal that is a current
    * This is useful due to the fact we want to preserve all of the current signal
 + Acts as a *Current Buffer*
+* Source Degenerated Current Mirrors
+:PROPERTIES:
+:ID:       c4f5bc3b-ec07-4bf7-9188-f28729214bdc
+:END:
+[[file:../../../MacShots/Source_Degenerated_Current_Mirrors/2025-09-18_00-12-58_screenshot.png]]
++ The Source-Degenerated Current Mirror allows for improvement of the original current-mirror
+  * This is achieved through two source resistors
