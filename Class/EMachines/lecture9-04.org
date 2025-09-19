@@ -1,2 +1,3 @@
 #+title:
 #+filetags: :ElectricMachines:
+\(e_{ind} = - \frac{Nd\theta}{dt} = -\frac{NA \cdot d B(t)}{dt}\)

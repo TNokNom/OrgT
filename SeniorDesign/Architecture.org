@@ -1,3 +1,4 @@
+```
 #+title: Senior Design Top Down Architecture
 #+filetags: :SD:
 
@@ -69,9 +70,15 @@
 + Leaning towards raspberry pi instead of esp32 (*TBD)*
   * ESP32/Raspberry Pi on board receiving communications between sensors (*Master*)
   * Another ESP32/Raspberry Pi for receiving data and sending it to display interface (*Slave*)
-  * A Jetson Nano for additional GPIO pins and computer power  if needed
+  * A Jetson Nano for additional GPIO pins and computer power if needed
 
 
 * Potential Things To Incorporate {*Maybe*} {*Tom*}
 + Potentially a situational light source
    * Like a high power LED searchlight with strobe capabilities
+
+* Project Requirements
++ Ensure all hardware components are compatible with the outlined system architecture.
++ Maintain documentation throughout the project to facilitate future development and troubleshooting.
++ Validate performance metrics for each sensor to ensure they meet project specifications.
++ Incorporate user feedback during design iterations to improve usability and functionality.

@@ -1,2 +1,0 @@
-#+title: Tuesday Notes
-#+filetags: :ElectricMachines:
