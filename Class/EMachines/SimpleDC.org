@@ -6,6 +6,8 @@
   * They operate around the same principles as real generators and motors
   * Are used as example study of machines
 ** Equations
+ + The power converted from electrical form to mechanical form by a linear motor is given by:
+ + \(P_{conv} = \tau_{ind} \cdot \omega\)
  + We can model the behavior of this simple machine with these four equations
    + \(F = i(l \times B)\)
      * F = force on the wire
@@ -20,11 +22,35 @@
  + Newtons law for the bar across the tracks
    * \(F_{net} = ma\)
 
+
 ** Example
 :PROPERTIES:
 :ID:       1673275b-90c5-4aa4-8e37-6b8f3ced2819
 :END:
 [[file:../../../MacShots/Linear_DC_Machine/2025-09-09_00-28-29_screenshot.png]]
 + For this circuit after the switch is closed a current flows into the bar
- * Using KVL for this machine we get
- * \(v_{b} - iR - e_{ind} = 0\)
+  * Using KVL for this machine we get
+  * \(v_{b} - iR - e_{ind} = 0\)
+  * From this we get \(i = \frac{V_{B}- e_{ind}}{R}\)
++ Since the bar is at rest \(e_{ind} = 0\) so, \(i = \frac{v_{B}}{R}\)
++ As the current flows down through the bar across the tracks
+  * We know that a current flowing through a wire in the presence of a magnetic field induces a force on the wire
+  * \(F_{ind} = ilB\) to the right
++ This then causes the bar to accelerate to the right, which then causes a voltage to appear across the bar
+  * This voltage is given by: \(e_{ind} = \theta \cdot B \cdot l\)
+  * And now the current flowing in the bar is: \(i = \frac{V_{B} - e_{ind}}{R}\)
+  * It's important to note that as \(e_{ind}\) increases the current also does too
++ Once \(e_{ind} = V_{B} \) the bar will reach a constant steady-state speed where the net force on the bar is zero
+  * It will continue to move at this speed unless something disturbs it:w
+** Example 2 {*Linear DC Machine As A Generator*}
+
++ In this example the force is applied in the direction of the motion
+  * This applied force causes the bar to accelerate in the direction of motion
+  * Which in turn causes the velocity of the bar to increase
++ As the velocity increases \(e_{ind = Vbl}\) will increase and will eventually be larger than the batter voltage \(V_{B}\)
+ * With \(e_{ind} > V_{B}\) the current will reverse directions and our initial equations changes from:
+ * \(i = \frac{V_{B}- e_{ind}}{R}\) to \(i = \frac{e_{ind} - V_{B}}{R} \)
++ Since the current now flows up the bar instead of down
+  * \(F_{ind} = ilB\) to the left
+* Summary Of Examples
++ Now we can see that both machines can act as either a motor or generator depending on where the force is applied

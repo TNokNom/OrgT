@@ -79,3 +79,22 @@ to describe it, but for magnetic circuits the *magnetomotive force* and flux can
   * The equivalent reluctance of a number of reluctance in series is the sum of them added together
   * \(\mathscr{R}_{eq} = \mathscr{R}_{1} + \mathscr{R}_{2} + \mathscr{R}_{3} ......\)
 + And the same exact concept or resistances in parallel
+* Faraday's Law
+:PROPERTIES:
+:ID:       e35a64cd-8dae-4432-94f9-5b2135340d05
+:END:
++ Faraday's law states that if a time varying flux passes through a turn of a coil wire, a voltage will be
+induced at the terminals of the turn of the wire
+ * \(E_{Ind} = -N \frac{d \Phi}{dt} \)
+[[File:../../../MacShots/Faraday's_Law/2025-09-20_23-13-37_screenshot.png]]
+* Induced Force On A Wire
++ The magnetic field also induces a force on wire carrying a current placed inside a field
+  * That force induced on the conductor is -> \(F = i(l \times B)\) & \(F = ilB \ sin\theta\)
+  * \(i\) being the magnitude of current in the wire
+  * \(l\) being the length of the wire, with the direction being defined as that of the current flow
+  * \(F\) being the magnitude of the force
++ And if a wire moves through a magnetic field a voltage is induced in it, this is given by:
+  * \(e_{ind} = (v \times B) \cdot l\)
+  * \(v\) being the velocity of the wire
+  * \(B\) being the magnetic flux density vector
+  * \(l\) being the length of the conductor

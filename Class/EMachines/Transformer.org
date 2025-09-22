@@ -1,0 +1,59 @@
+#+Title: Transformer Notes
+
+* Transformers
++ a Transformer is an electrical device consisting of two or more coils of wire
+  used to transfer electrical energy by means of a changing magnetic field
+ * Transfer electric power from one circuit to another
+ * It does so without a change of frequency
+ * Decreases or Increase AC voltage
+** Designs
+:PROPERTIES:
+:ID:       0ba13285-1e1f-4863-aff7-0afe50ebc7b1
+:END:
++ The first design takes a laminated piece of steel and has winding wrapped around two of its sides
+ [[file:../../../MacShots/Transformers/2025-09-22_00-20-51_screenshot.png]]
+
++ The second transformer design a piece of rectangular steel that has been laminated
+  * And takes a two coils and wraps them around the middle
+[[file:../../../MacShots/Transformers/2025-09-22_00-21-03_screenshot.png]]
+** Types
++ Current Transformers
+  * Produces an alternating current (*AC*) in its secondary which is proportional to the AC current in
+    its primary
++ Voltage Transformers
+  * also called *potential transformers* are designed to reduce or step down the system under test voltage
+  * This is done in order to measure it
+
+** How transformers work
++ When current in the primary coil changes polarity a changing
+  magnetic field is produced
+ * This changing magnetic failed gets associated with the secondary through the
+  soft iron core
+
+** Traits of an ideal transformer
+*Zero Leakage Flux:*
+- Fluxes produced by the primary and secondary current are
+    confined within the core
+*Zero Coil Resistance:*
+ - No voltage drops on the coils
+*Infinite core permeability:*
+- Zero core reluctance, meaning negligible current generates the flux
++ The relationship between the input and output voltage, and between the input current and output current is given by:
+  * \(\frac{\mathcal{V}_{p} (t)}{\mathcal{V}_{s}(t)} = \frac{N_{p}}{N_{s}} = a\) , \(\frac{\mathcal{I}_{p} (t)}{\mathcal{I}_{s}(t)} =\frac{1}{a}\)
+  *  \(\mathcal{V}_{p}(t)\) being the turns on the primary side
+  * \(\mathcal{V}_{s}(t)\) being the turns on the secondary side
+  * \(a\) is the turn ratio of the transformer
+  * \(N_{p}\) is the turns of primary
+
+** Dot Convention
++ The Dot Convention is a method used to identify the polarity of winding
+  in a transformer
+ * It can help understand the phase relationship between primary
+    and secondary voltages or currents.
+* Power
++ The power in the primary and secondary winding is given by:
+  * \(P_{in} = \mathcal{V}_{p} \ I_{p} \ cos \ \theta_{p}\) & \(P_{out} = \mathcal{V}_{s} \ i_{s} \ cos \ \theta_{s}\)
+  * \(\theta\) is the phase angle between the voltage & current
+** Impedance
++ For the impedance of a transformer we get
+  * \(\mathcal{Z}_{L}' = \frac{\mathcal{V}_{p}}{I_{P}}\)
