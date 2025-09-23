@@ -85,7 +85,7 @@ to describe it, but for magnetic circuits the *magnetomotive force* and flux can
 :END:
 + Faraday's law states that if a time varying flux passes through a turn of a coil wire, a voltage will be
 induced at the terminals of the turn of the wire
- * \(E_{Ind} = -N \frac{d \Phi}{dt} \)
+ * \(e_{Ind} = -N \frac{d \Phi}{dt} \)
 [[File:../../../MacShots/Faraday's_Law/2025-09-20_23-13-37_screenshot.png]]
 * Induced Force On A Wire
 + The magnetic field also induces a force on wire carrying a current placed inside a field

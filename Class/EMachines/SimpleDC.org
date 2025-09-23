@@ -5,6 +5,8 @@
 + Linear DC machines are the simplest dc machines
   * They operate around the same principles as real generators and motors
   * Are used as example study of machines
++ If \(e_{ind} > V_{b}\) then the circuit is acting as a generator
++ If \(e_{ind} < V_{b}\) then the circuit is acting as a motor
 ** Equations
  + The power converted from electrical form to mechanical form by a linear motor is given by:
  + \(P_{conv} = \tau_{ind} \cdot \omega\)
@@ -54,3 +56,5 @@
   * \(F_{ind} = ilB\) to the left
 * Summary Of Examples
 + Now we can see that both machines can act as either a motor or generator depending on where the force is applied
++ If the bar hits a region of a weaker magnetic field a *transient will occur*
++ After the transient is over \(e_{ind} = \mathcal{V}_{B}\) VB being the voltage in the battery

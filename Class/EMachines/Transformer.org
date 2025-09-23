@@ -3,9 +3,12 @@
 * Transformers
 + a Transformer is an electrical device consisting of two or more coils of wire
   used to transfer electrical energy by means of a changing magnetic field
- * Transfer electric power from one circuit to another
- * It does so without a change of frequency
- * Decreases or Increase AC voltage
+  * Transfer electric power from one circuit to another
+  * It does so without a change of frequency
+  * Decreases or Increase AC voltage
++ *Transformer Efficiency* is given by:
++ \(\eta = \frac{P_{out}}{P_{in}} \times 100%\) & \(\eta = \frac{P_{out}}{P_{out} - P_{loss}} \times 100%\)
+
 ** Designs
 :PROPERTIES:
 :ID:       0ba13285-1e1f-4863-aff7-0afe50ebc7b1
@@ -40,7 +43,7 @@
 - Zero core reluctance, meaning negligible current generates the flux
 + The relationship between the input and output voltage, and between the input current and output current is given by:
   * \(\frac{\mathcal{V}_{p} (t)}{\mathcal{V}_{s}(t)} = \frac{N_{p}}{N_{s}} = a\) , \(\frac{\mathcal{I}_{p} (t)}{\mathcal{I}_{s}(t)} =\frac{1}{a}\)
-  *  \(\mathcal{V}_{p}(t)\) being the turns on the primary side
+  * \(\mathcal{V}_{p}(t)\) being the turns on the primary side
   * \(\mathcal{V}_{s}(t)\) being the turns on the secondary side
   * \(a\) is the turn ratio of the transformer
   * \(N_{p}\) is the turns of primary
@@ -57,3 +60,7 @@
 ** Impedance
 + For the impedance of a transformer we get
   * \(\mathcal{Z}_{L}' = \frac{\mathcal{V}_{p}}{I_{P}}\)
+  * Which can also be expressed as \(\mathcal{Z}_{L}' = a^{2}\mathcal{Z}_{L}\)
+* Magnetization
+  + The fundamental component of the magnetization current lags the voltage applied to the core
+    by \(90^{\odot}\)
