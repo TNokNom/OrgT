@@ -41,20 +41,8 @@
 + This then causes the bar to accelerate to the right, which then causes a voltage to appear across the bar
   * This voltage is given by: \(e_{ind} = \theta \cdot B \cdot l\)
   * And now the current flowing in the bar is: \(i = \frac{V_{B} - e_{ind}}{R}\)
-  * It's important to note that as \(e_{ind}\) increases the current also does too
-+ Once \(e_{ind} = V_{B} \) the bar will reach a constant steady-state speed where the net force on the bar is zero
-  * It will continue to move at this speed unless something disturbs it:w
-** Example 2 {*Linear DC Machine As A Generator*}
-
-+ In this example the force is applied in the direction of the motion
-  * This applied force causes the bar to accelerate in the direction of motion
-  * Which in turn causes the velocity of the bar to increase
-+ As the velocity increases \(e_{ind = Vbl}\) will increase and will eventually be larger than the batter voltage \(V_{B}\)
- * With \(e_{ind} > V_{B}\) the current will reverse directions and our initial equations changes from:
- * \(i = \frac{V_{B}- e_{ind}}{R}\) to \(i = \frac{e_{ind} - V_{B}}{R} \)
-+ Since the current now flows up the bar instead of down
-  * \(F_{ind} = ilB\) to the left
+  * It's important to note that as \(e_{ind}\) increases the current decreases
 * Summary Of Examples
 + Now we can see that both machines can act as either a motor or generator depending on where the force is applied
 + If the bar hits a region of a weaker magnetic field a *transient will occur*
-+ After the transient is over \(e_{ind} = \mathcal{V}_{B}\) VB being the voltage in the battery
++ After the transient is over \(e_{ind} = \mathcal{V}_{B}\) VB being the voltage in the battery and if its unloaded

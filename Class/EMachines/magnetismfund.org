@@ -10,6 +10,13 @@
 + In a core the flux density is given by
  * \(\phi = \int_{A}{B \cdot dA}\)
   * With dA being the differential area
+* Maximum Induced EMF
+ + \(V_{max} = NBA\omega\)
+ + If the emf is at an angle
+  * \(V_{max} = NBA\omega \cos \theta\)
+
+
+
 ** Generation
 :PROPERTIES:
 :ID:       c43158e8-3cfe-4e8a-a6f5-4abc7f680e49

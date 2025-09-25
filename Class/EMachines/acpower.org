@@ -2,3 +2,52 @@
 #+filetags: :ElectricMachines:
 
 * REAL, REACTIVE, AND APPARENT POWER
++ Reactive power represents the energy that is first stored and then released in the magnetic field of an inductor, or in the electric field of a capacitor
++ The reactive power of a load is given by:
+  * \(P = VIsin\theta\)
+  * \(P = S \ cos \theta\)
++ The apparent power (*S*) supplied to a load is defined as the product of the voltage across the load
+   and the current through the load.
+  * The apparent power of  a load is:
+  * \(S = VI\)
+  * And its units are volt-amperes
+** Additional Equations
++ For,real,reactive,and apparent power their equations are expressed below
+  * \(P = I^{2}R\)
+  * \(Q = I^{2}X\)
+  * \(Q = S sin \theta\)
+  * \(S = I^{2}Z\)
+  * Here *R* is the resistance
+  * *X* is the reactance
+  * *Z* is the magnitude of load impedance
+* Complex Power
++ First we introduce this equation
+  * \(I = \frac{V}{Z} = \frac{V}{|Z|}\)
++ If the impedance angle \(\theta\) of a load is positive the reactive power consumed by load
+   will be positive
+  * The load is inductive
+  * In this case we say that the load is consuming both real power and reactive  power
+     from the source
+  * The phase angle of the current flowing through the load will lag the phase angle of the
+     voltage across the load by \(\theta\)
++ For capacitive loads we have a negative impedance angle
+
+  * The phase angle of the current flowing through the load will lead
+     the phase angle of the voltage across the load by \(\theta\)
+  * Also, if the impedance angle \(\theta\) is negate
+  * The reactive power Q consumed by the load will also be negative
+  * So we say that the load is consuming real power from the source
+  * And also supplying reactive power to the source
+* Example
+:PROPERTIES:
+:ID:       7ff8bb95-c49f-4633-826a-44aab2d147f7
+:END:
+[[file:../../../MacShots/Example/2025-09-23_16-07-32_screenshot.png]]
+[[file:../../../MacShots/Example/2025-09-23_16-17-40_screenshot.png]]
+
++ For *a.*
+ - Solving for P
+   * We use the effiency formula \(\eta = \frac{p_{o}}{p_{1}} \rightarrow p_{i} = \frac{p_{o}}{\eta}\)
+
+** Things To Note
++ \(1_{hp} = 746 \ W\)

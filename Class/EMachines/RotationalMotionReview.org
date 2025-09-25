@@ -1,0 +1,24 @@
+#+title: Rotational Motion Review
+#+filetags: :ElectricMachines:
+* Rotational Motion
++ Here we discuss speed and its various variables
+  * \(\omega_{m}  \) angular veloctiy expressed in radians per second
+  * \(f_{m}\) = angular veloctiy expressed in revolutions per second
+  * \(n_{m} \) angular velocity expressed in revolutions per minute
++ Angular acceleration is the rate of change in angular veloctiy with respect to time
+  * \(\alpha = \frac{d\omega}{dt}\)
++ Torque is the measure of a force that can cause an object to rotate about an axis
+  * \(\tau = (rsin\theta)F\)
++ Moment Of Inertia is the measure of an object's resistance to changes in its rotational motion
+  * \(I = mr^{2}\) for a point mass
++ Work is defined for linear motion, as the application of a force through a distance
+  * \(W = \int F \cdot dr \rightarrow W = Fr\)
++ Or for rotational motion
+  * \( W = \int \tau \cdot d\theta \rightarrow W = \tau\theta\)
++ And for Power
+  * \(P = \tau \omega\)
++ And
+  * \( W = \tau \cdot I\) I being moment of inertia
+  * \( t = \frac{\omega}{\alpha} \)  t time
+
+  * \(\alpha = \frac{\tau}{I}\)
