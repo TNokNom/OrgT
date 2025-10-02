@@ -100,5 +100,8 @@ https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
 :END:
 + For single stage amplifier it is common to use the cascode configuration
   * It comprised of *common-sourced* transistors feeding into a common-gate connected transistor
+  * They provide high output impedance, which is the main improvement they provide
+  * Higher gain compared to single-stage amplifiers
 + They're typically split up into two configuration, the *telescopic-cascode amp* and *folded-cascode amp*
+
 [[file:../../../MacShots/Cascode_Gain_Stage/2025-09-18_19-04-42_screenshot.png]]

@@ -1,0 +1,21 @@
+#+title: Fourier Transform Notes
+
+* Fourier
++ A transform is the mapping between domains
+  * The Fourier transform allows to represent any continuous signal and can be mapped by
+     a  sum of sinusoids
++ Why sinusoids
+  * sinusoids are the easiest waveform to work with
+  * This is because they're the only waveform that dosen't change
+     shape when subjected to a linear time variant system
+  * The benefit of this is that it allows us to think of change of amplitude/gain at
+     any given frequency
+
++ Fourier Transform are outlined by the following
+  * Write functions as sums of sinusoids
+  * Multi-dimensional Fourier Transforms
+
++ For Fourier Transforms we are given two equations
+  * \(F(\omega) = \int^{\infty}_{-\infty} f(t) e^{-j\omega t} dt \) & \(f(t) = \frac{1}{2\pi} \int^{\infty}_{-\infty} F(\omega) e^{j\omega t} d\omega\)
+  * The first equation turns a function of frequency into a function of time
+  * The second equation turns a function of time into a function of frequency

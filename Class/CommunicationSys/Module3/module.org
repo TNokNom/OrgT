@@ -1,5 +1,23 @@
+#+title: Hilbert Transform & Hilbert Spectrum
+#+filetags: :CommunicationSystems:
+* Hilbert Transform
 
-o
++ We use the *Hilbert transform* in order to determine a unique, analytic signal
+   from a real signal to calculate instantaneous properties
+  * In signal processing there are times where we want to analyze a real signal f(t)
+     in terms of its phase and instantaneous frequency
++ Its important to note that a single real function dosen't carry enough information to do
+   whats stated above
+  * So we create a complex signal (also called the *analytic signal*)
+  * We then have the analytic signal:
+  \( z(t) = \underbrace{f(t)}_{\text{Real part}} + i \, \underbrace{H[f(t)]}_{\text{Imaginary part}} \)
+  * The original data forms the real part
+  * And we Hilbert transform the imaginary part which is phase shifted by \(90^{\circ}\)
+** Math
++ The Hilbert Transform of f(t) is :
+  * \( H[f(t)] = \fra{1}{\pi} P.V. \int^{\infty}_{- \infty} \frac{f(\tau)}{t - \tau} d\tau\)
+  *  were *P.V* is the Cauchy principal value
+
 
 
 

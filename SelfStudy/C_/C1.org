@@ -1,0 +1,37 @@
+#+title: C Notes
+
+* Static Bool
++ Static Bool is a boolean variable
+  * Meaning it stores true/false
+  * The static part = persistent storage (variable lives forever )
++ Its important to note that when static bool is declared within a function it can't be change outside of that function
+  * Unless its declared in a global scope
+** Code
+#+begin_src cpp
+void counter() {
+    static bool flag = false;
+    if (!flag) {
+        printf("First time running this function!\n");
+        flag = true;
+    }
+}
+
+#+end_src
++ During the first run flag is created only once,
+   the first time counter() runs.
+  * Where it differs: it keeps its value between calls(different from a normal/local variable, which resets with each call)
+  * This makes it useful for things that require a function to run once or you need to remember a state
+* Extern
++ In c/cpp allows use to tell the compiler
+  * that this variable exist elsewhere
+  * Very useful to avoid creatin a variable thats
+    defined in another file
+** Code
+#+begin_src c
+// file2.c
+extern int counter;  // declaration (no memory allocated)
+void foo() {
+    counter++;  // refers to the same counter in file1.c
+}
+
+#+end_src
