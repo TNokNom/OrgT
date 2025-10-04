@@ -105,3 +105,47 @@ https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
 + They're typically split up into two configuration, the *telescopic-cascode amp* and *folded-cascode amp*
 
 [[file:../../../MacShots/Cascode_Gain_Stage/2025-09-18_19-04-42_screenshot.png]]
+* Differential Amplifier Input Decomposition
+
+** Inputs
++ Two inputs: \( V_{in1} \) and \( V_{in2} \).
+ * Each input can be expressed as a sum of:
+  - A *common-mode* component (\( V_{CM} \))
+  - A *differential* component (\( V_{id} \))
+
+** Definitions
++ Common-mode voltage:
+  \[
+  V_{CM} = \frac{V_{in1} + V_{in2}}{2}
+  \]
+
++ Differential voltage:
+  \[
+  V_{id} = V_{in1} - V_{in2}
+  \]
+
+** Input Expressions
++ Each input can be written as:
+  \[
+  V_{in1} = V_{CM} + \frac{V_{id}}{2}
+  \]
+
+  \[
+  V_{in2} = V_{CM} - \frac{V_{id}}{2}
+  \]
+
+** Why This is Useful
++ Separates the signal into:
+  - *Common-mode part*: response when both inputs move together
+  - *Differential part*: response when inputs move in opposite directions
+- Allows calculation of:
+  - *Differential gain*
+  - *Common-mode gain*
+** Example
+If \( V_{in1} = 1.1 \, \text{V} \) and \( V_{in2} = 0.9 \, \text{V} \):
+- \( V_{CM} = \frac{1.1 + 0.9}{2} = 1.0 \, \text{V} \)
+- \( V_{id} = 1.1 - 0.9 = 0.2 \, \text{V} \)
+- Thus:
+  \[
+  V_{in1} = 1.0 + 0.1 \quad , \quad V_{in2} = 1.0 - 0.1
+  \]
