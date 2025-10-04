@@ -62,10 +62,11 @@
  - This figure shows the concept of waveguide
  - We know that the refractive index of medium 1 (n1) is higher than the refractive index of medium 2 (n2)
     since the angle 2 is greater than the angle 1
- + Because of this we can define the critical angle \(\theta_{c}\) as \(sin \theta_{c} = \frac{n_{2}}{n_{1}}\)
- * For angles of incidence greater than the critical angle defined above
+ - For angles of incidence greater than the critical angle defined above
     NO light is transmitted and internal reflection (*TIR*) occurs
- * So essentially what waveguide does, is traps light in between two materials using their refractive index in such a way
+
+   - Because of this we can define the critical angle \(\theta_{c}\) as \(sin \theta_{c} = \frac{n_{2}}{n_{1}}\)
+ - So essentially what waveguide does, is traps light in between two materials using their refractive index in such a way
    it can't escape the medium
 ** Reflection Coefficients
 :PROPERTIES:

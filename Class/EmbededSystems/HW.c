@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+struct Sensor {
+  int id;
+  float temperature;
+};
+
+float average(struct Sensor sensors[], int n) {
+  float sum = 0;
+  for (int i = 0; i < n; i++)
+    sum += sensors[i].temperature;
+  return sum / n;
+}
+
+int main() {
+  struct Sensor sensors[5];
+  int i;
+
+  for (i = 0; i < 5; i++) {
+    sensors[i].id = i + 1;
+    printf("Enter temperature for sensor %d: ", sensors[i].id);
+    scanf("%f", &sensors[i].temperature);
+  }
+
+  printf("\nAverage temperature: %.2f F\n", average(sensors, 5));
+
+  printf("Sensors above 75.5F:\n");
+  for (i = 0; i < 5; i++) {
+    if (sensors[i].temperature > 75.5)
+      printf("  Sensor %d: %.2f F\n", sensors[i].id, sensors[i].temperature);
+  }
+
+  return 0;
+}

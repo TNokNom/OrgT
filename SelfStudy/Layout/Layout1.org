@@ -1,2 +1,0 @@
-#+title: Layout Notes
-#+filetags: :Anlaog:Layout:
