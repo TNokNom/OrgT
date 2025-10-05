@@ -4,5 +4,8 @@
  + \(X[k] = \sum^{N-1}_{n = 0} x[n] e^{-j2\pi kn \ /N} k = 0,.....,N-1\)
    * N: discrete time index
    * k: discrete frequency index
-   * * \(W_{k}\) = \(2\pi k/N\): frequency in radians per second
+   * \(W_{k}\) = \(2\pi k/N\): frequency in radians per second
    * \(f_{k} = f_{s} k/N\):frequency in Hz (\(f_{s}\): sampling rate)
+** FFT
++ Fast Fourier Transform allows us to compute DFT efficiently with the use
+  of an algorithim

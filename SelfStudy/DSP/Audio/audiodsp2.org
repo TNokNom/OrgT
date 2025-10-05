@@ -1,0 +1,95 @@
+#+title: Audio_DSP Chapter 2 Notes
+#+filetags: :DSP:
+* Sampling
++ Typically the things we want to measure are in analog form
+  (*a continuous signal ie. sound pressure, sound*)
+  * Usually we find them in the form of voltage signals \(v(t)\)
+  * In order to accurately record this data an infinite volume of data must be stored for each
+    amplitude and time domains
+  * Unless the signal is deterministic then we can represent it using a simple equation
++ Quantization: is the process that approximates a continuous amplitude domain variable as a vale
+  from a set of allowed quantum levels
++ Discretization: is the process by which signals that are continuous in time are represented by
+  a sequence of numbers describing the amplitude of the signal at instants of time
+** Example 1
++ In a moving video image, each pixel’s brightness and colour balance
+needs to be updated once every 1/25th second, rather than varying continuously with respect to time.
+
+ * In digital signal processing (DSP) algorithm development and many parts of
+this book, we do not concern ourselves with amplitude quantization for two major
+reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data as a very high precision floating point format so that the discrete representations are very close to their continuous format. (2) On occasions, when amplitude discretization becomes a concern, e.g. ADCs and DACs or fix-point calculation in certain DSP chips, the implications of amplitude discretization can often be mo
+
+** Example 2
++ Moving images carry an infinite amount of detail
+  * But we can treat most of the detail as redundant
+  * The general information can be retained if the data is stored at lower resolutions
+  * For example you can tell a picture of a dog at 4096 * 2160 or at 1440 * 720
+* Time Discretization
+:PROPERTIES:
+:ID:       ffd0ef6a-65b4-4f7b-a388-7385195ecb10
+:END:
++ The first stage of sampling process is discretization
+  * This takes a function that varies continuously with respect to an independent variable
+     and converts it into a discrete sequence
++ Take a voltage \(v(t)\)
+  * discretization represents the signal by a sequence of numbers,
+     where each number records the value of the function at a particular point int time
+  * These time points chosen are regularly spaced and are sampled at a constant "*sampling frequency*"
+  * The sampling frequency is \( f_{s} = \frac{1}{\triangle t}\)
+    * \(\triangle t\) is the sampling period or sampling interval \(T\)
+    * \(v(t)\) is represented as the discrete time sequence \(v_{d}(t)\)
+
++ The relationship between \(V (t) \)  , \(s(t)\) , \(v_{d}(t)\) is given by:
+
+  * *Discrete Time Sequence (vd(t))*:
+   - Represents the original continuous signal \( v(t) \) but at distinct time intervals.
+
+  *  *Discrete Signal (vk)*:
+   - Created by multiplying the original signal \( v(t) \) with a sampling waveform \( s(t) \).
+   - Contains the sampled values at intervals determined by \( k\Delta t \), where \( k \) is an integer (0, 1, 2, ...).
+
+  *  *Sampling Waveform (s(t))*:
+   - Composed of repeated impulses (like little spikes) in time.
+   - Each impulse has unit magnitude (height of 1).
+   - The time between impulses is the sampling period \( \Delta t \).
+  *  *Characteristics of Discrete Signal (vd)*:
+   - Mostly zero values for most of the time (only has non-zero values when the sampling occurs).
+   - Efficiently stored by recording only non-zero values.
+
+  * *Non-Linear Process*:
+   - The process of taking samples is non-linear due to the multiplication of the original signal with the sampling waveform.
+    [[file:../../../../MacShots/Time_Discretization/2025-10-04_21-43-59_screenshot.png]]
++ Here we can see \(v_{d}(t)\) is a combination of \(v(t)\) and \(s(t)\)
+
+** Conclusion:
+  - The process of sampling involves taking regular snapshots of a signal at specific times and storing only the significant (non-zero) values, which allows for an efficient representation of the original signal in a discrete format.
+
+* Aliasing
+
+
+
+** Shannon Nyquist Sampling Theorem
+:PROPERTIES:
+:ID:       8b386056-d54e-46ff-b15a-f8438bcb238c
+:END:
++ We are given a continuous signal \(x_{c(T)}\)
+  * This is some original analog signal that varies with time
+  * It exist for all real values of t
++ Often times when working with signals we cant to see what its value is
+   at a given interval or specific instant in time
++ So we use a sampler or a sampling process to achieve this
+  * For the example below we use a Continuous to Discrete
+  * Similar to a analog to digital converter (*ADC*)
++ How do we reconstruct \(x_{c}\) from \(X[n] \)
+  * We can do this when \(x_{c}(t)\) is *bandlimited*
+  * Meaning our frequency is 0 beyond certain point
+  * \(X_{c}(j\Omega) = \int^{\infty}_{-\infty} x_{c}(t) e^{-j\Omega t} dt\)
++ If \(x_{c}(t)\) is bandlimited
+  * Then we can reconstruct \(x_{c}(t)\) from \(X[n]\) as long as the sampling
+    is > twice as highest frequency in \(x_{c}(t)\)
+  * \(\frac{2\pi}{T} > 2 \ \Omega_{max}\) -> *Nyquist Criterion*
+** How do we reconstruct the signal
+
++ In order to reconstruct the sample we use a *sin interpolator*
+  * \(x_{r}(t) = \sum^{\infty}_{n = - \infty} x[n] \frac{sin(\pi(t-nT)/T)}{\pi(t-nT)\T\)
+  * \(x_{r}(t) = \sum^{\infty}_{n = - \infty} x[n] g_{t} (t-nT)\)
