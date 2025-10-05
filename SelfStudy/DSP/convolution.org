@@ -1,0 +1,166 @@
+#+title: Convolution Theory Explained
+#+author: Tom Abidakun
+#+date: 2025-10-05
+#+options: toc:nil num:nil
+
+* Introduction
+Convolution is a fundamental operation in signal processing, systems theory, and many areas of engineering and mathematics.
+It describes how one signal *modifies* or *filters* another signal — for example, how an input signal interacts with a system's impulse response to produce an output.
+
+In simple terms:
+
+> Convolution tells us how the shape of one function affects another when they overlap.
+
+* Definition of Convolution
+For *continuous-time* signals, convolution is defined as:
+
+\[
+y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau)h(t - \tau)d\tau
+\]
+
+Where:
+- \( x(t) \) = input signal
+- \( h(t) \) = system’s impulse response
+- \( y(t) \) = output signal
+
+In *discrete-time* form (for digital systems), convolution becomes a sum:
+
+\[
+y[n] = (x * h)[n] = \sum_{k=-\infty}^{\infty} x[k]h[n - k]
+\]
+
+This means we slide one signal across another, multiply overlapping values, and sum the result.
+
+---
+
+* Step-by-Step Breakdown
+Let’s break down what convolution actually *does* in practice.
+
+1. *Flip one of the signals* — typically \( h(t) \) becomes \( h(-\tau) \).
+2. *Shift it by \( t \)* — giving \( h(t - \tau) \).
+3. *Multiply* the overlapping parts of \( x(\tau) \) and \( h(t - \tau) \).
+4. *Integrate (or sum)** to get the final output value at that time \( t \).
+
+Each output sample \( y(t) \) is essentially the *weighted overlap* between \( x(t) \) and a shifted version of \( h(t) \).
+
+---
+
+* Example: Discrete Convolution
+Let’s take an example where:
+\[
+x[n] = [1, 2, 3]
+\]
+and
+\[
+h[n] = [2, 1]
+\]
+
+Compute \( y[n] = x[n] * h[n] \).
+
+We can find each term:
+
+\begin{align*}
+y[0] &= (1)(2) = 2 \\
+y[1] &= (1)(1) + (2)(2) = 5 \\
+y[2] &= (2)(1) + (3)(2) = 8 \\
+y[3] &= (3)(1) = 3
+\end{align*}
+
+
+So the result is:
+\[
+y[n] = [2, 5, 8, 3]
+\]
+
+This shows how convolution “mixes” the signals together over time.
+
+---
+
+* Physical Interpretation
+Imagine \( x(t) \) as an *input voltage* and \( h(t) \) as a *system’s response* to a unit impulse (like hitting it with a quick pulse).
+Then convolution gives you the *output voltage* \( y(t) \) for any input.
+
+Essentially:
+\[
+y(t) = \text{Input signal passed through system response}
+\]
+
+---
+
+* Convolution Properties
+Convolution has several key properties that make it powerful:
+
+1. **Commutative:**
+   \[
+   x(t) * h(t) = h(t) * x(t)
+   \]
+2. **Associative:**
+   \[
+   x(t) * [h(t) * g(t)] = [x(t) * h(t)] * g(t)
+   \]
+3. **Distributive:**
+   \[
+   x(t) * [h_1(t) + h_2(t)] = x(t)*h_1(t) + x(t)*h_2(t)
+   \]
+4. **With delta function:**
+   \[
+   x(t) * \delta(t) = x(t)
+   \]
+
+That last one means convolving with the delta function leaves the signal unchanged — the delta function is the identity of convolution.
+
+---
+
+* Connection to the Frequency Domain
+One of the most important relationships in signal processing is that:
+
+\[
+x(t) * h(t) \quad \leftrightarrow \quad X(f)H(f)
+\]
+
+This means *convolution in time* corresponds to *multiplication in frequency* (and vice versa).
+This is why convolution is often used for filtering — applying \( h(t) \) modifies the frequency content of \( x(t) \).
+
+---
+
+* Practical Example: Filtering a Signal
+Let’s say we have a signal \( x(t) \) with both low and high frequencies, and we convolve it with a *low-pass filter* impulse response \( h(t) \).
+After convolution:
+\[
+y(t) = x(t) * h(t)
+\]
+The high frequencies are attenuated, and the output \( y(t) \) is a smoother, lower-frequency version of the input.
+
+---
+
+* Summary
+- Convolution describes how one signal modifies another.
+- It’s defined by the integral (continuous) or sum (discrete).
+- In time domain: \( y(t) = x(t) * h(t) \)
+- In frequency domain: \( Y(f) = X(f)H(f) \)
+- It’s used everywhere — in filters, image processing, neural networks, and control systems.
+
+
+* Simple Python Example (Optional)
+To visualize discrete convolution in practice:
+
+#+begin_src python
+import numpy as np
+
+x = np.array([1, 2, 3])
+h = np.array([2, 1])
+y = np.convolve(x, h)
+
+ print(y)  # Output: [2 5 8 3]
+#+end_src
+
+
+
+
+This matches the manual computation earlier.
+
+---
+
+* Final Intuition
+Think of convolution as *sliding, flipping, and mixing*.
+It measures how much two signals overlap as one shifts across the other — a process that lies at the heart of all signal systems.

@@ -11,6 +11,7 @@
   from a set of allowed quantum levels
 + Discretization: is the process by which signals that are continuous in time are represented by
   a sequence of numbers describing the amplitude of the signal at instants of time
+
 ** Example 1
 + In a moving video image, each pixel’s brightness and colour balance
 needs to be updated once every 1/25th second, rather than varying continuously with respect to time.
@@ -64,7 +65,65 @@ reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data
 ** Conclusion:
   - The process of sampling involves taking regular snapshots of a signal at specific times and storing only the significant (non-zero) values, which allows for an efficient representation of the original signal in a discrete format.
 
-* Aliasing
+* Delta Function {δ}
+
+** Definition
+- δ(t) = 0 for all t ≠ 0
+- Integral over all time = 1
+  ∫ δ(t) dt = 1
+
+** Sifting Property
+- ∫ f(t) δ(t - a) dt = f(a)
+  → δ(t - a) “picks out” the value of f(t) at t = a
+
+** Usage in Sampling
+- Sampling waveform: s(t) = Σ δ(t - kT_s)
+  → represents perfect samples taken every T_s seconds.
+
+** Interpretation
+- An ideal impulse with infinite height, zero width, and area 1.
+- Models instantaneous events (e.g., switch turning on/off).
+
+** Visualization
+- A single infinitely thin spike at t = 0.
+
+* Section 2.1.2 – Aliasing
+
+** Concept
+- Sampling a continuous signal is like multiplying it by a pulse train (delta functions).
+- In the frequency domain, this becomes a convolution between the signal’s spectrum and the sampling waveform’s spectrum.
+
+** Key Equations
+1. Sampling in time:
+   v_d(t) = v(t) * Σ δ(t - kΔt)
+2. Frequency domain convolution:
+   V_d(ω) = V(ω) * S(ω)
+3. Sampling waveform spectrum:
+   S(ω) = Σ δ(ω - 2πk / Δt)
+4. Convolution expansion:
+   V_d(ω) = Σ V(ω + 2πk f_s)
+   where f_s = 1/Δt is the sampling frequency.
+
+** Meaning
+- The sampled signal’s spectrum V_d(ω) is a periodic repetition of the original signal’s spectrum.
+- These repetitions occur every f_s Hz.
+- You only need to record the frequencies within one period (baseband: -f_s/2 to +f_s/2).
+
+** Aliasing
+- When copies (repeats) of the signal’s spectrum overlap, higher frequencies appear as false lower frequencies.
+- This overlap is called *aliasing*.
+- Once aliasing occurs, the original signal cannot be recovered.
+
+** Example: Wagon Wheel Effect
+- In movies, the wheel appears to spin backward because of aliasing.
+- Sampling (movie frames) happens at around 25 Hz.
+- The continuous rotation frequency produces an illusion when higher frequencies overlap within the visible baseband.
+
+** Important Takeaways
+- Sampling = multiplication in time → convolution in frequency.
+- Convolution causes repeated spectra.
+- To avoid aliasing, the sampling rate must be > 2× the highest frequency (Nyquist rate).
+- Aliased components corrupt the signal and can’t be undone.
 
 
 
