@@ -1,0 +1,6 @@
+#+title: Discrete Time Signals
++ A *discrete-time signal*: a sequence of complex numbers
+  * One dimension
+  * notation: \(x[n]\)
+  * Two sided sequence \(x: Z \rightarrow C\)
+  * n is a-dimensional "time"
