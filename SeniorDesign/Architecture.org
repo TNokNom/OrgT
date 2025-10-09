@@ -2,7 +2,9 @@
 #+title: Senior Design Top Down Architecture
 #+filetags: :SD:
 
-
+* Mechanical
++ Auto-flip mechanism
+  * Using Servos
 * Sound {*Tom*}
 :PROPERTIES:
 :ID:       03591c8b-1798-4839-97d4-0a632f77eac9

@@ -1,4 +1,4 @@
-#+title: Audio_DSP Chapter 2 Notes
+#+title: Audio DSP Chapter 2 Notes
 #+filetags: :DSP:
 * Sampling
 + Typically the things we want to measure are in analog form
@@ -37,9 +37,8 @@ reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data
      where each number records the value of the function at a particular point int time
   * These time points chosen are regularly spaced and are sampled at a constant "*sampling frequency*"
   * The sampling frequency is \( f_{s} = \frac{1}{\triangle t}\)
-    * \(\triangle t\) is the sampling period or sampling interval \(T\)
-    * \(v(t)\) is represented as the discrete time sequence \(v_{d}(t)\)
-
+  * \(\triangle t\) is the sampling period or sampling interval \(T\)
+  * \(v(t)\) is represented as the discrete time sequence \(v_{d}(t)\)
 + The relationship between \(V (t) \)  , \(s(t)\) , \(v_{d}(t)\) is given by:
 
   * *Discrete Time Sequence (vd(t))*:
@@ -68,30 +67,30 @@ reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data
 * Delta Function {δ}
 
 ** Definition
-- δ(t) = 0 for all t ≠ 0
-- Integral over all time = 1
++ δ(t) = 0 for all t ≠ 0
+ * Integral over all time = 1
   ∫ δ(t) dt = 1
 
 ** Sifting Property
-- ∫ f(t) δ(t - a) dt = f(a)
++ ∫ f(t) δ(t - a) dt = f(a)
   → δ(t - a) “picks out” the value of f(t) at t = a
 
 ** Usage in Sampling
-- Sampling waveform: s(t) = Σ δ(t - kT_s)
++ Sampling waveform: s(t) = Σ δ(t - kT_s)
   → represents perfect samples taken every T_s seconds.
 
 ** Interpretation
-- An ideal impulse with infinite height, zero width, and area 1.
-- Models instantaneous events (e.g., switch turning on/off).
++ An ideal impulse with infinite height, zero width, and area 1.
+ * Models instantaneous events (e.g., switch turning on/off).
 
 ** Visualization
-- A single infinitely thin spike at t = 0.
++ A single infinitely thin spike at t = 0.
 
 * Section 2.1.2 – Aliasing
 
 ** Concept
-- Sampling a continuous signal is like multiplying it by a pulse train (delta functions).
-- In the frequency domain, this becomes a convolution between the signal’s spectrum and the sampling waveform’s spectrum.
++ Sampling a continuous signal is like multiplying it by a pulse train (delta functions).
+ * In the frequency domain, this becomes a convolution between the signal’s spectrum and the sampling waveform’s spectrum.
 
 ** Key Equations
 1. Sampling in time:
@@ -147,12 +146,17 @@ reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data
   * Then we can reconstruct \(x_{c}(t)\) from \(X[n]\) as long as the sampling
     is > twice as highest frequency in \(x_{c}(t)\)
   * \(\frac{2\pi}{T} > 2 \ \Omega_{max}\) -> *Nyquist Criterion*
-** How do we reconstruct the signal
 
+* How do we reconstruct the signal
 + In order to reconstruct the sample we use a *sin interpolator*
   * \(x_{r}(t) = \sum^{\infty}_{n = - \infty} x[n] \frac{sin(\pi(t-nT)/T)}{\pi(t-nT)\T\)
   * \(x_{r}(t) = \sum^{\infty}_{n = - \infty} x[n] g_{t} (t-nT)\)
+
 * Fourier
++ The typical formula for Fourier Series is:
+  * \(f(t) = a_{o} + \sum^{\infty}_{n = 1} [a_{n}cos(n\omega_{1}t) + b_{n} sin(n\omega_{1}t)]\)
+  * With \(a_{o}\) being the DC value is applicable
+
 + Fourier Series are written as the sum of of sines and cosines
   * We can represent a periodic function using complex exponentials, so:
   * \(e^{j \theta} = cos (\theta) + j sin(\theta)\)
@@ -164,9 +168,58 @@ reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data
     * L is the period of the function
     * J is the imaginary unit
     * \(c_{n}\) is the coefficient that tells you how strong and what phase that the
-       frequency componet i s
+       frequency component is
 + The complex coefficient formula is given by
   * \( c_n = \frac{1}{L} \int_{-L/2}^{L/2} f(x)e^{-2\pi j n x / L}\,dx \)
+
+** Discrete Fourier Transform
++ Fourier analysis is traditionally used by integrating continuous-time signals
+  multiplied by a complex exponential
+  * The issue with this is computers can't handle continuous signals
+  * So we rewrite the original transform as a finite sum
+  * Thus introducing us to discrete fourier transforms
+*** Breakdown
++ \(c_m = \frac{1}{P} \int_0^P \sum_{k=0}^{n-1} \delta(t - k\Delta t) \, x(t) \, e^{-j 2\pi m t / P} \, dt\)
+ * \(C_{m}\) is the complex coefficients which tell us how much of each frequency
+    \(n\omega_{o}\) is present
+
+ * \(x(t)\): the original continuous-time signal.
+ * \(\delta(t - k\Delta t)\): a delta function that samples \(x(t)\) at discrete times \(t = k\Delta t\).
+ * \(P\): the signal’s period.
+ * The integral is the normal Fourier coefficient definition, but we’ve inserted a sum of delta functions to represent sampling.
++ Essentially, this represents a *sampled version* of the Fourier transform — analyzing discrete points of the signal.
+
+**** 3. Using the Sifting Property of the Delta Function
++ Using the sifting property:
+ * \(\int \delta(x - a) f(x) \, dx = f(a)\)
+ * This means each delta function "picks out" the value of \(f(x)\) at \(x = a\).
+ * So in our integral, each \(\delta(t - k\Delta t)\) picks out \(x(t)\) at \(t = k\Delta t\).
+
+**** Finite Sum
++ After applying that property, the integral disappears, leaving a finite sum:
+
+ * \( c_m = \frac{1}{P} \sum_{k=0}^{n-1} x(k\Delta t) \, e^{-j 2\pi m k\Delta t / P} \)
+
+ * Let \(x_k = x(k\Delta t)\).
+   Then:
+
+ * \( c_m = \frac{1}{P} \sum_{k=0}^{n-1} x_k \, e^{-j 2\pi m k\Delta t / P} \)
+
+***** 5. Simplifying Further
++ If \(P = n\Delta t\), we substitute that in:
+
+ * \( c_m = \frac{1}{P} \sum_{k=0}^{n-1} x_k \, e^{-j 2\pi m k / n}\)
+
+ * This is now the *Discrete Fourier Transform (DFT)* form (up to a constant scaling factor).
+
+**  Key Insights
++ Integration in continuous-time becomes summation in discrete-time.
++ \(x_k = x(k\Delta t)\) are the sampled values.
++ \(c_m\) represents the frequency-domain coefficients (amplitude + phase).
++ The DFT is periodic in frequency with period \(n\).
++ \(x_k\) and \(c_m\) are duals: time-domain vs. frequency-domain representations.
+
+
 ** Important Notes
  * The magnitude  *Cn* tells you the strength of each harmonic
  * The phase (angle of cn) tell you the alignment of each harmonic in time
