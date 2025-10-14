@@ -1,0 +1,114 @@
+* Introduction to C
++ C is one of the oldest and most influential programming languages out there.
+  * Even though it’s old, it’s still used everywhere — from operating systems to microcontrollers.
++ C gives you direct control over memory and hardware.
+  * That’s why it’s often called a “low-level” high-level language.
+** Low Level
+ + In coding there are levels of abstraction
+   * The low level abstraction allows direct manipulation of memory and hardware, providing greater control over performance and efficiency.
+   * This why for real time applications and mission critical things we typically go for lower level of abstraction
+ + Lower level of abstraction isn't always necessary
+   * Sometimes we need higher levels of abstraction for more complex task
+   * Something like machine learning or ai applications
+
+*** Why Learn C
++ Learning C helps you understand how computers really work.
+  * You’ll see how data moves around in memory and how programs talk to hardware.
++ Most modern languages (C++, C#, Java, even Python internally) build on ideas that came from C.
++ It’s lightweight, portable, and ridiculously fast compared to most modern languages.
+
+**** Difference: Embedded C vs. C
++ Regular C runs on computers — you write a program, compile it, and the OS runs it.
++ Embedded C runs on microcontrollers — tiny computers inside hardware.
+  * You talk directly to memory addresses, registers, and I/O pins.
++ Example:
+  * In desktop C: a variable stores data for math or logic.
+  * In embedded C: a variable might directly *control a motor or LED*.
+
+* Basic Structure of a C Program
++ A simple C program always starts with a main() function — that’s where execution begins.
+ * You’ll usually include libraries at the top using #include.
+ * Each instruction (called a statement) ends with a semicolon.
+ * Here’s what that looks like:
+
+** Functions
++ A function is a block of code that runs when you call it.
++ Functions help keep code clean, organized, and easy to reuse.
++ You can think of a function like a mini program inside your program.
+
+*** Basic Parts of a Function
+1. Return type — what kind of data the function gives back (if any)
+2. Name — what you call it
+3. Parameters — inputs to the function (optional)
+4. Body — the code the function runs
+
+**** Code
+#+begin_src cpp
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");  // Prints a message to the screen
+    return 0;
+}
+#+end_src
+
+| Hello | World! |
+
++ Line by line:
+  * #include <stdio.h> — gives you access to standard input/output functions like `printf`.
+  * int main() — defines the starting point of your program.
+  * printf("Hello, World!\n"); — prints a string, and `\n` moves the cursor to the next line.
+  * return 0; — tells the system the program finished successfully.
++ In embedded we won't typically use return functions more on that later
+
+* Format Specifiers
++ When we print in C using printf, we use format specifiers.
++ A format specifier starts with % and tells printf what type of data we are showing.
++ Think of it like a placeholder that gets filled in with a variable.
+
+** Common Format Specifiers
+| Specifier | Type | Example |
+|------------|------|----------|
+| %d | integer | 42 |
+| %f | float (decimal) | 3.14 |
+| %c | single character | 'B' |
+| %s | string (text) | "Hi" |
+| %x | hexadecimal number | 0xFF |
+| %u | unsigned integer | 255 |
+
++ You can also control how numbers look:
+  * %.2f  shows only two numbers after the decimal.
+  * %04d  adds zeros in front of a number (good for timers or counters).
+
+
+
+** Code
+#+begin_src cpp
+#include <stdio.h>
+
+int main() {
+    int age = 12;
+    float temp = 23.5;
+    char grade = 'A';
+    char name[] = "Alex";
+
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Temperature: %f\n", temp);
+    printf("Grade: %c\n", grade);
+
+    return 0;
+}
+#+end_src
+
+** Code
+#+begin_src cpp
+printf("Pi: %.2f\n", 3.14159);   // shows 3.14
+printf("Count: %04d\n", 7);      // shows 0007
+#+end_src
+
+* Notes
++ Always save your file with a .c extension.
++ When compiling your C programs, you can use compilers like GCC (GNU Compiler Collection) and G++ for C++.
++ To compile a C program with GCC, use the command: `gcc filename.c -o outputname`.
++ For C++ programs, use G++: `g++ filename.cpp -o outputname`.

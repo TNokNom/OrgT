@@ -1,0 +1,4 @@
+Single Side Band
+upper side band
+Lower side band
+vestigial sidebad

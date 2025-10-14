@@ -1,5 +1,6 @@
 #+title: C Notes
 
+
 * Static Bool
 + Static Bool is a boolean variable
   * Meaning it stores true/false

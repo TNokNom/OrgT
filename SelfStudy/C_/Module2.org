@@ -1,0 +1,128 @@
+* Variables and Data Types in C and Embedded C
++ A variable is just a name for a piece of memory that stores data.
+  * Think of it as a labeled box in RAM that holds a value.
++ In regular C (like desktop programming), variables usually live in system memory managed by your OS.
++ In *Embedded C*, your code runs directly on a microcontroller — there’s no OS, no memory manager.
+  * So every variable matters. Each byte could map to a hardware register, sensor reading, or actuator control signal.
+
+* Data Types
++ Each data type defines how much memory something takes and what kind of data it can hold.
+  * *char* → 1 byte → for characters or raw data
+    Example: char letter = A;  → value = ASCII 65
+
+  * *int* → usually 4 bytes → whole numbers
+    Example: int count = 1200;
+
+  * *float* → 4 bytes → decimal numbers (less precision)
+    Example: float voltage = 3.3;
+
+  * *double* → 8 bytes → higher precision decimal
+    Example: double preciseTemp = 25.6789;
+
+  * *bool* → 1 byte → true or false
+    Example: bool ledOn = true;
+
+  * *uint8_* → 8-bit unsigned integer (0–255)
+    Example: uint8_t pwm = 200; → could control motor speed
+
+  * *int16_t* → 16-bit signed integer (-32768–32767)
+    Example: int16_t sensorValue = -250; → a sensor’s signed reading
+
+  * *uint32_t* → 32-bit unsigned integer (0–4,294,967,295)
+    Example: uint32_t uptime = 150000; → milliseconds since boot
+** Code
+#+begin_src cpp
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+int main() {
+    uint8_t motorSpeed = 100;     // 8-bit unsigned integer
+    int16_t sensorValue = -250;   // 16-bit signed integer
+    bool ledState = false;        // Boolean value
+
+    printf("Motor Speed: %u\n", motorSpeed);
+    printf("Sensor Reading: %d\n", sensorValue);
+    printf("LED State: %s\n", ledState ? "ON" : "OFF");
+
+    return 0;
+}
+#+end_src
+
++ This example shows how we might represent typical embedded data.
+  * motorSpeed could map to a PWM duty cycle.
+  * sensorValue might come from an ADC (analog-to-digital converter).
+  * ledState might control an LED’s GPIO pin.
+
+* Operators
++ Operators are how we manipulate data in C.
+  * *Arithmetic:* `+`, `-`, `*`, `/`, `%`
+  * *Comparison:* `==`, `!=`, `<`, `>`, `<=`, `>=`
+  * *Logical:* `&&(*AND*)`, `||(*OR*)`, `!(*NOT*)`
+  * *Bitwise:* `&`, `|`, `^`, `~`, `<<`, `>>`
++ In robotics and embedded systems, bitwise operators are especially important.
+  * They let you read, write, or clear bits in registers — basically talking directly to hardware.
+
+    int main (){
+    if a=!b
+{
+   printf("Wrong Value")
+}
+
+}
+** Code
+#+begin_src cpp
+ #include <stdio.h>
+
+ int main() {
+    int controlReg = 0;  // control register starts at 0
+
+     controlReg = controlReg | (1 << 2);  // turn on bit 2
+     controlReg = controlReg & ~(1 << 1); // turn off bit 1
+
+     printf("Control Register = %d\n", controlReg); // print the register value
+    return 0;
+ }
+
+#+end_src
+
+* Bitwise Logic
++ Bitwise logic is how we work with individual bits (0s and 1s) inside a number.
+ * In microcontrollers, bits often control real things like LEDs, motors, or sensors.
+
++ Here’s what each operator does:
+  * &  AND  checks if both bits are 1
+  * |  OR   turns a bit on
+  * ^  XOR  flips a bit (if it was 0, it becomes 1)
+  * ~  NOT  flips all bits
+  * <<  moves bits left (like times 2)
+  * >>  moves bits right (like divide by 2)
+
+** Code
+#+begin_src cpp
+#include <stdio.h>
+#include <stdint.h>
+
+int main() {
+    uint8_t reg = 0b00000000;   // all bits off
+
+    reg |= (1 << 0);  // turn on bit 0 (maybe an LED)
+    reg |= (1 << 1);  // turn on bit 1 (maybe a motor)
+    reg &= ~(1 << 0); // turn off bit 0
+    reg ^= (1 << 1);  // flip bit 1 (on becomes off, off becomes on)
+
+    printf("Register value: 0x%02X\n", reg);
+    return 0;
+}
+#+end_src
+
+
+
++ This is how we control hardware at the bit level.
+  * Each bit could mean something in the real world: on, off, active, or idle.
+
+* In Robotics Context
++ Variables can represent real world things:
+  * Motor speed, sensor distance, servo position, or system state.
++ Understanding how these map to memory and registers is key to controlling hardware safely and efficiently.
++ Embedded C is about precision and awareness — every line of code can physically move something in the real world.
