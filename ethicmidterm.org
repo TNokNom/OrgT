@@ -1,0 +1,98 @@
+#+ANKI_DECK:ethicmidterm
+
+* 🧭 Ch.1 – Ch.6 Overview
+Back: Core engineering ethics principles — safety, responsibility, integrity, risk perception, whistleblowing, and professional obligations.
+
+* ⚖️ Risk Acceptance Criteria – Perception of Risk & Safety
+Back: Standards or thresholds used to decide if a risk is tolerable, often based on probability, severity, and societal values.
+
+* What factors influence the Perception of Risk?
+Back: Familiarity, control, voluntary vs. involuntary risk, catastrophic potential, and media attention.
+
+* 🧩 Design for Safety Boeing 737 MAX Case
+Back: Systemic failure in design (MCAS system), poor pilot communication, lack of redundancy, and organizational pressure overriding safety culture.
+
+* What lessons can engineers learn from this case Boeing 737?
+Back: Prioritize safety over deadlines, ensure transparency in design changes, and test thoroughly for all failure modes.
+
+
+* What type of risk analysis could have prevented the Titan sub disaster?
+Back:
+
++ FMEA (Failure Mode and Effects Analysis)
+
++ Fault Tree Analysis
+
++ Independent peer review of materials & pressure testing
+
++ Adherence to classification standards for deep-sea vehicles
+
+* Front: What was the main ethical failure of the titan sum?
+Back: Ignoring expert warnings, lack of certification, and prioritizing innovation over verified safety.
+
+💥 Accident Categories
+
+* 💥 What are the three categories of engineering accidents?
+Procedural: Due to poor management or policy.
+
+Engineered: Due to design or material failure.
+
+Systemic: Due to organization-wide or cultural issues.
+
+* Give examples of each type.
++ Procedural: Bhopal Gas disaster (poor safety oversight)
+
++ Engineered: NASA Challenger explosion (O-ring design)
+
++ Systemic: Boeing 737 MAX (organizational pressure and design concealment)
+
+
+* 📣 What is whistleblowing?
+Back: When an employee reports unethical or unsafe practices to internal or external authorities.
+
+* What are the types of whistleblowing?
+
++ Internal: Report within the organization.
+
++ External: Report to outside authorities or media.
+
+* 📣 What are the four conditions for morally acceptable whistleblowing?
+
++ Serious harm is likely.
+
++ Internal reporting was attempted.
+
++ There’s documented evidence.
+
++ Whistle blowing can prevent harm.
+
+
+* 🧑 What are key professional responsibilities of engineers?
+
++ Protect public safety and welfare.
+
++ Maintain integrity and honesty.
+
++ Respect confidentiality and proprietary info.
+
++ Avoid conflicts of interest.
+
+* What is “Conflict of Interest”?
+Back: A situation where personal interest interferes with professional judgment or objectivity.
+
+* What are examples of conflicts of interest?
+Back: Financial gain, favoritism, or personal relationships affecting decisions.
+
+* What is competitive bidding?
+Process of bidding for contracts ethically, ensuring fairness, transparency, and honesty without deception.
+
+
+* ⚖ What are the professional rights of engineers?
+
++ Right to professional recognition and fair compensation.
+
++ Right to refuse unsafe or unethical work.
+
++ Right to report unethical conduct without retaliation.
+
++ Right to participate in decision-making affecting safety.

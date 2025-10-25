@@ -1,0 +1,49 @@
+
+#+title: UAV Assisted Emergency Communication Adaptive Relay
+* Project Overview
++ In emergency or disaster scenarios, communication has often seemed to fail
+  * This project uses AERPAW testbed to design and simulate an adaptive UAV placement
+     algorithm
+  * It is designed to:
+    1. Restore wireless connectivity for both indoor and outdoor users
+    2. Uses localization data in order to guide UAV placement
+    3. Implements communication systems principles in simulated UAV-ground links
+
+** Discussion & Real World Relevance
++ Emergency Context: UAV can quickly deploy where cellular towers fail.
++ Communication Systems Context: Applies real principles — modulation and signal quality to real world problems.
++ Research Value: Combines SDR experimentation, wireless optimization, and localization
+
+** System Design
+
+*** Localization Phase
++ Indoor: RSSI based trilateration
++ Outdoor: Angle of Arrival
+*** Relay Planning Phase
++ Compute optimal UAV Position to maximize network coverage using localization data
+*** Communication Phase
++ Establish SDR based wireless link
++ Measure RSSI at different UAV altitudes and positions
+*** Evaluation Phase
++ Compare fixed vs adaptive UAV positioning
++ Analyze netowrk coverage, throughput , and latency
+
+** Implementation
+:PROPERTIES:
+:ID:       459eacf5-2743-4ac6-b357-7f9725e200db
+:END:
++ Using the data from:
+ * Indoor RSSI based localization estimates user positions for UAV placement.
+ * Outdoor GPS coordinates provide reliable references.
+ * The UAV relay uses this data to reposition dynamically.
++ We can reposition the data in the most optimal position to restore network coverage
+  #+begin_src python
+  def get_user_location(data, mode="outdoor"):
+    if mode == "outdoor":
+        return data["gps_coords"]
+    else:
+        return trilaterate_rssi(data["rssi_values"])
+  #+end_src
+[[file:../../../MacShots/Project_Overview/2025-10-15_18-36-14_screenshot.png]]
+
+[[file:../../../MacShots/Project_Overview/2025-10-15_18-36-51_screenshot.png]]

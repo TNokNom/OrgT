@@ -143,10 +143,30 @@ https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
   - *Differential gain*
   - *Common-mode gain*
 ** Example
+
 If \( V_{in1} = 1.1 \, \text{V} \) and \( V_{in2} = 0.9 \, \text{V} \):
+
 - \( V_{CM} = \frac{1.1 + 0.9}{2} = 1.0 \, \text{V} \)
+
 - \( V_{id} = 1.1 - 0.9 = 0.2 \, \text{V} \)
+
 - Thus:
   \[
   V_{in1} = 1.0 + 0.1 \quad , \quad V_{in2} = 1.0 - 0.1
   \]
+
+* Diff Amp Continued
+:PROPERTIES:
+:ID:       b279a639-92d9-4b3d-88b1-7b61d7e243ff
+:END:
+[[file:../../../MacShots/Diff_Amp_Continued/2025-10-15_15-00-10_screenshot.png]]
++ Ignore the output impedance of each transistors
+  * We can obtain the bias currents for both *Q1* and *Q2*
++ \(id_{1} = \frac{gm_{1}}{2} v_{in} \ \ id_{2} = -\frac{gm_{1}}{2}v_{in}\)
+ * Using this we can conclude \(i_{out} = id_{1} - id_{2}\) so we get the following relationship \(i_{out} = gm_{1}v_{in}\)
+
+** T Model Analysis Of Differential Amplifier With Current Mirror Active Load
+:PROPERTIES:
+:ID:       0d58c779-6f2a-4585-97d9-5075b140a6f9
+:END:
+[[file:../../../MacShots/Diff_Amp_Continued/2025-10-15_15-18-56_screenshot.png]]
