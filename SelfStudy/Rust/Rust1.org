@@ -1,0 +1,17 @@
+#+title: Rust Notes Chapter 1
+* Anatomy 
++ Below the main function is initially defined 
+ #+begin_src rust 
+ fn main() {
+    println!("Hello,World!");
+ }
+
+#+end_src
+  * In rust the main function is always the first code that runs in the executable 
+    * In the example it has no parameters and returns nothing
+    * If we were to have parameters they would go inside the parentheses *()*
++ In the code we call a rust macro (*println!*) 
+  * We can instead call a function, which would have been (*println*). Notice the lack of
+     an exclamation point 
++ Rust macros are a way to write code that generates code to extend to rust syntax
+  * When calling macros we use the *!*, but normal functions and macros don't operate the same

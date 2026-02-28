@@ -41,7 +41,7 @@ reasons: (1) Many computational platforms, such as MATLAB®, handle sampled data
   * \(v(t)\) is represented as the discrete time sequence \(v_{d}(t)\)
 + The relationship between \(V (t) \)  , \(s(t)\) , \(v_{d}(t)\) is given by:
 
-  * *Discrete Time Sequence (vd(t))*:
+  * *Discrete Time Sequence (vd)(t)*:
    - Represents the original continuous signal \( v(t) \) but at distinct time intervals.
 
   *  *Discrete Signal (vk)*:

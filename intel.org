@@ -1,0 +1,28 @@
+* Intro
++ We first talked about the AI Evolution
+  * Starting with task specific AI Models
+  * And ending with modern day AI (*LLM & MLLMS & Agentic AI Systems*)
++ She talks about how the industry is really adopting modern AI systems
+  * This is important because it impacts newer grads like myself joining and learning in
+     the current industry
+* Intel AI for Design And Beyond
+ + Talks about how AI is used in intel
+   * From silicon design and architecture write ups
+   * Even as far as some physics designs
+ + She looked into how AI can be used for broader office work
+   * She talks about how AI shouldn't be seen as bad and it can help solve current problems
+* Future of AI in the Workforce
+ + Discussion on how AI will reshape job roles
+   * Emphasis on collaboration between AI and human workers
+   * Potential new roles created by AI advancements
+* Ethical Implications of AI
+ + Overview of the ethical concerns surrounding AI deployment
+   * Data privacy and security issues
+   * The importance of ethical guidelines in AI development
+* AI in Healthcare
+ + Exploration of how AI is transforming patient care
+   * Use of AI in diagnostics and treatment plans
+   * Enhancing efficiency in healthcare operations
+* Intel's Commitment to AI Research
+ + Insights into Intel's ongoing AI research initiatives
+   * Collaboration with universities and research institutions

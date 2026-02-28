@@ -1,0 +1,302 @@
+#+title: M4L3 Report
+#+filetags: :CommunicationSystems:
+* Part 1.A
+\(\int_{\alpha}^{\beta} x(t) y(t) dt = 0\)
++ The equation above shoes that the two complex signals x(t) & y(t) are orthogonal   
+  
+** Part 1.B
++ Question: Show Δf = n/T (n ≠ 0) makes a(t) and b(t) orthogonal. 
+  
+*** Part 1.C
++ Question: *Show the minimum frequency separation is 1/T*
+  * since \(\triangle f = \frac{n}{T}\)
+    * n must be a nonzero integer the smallest magnitude is:
+       \(\triangle f_{min} = \frac{1}{T} \)
++ Question 2: *Discuss how the minimum separation changes as T increases*
+ * As T increases \(\triangle f_{min} \) decreases     
+   
+**** Part 1.D
++ Question: *Given \(\triangle f = \frac{1}{T} \) show that*
+  \(\alpha(t-\tau_{a)\) *and \(b(t-\tau_{b})\) remain orthogonal over any interval of length t*
+  * Computing the integral  \(\int^{x+T}_{x} a(t-\tau_{a}) b(t-\tau_{b}) dt\)
+    * After using the sinusoid forms it reduces to \(\int^{x+T}_{x} e^{-j2\pi \triangle ft} dt\)
+      * With \(\triangle f = \frac{1}{T}\), the integral is zero
+        \(\int^{x+T}_{x} e^{-j2\pi t\T} dt \)
++ Conclusion: *Time shifts do not affect orthogonality when* \(\triangle f = \frac{1}{T}\)
+* Part 2.A
+Question: *Show orthogonality among sub carriers derive the minimum subcarrier spacing \(f_{\Delta}\) and the minimum total bandwidth.* *Prove that the complex exponentials used as OFDM subcarriers are orthogonal over \(0\le t\le T\), determine the smallest nonzero spacing \(f_{\Delta}\) that achieves orthogonality, and give the minimum occupied bandwidth for \(N_c\) subcarriers.*
+
+FORMULAS USED:
+
+k-th and m-th subcarrier:
+\( \phi_k(t)=\frac{1}{\sqrt{T}}e^{j2\pi k f_{\Delta} t},\quad
+\phi_m(t)=\frac{1}{\sqrt{T}}e^{j2\pi m f_{\Delta} t} \)
+
+Orthogonality integral (for \(k\neq m\)):
+\[
+\int_0^T \phi_k(t)\overline{\phi_m(t)}\,dt
+= \frac{1}{T}\int_0^T e^{j2\pi (k-m) f_{\Delta} t}\,dt
+= \frac{1}{T}\frac{e^{j2\pi (k-m) f_{\Delta}T}-1}{j2\pi (k-m) f_{\Delta}}.
+\]
+
+This is zero iff
+\( e^{j2\pi (k-m) f_{\Delta}T}=1 \), i.e.
+\( (k-m) f_{\Delta} T = \text{integer}. \)
+
+Smallest nonzero spacing (choose integer = 1):
+\( \boxed{f_{\Delta}=\frac{1}{T}}. \)
+
+Subcarrier frequencies:
+\( f_k = k f_{\Delta},\; k=0,\dots,N_c-1 \)
+
+Highest subcarrier (exact):
+\( f_{\max} = (N_c-1)f_{\Delta} = \frac{N_c-1}{T}. \)
+
+Commonly quoted approximate occupied bandwidth:
+\( \boxed{B \approx \frac{N_c}{T}}. \)
+
+
+** Part 2.B
+*Question: Compute numerical values for the given system parameters: \(T=10^{-4}\) s and \(N_c=16\). Specifically:*
+- *2.B-1: minimum subcarrier spacing \(f_{\Delta}\)*
+- *2.B-2: highest subcarrier frequency \(f_{\max}\)*
+- *2.B-3: Nyquist sampling constraint → maximum \(t_{\text{step}}\)*
+  
+*** Formulas Used:
+
+Minimum spacing:
+\( f_{\Delta} = \frac{1}{T}. \)
+
+Highest subcarrier (exact):
+\( f_{\max} = \frac{N_c-1}{T}. \)
+
+If we treat total bandwidth as \(B \approx \frac{N_c}{T}\), Nyquist sampling requires
+\( f_s \ge 2B \Rightarrow t_{\text{step}} \le \frac{1}{2B} = \frac{T}{2N_c}. \)
+
+NUMERICAL RESULTS:
+
+2.B-1:
+\( f_{\Delta} = \frac{1}{T} = \frac{1}{10^{-4}} = 10^4\ \text{Hz} = \boxed{10\ \text{kHz}}. \)
+
+2.B-2:
+\( f_{\max} = \frac{N_c-1}{T} = \frac{15}{10^{-4}} = 1.5\times10^5\ \text{Hz} = \boxed{150\ \text{kHz}}. \)
+
+2.B-3 (Nyquist max step):
+\( t_{\text{step,max}} = \frac{T}{2N_c} = \frac{10^{-4}}{2\cdot16} = \frac{10^{-4}}{32} = 3.125\times10^{-6}\ \text{s} = \boxed{3.125\ \mu\text{s}}. \)
+
+* Part 2.C1:
+Question: *How many samples per OFDM symbol when \(t_{\text{step}}=T/N_c\)?*
+
+Formula & Answer:
+\( N_s = \frac{T}{t_{\text{step}}} = \frac{T}{T/N_c} = \boxed{N_c}. \)
+
+** PART 2.C2 {example k=2}:
+:PROPERTIES:
+:ID:       801802c6-697a-42cd-98c8-d0a484e1f6dc
+:END:
+Question: *Write sampled subcarrier expression.*
+\( f_{\Delta} = \frac{1}{T},\quad t_n = n\frac{T}{N_c},\quad
+x_k(t)=\frac{1}{\sqrt{T}} e^{j2\pi k f_{\Delta} t}. \)
+
+[[file:../../../MacShots/Part_2.C1:/2025-11-29_09-36-51_screenshot.png]]
+
+** PART 2.C4:
+:PROPERTIES:
+:ID:       be8805db-d59e-42cd-b9fd-33675ca56f9a
+:END:
+Question: *Fill accumulation line.*
+
+OFDM sum:
+\( x(t)=\sum_{k=0}^{N_c-1} s(k)\frac{1}{\sqrt{T}}e^{j2\pi k f_{\Delta} t}. \)
+
+#+DOWNLOADED: screenshot @ 2025-11-29 09:37:25
+[[file:../../../MacShots/Part_2.C1:/2025-11-29_09-37-25_screenshot.png]]
+
+
+* PART 2.C7 & 2.C9 {IFFT relation}:
+:PROPERTIES:
+:ID:       b35abf5e-3bd8-4e20-a3a3-d82dd1ffe33f
+:END:
+Question: *Show sampled xt relates to IFFT and give scaling.*
+
+Sampled:
+\( x_t(n)=\frac{1}{\sqrt{T}}\sum_{k=0}^{N_c-1} s(k)e^{j2\pi kn/N_c}. \)
+
+IFFT:
+\( \mathrm{ifft}(s)_n=\frac{1}{N_c}\sum_{k=0}^{N_c-1} s(k)e^{j2\pi kn/N_c}. \)
+
+Relation:
+\( \boxed{x_t(n)=\frac{N_c}{\sqrt{T}}\mathrm{ifft}(s)_n.} \)
+
+MATLAB:
+xt = (Nc/sqrt(T)) * ifft(s_vector);
+
+[[file:../../../MacShots/PART_2.C7_&_2.C9_{IFFT_relation}:/2025-11-29_09-38-34_screenshot.png]]
+
+
+[[file:../../../MacShots/PART_2.C7_&_2.C9_{IFFT_relation}:/2025-11-29_09-39-10_screenshot.png]]
+
+** Maximum Error is
+:PROPERTIES:
+:ID:       18ded38f-dac6-4759-9a4e-054e951c8e1b
+:END:
++ 3.999e-12
+
+PART 4.A:
+QUESTION:
+Show demodulation integral recovers s(n).
+
+Demodulator:
+\( s(n)=\int_0^T x(t)\frac{1}{\sqrt{T}} e^{-j2\pi n f_{\Delta} t}\,dt. \)
+Substitute and use orthogonality → recovers \(s(n)\).
+
+
+[[file:../../../MacShots/PART_2.C7_&_2.C9_{IFFT_relation}:/2025-11-29_09-42-45_screenshot.png]]
+
+** PART 5.B2
+
+*** Question
+For each of the lines in bold, explain what the variable on the left-hand side represents and justify how the right-hand side expression is formulated.
+*** Parameter Definitions and Mathematical Justification
+**** Nf = 10
+Number of OFDM symbols transmitted per frame.
+Each frame contains Nf OFDM symbols used for BER estimation.
+**** Nc = 16
+Number of subcarriers per OFDM symbol.
+Each OFDM symbol consists of Nc independent QPSK symbols.
+**** T = 10e-5
+Duration of one OFDM symbol (seconds).
+**** f_delta = 1/T
+Subcarrier spacing derived from orthogonality condition:
+\( f_{\Delta} = \frac{1}{T} \)
+**** t_step = T/Nc
+Sampling interval.
+**** t_vector = 0:t_step:(T - t_step)
+Time indices for waveform reconstruction.
+Mathematically:
+\( t_n = n \frac{T}{N_c}, \quad n = 0,1,...,N_c-1 \)
+
+**** Ns = length t_vector
+Number of samples in one OFDM symbol.
+**** Eb = 1
+Normalized bit energy.
+**** EbN0dBvector = 0:3:9
+Signal-to-noise ratios used for BER testing.
+**** EbN0 = 10^{EbN0dB/10}
+Conversion from dB to linear:
+\( \frac{E_b}{N_0} = 10^{\frac{E_b/N_0(dB)}{10}} \)
+**** N0 = Eb/EbN0
+Noise spectral density:
+\( N_0 = \frac{E_b}{E_b/N_0} \)
+**** vn = N0/{2*t_step}
+Noise variance:
+\( \sigma^2 = \frac{N_0}{2T_s} \)
+**** data_symbols_in_OFDMsymbol = sign(rand(1,Nc)-0.5) + j*sign(rand(1,Nc)-0.5)
+QPSK symbol generation:
+
+\( s = (2b_I - 1) + j(2b_Q - 1) \)
+**** xt = xt + s_k * subcarrier_matrix{k+1,:}
+OFDM modulation:
+\( x(t) = \sum s(k)\phi_k(t) \)
+**** noise = sqrt{vn}*{randn + j*randn}
+Additive white Gaussian noise:
+\( n(t) \sim \mathcal{N}(0, \sigma^2) \)
+**** rt_frame = OFDM_frame + noise
+Channel model:
+\( r(t) = x(t) + n(t) \)
+**** D = t_step * sum{r .* conj{\phi_k}}
+Demodulation via correlation:
+\( \hat{s}(k) = \int_0^T r(t)\phi_k^*(t) \, dt \)
+
+** PART 5.B3
+
+*** Question
+:PROPERTIES:
+:ID:       a0038b9b-6739-4c75-b4d9-8e181a7452a5
+:END:
+Execute the m-file and capture the simulated BER graph.
+
+[[file:../../../MacShots/PART_2.C7_&_2.C9_{IFFT_relation}:/2025-11-29_10-07-49_screenshot.png]]
+
+*** Answer
+The MATLAB program was executed and BER was plotted as a function of \( E_b/N_0 \).
+Observations:
+- At low SNR, BER ≈ 0.5
+- At high SNR, BER → 0
+- The simulated curve closely follows theory.
+  
+** PART 5.B4
+
+*** Question
+Change Nc, Nf and T and observe the BER.
+
+*** Part (a) Answer
+:PROPERTIES:
+:ID:       5550b28e-d734-4de4-b197-32cd052cfdca
+:END:
+
+New parameter values used:
+
+- Nc = 32
+- Nf = 15
+- T = 2e-4
+
+After execution, a new BER graph was generated and recorded.
+
+*** Part (b) Answer
+:PROPERTIES:
+:ID:       155bf33b-7f61-400e-aa47-8cab83fe7375
+:END:
+[[file:../../../MacShots/PART_2.C7_&_2.C9_{IFFT_relation}:/2025-11-29_10-09-43_screenshot.png]]
+
+The BER curve does not significantly change.
+
+Explanation:
+
+BER is a function only of:
+
+\( \frac{E_b}{N_0} \)
+
+Thus:
+
+\( BER_{OFDM} = BER_{QPSK} \)
+
+OFDM does not reduce BER in AWGN.
+
+** PART 5.B5
+*** Question
+Change the system to BPSK per subcarrier.
+
+*** MATLAB Modifications
+
+**** OLD (QPSK)
+data = sign(rand(1,Nc)-0.5) + j*sign(rand(1,Nc)-0.5);
+
+**** NEW (BPSK)
+data = sign(rand(1,Nc)-0.5);
+
+**** OLD DETECTION
+sign(real(D)) + j*sign(imag(D))
+
+**** NEW DETECTION
+sign(real(D))
+
+**** OLD BIT COUNT
+bitcnt = bitcnt + Nc*Nf*2;
+
+**** NEW COUNT
+bitcnt = bitcnt + Nc*Nf;
+
+*** Explanation
+
+BPSK transmits 1 bit per symbol:
+\( s \in \{-1, +1\} \)
+
+** PART 5.B6
+*** Question
+Execute the modified BPSK simulation.
+*** Answer
+The BER curve shifts left compared to QPSK.
+Conclusion:
+\( BER_{BPSK} < BER_{QPSK} \)
+BPSK achieves the same reliability at lower SNR.

@@ -1,0 +1,261 @@
+#+title: M3L3 Report
+#+TITLE: Maximum Likelihood Detection for Binary Transmission over AWGN Channel
+This report studies maximum likelihood (ML) detection for binary transmission over an additive white Gaussian noise (AWGN) channel. The theoretical decision rule is derived, and MATLAB simulations are implemented to evaluate the bit error rate (BER) performance for different signal amplitudes. Theoretical and simulated results are compared.
+
+
+* Section 1.A — Likelihood Functions
+
+*Question:* Determine the probability density functions (PDFs) of the decision variable \( z \) assuming bit ‘1’ or bit ‘0’ is transmitted.
+
+*System Model:*
+
+\[
+z = a_i + n_0
+\]
+
+
+\[
+n_0 \sim \mathcal{N}(0, \sigma_0^2)
+\]
+
+*Gaussian PDF Formula:*
+\[
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{- \frac{(x-\mu)^2}{2\sigma^2}}
+\]
+
+*Final PDFs:*
+
+\[
+f_{z|s_1}(z) = \frac{1}{\sqrt{2\pi\sigma_0^2}} 
+\exp\left( - \frac{(z-a_1)^2}{2\sigma_0^2} \right)
+\]
+
+\[
+f_{z|s_2}(z) = \frac{1}{\sqrt{2\pi\sigma_0^2}} 
+\exp\left( - \frac{(z-a_2)^2}{2\sigma_0^2} \right)
+\]
+
+
+** Section 1.B — Likelihood Ratio Test
+
+*Question:*  Derive the ML likelihood ratio using Bayes’ theorem.
+
+*Bayes' Theorem:*
+\[
+P(s_i|z) = \frac{f(z|s_i) P(s_i)}{f(z)}
+\]
+
+*Likelihood Ratio Definition:*
+\[
+\Lambda(z) = \frac{P(s_1|z)}{P(s_2|z)}
+\]
+
+*Derivation:*
+
+\[
+\Lambda(z) = \frac{f(z|s_1) P(s_1)}{f(z|s_2) P(s_2)}
+\]
+
+
+*** Section 1.B{*b*} — Equal Priors
+
+For equally likely bits:
+
+\[
+P(s_1) = P(s_2) = \frac{1}{2}
+\]
+
+So the likelihood ratio becomes:
+
+\[
+\Lambda(z) = \frac{f(z|s_1)}{f(z|s_2)}
+\]
+
+
+*** Section 1.B{*c*} — Closed Form Likelihood Expression
+
+Substitute Gaussian PDFs:
+
+\[
+\Lambda(z) = \exp\left(
+-\frac{(z-a_1)^2 - (z-a_2)^2}{2\sigma_0^2}
+\right)
+\]
+
+Expand:
+
+\[
+(z-a_2)^2 - (z-a_1)^2 = a_1^2 - a_2^2 + 2z(a_2 - a_1)
+\]
+
+Final expression:
+
+\[
+\Lambda(z) =
+\exp\left(
+\frac{a_1^2 - a_2^2}{2\sigma_0^2}
+ \frac{z(a_1 - a_2)}{\sigma_0^2}
+\right)
+\]
+
+
+** Section 1.C — ML Decision Threshold
+
+*Decision Rule:*
+\begin{cases}
+1, & \Lambda(z) > 1 \\
+0, & \Lambda(z) < 1
+\end{cases}
+
+Taking the log:
+
+\[
+z > \frac{a_1+a_2}{2}
+\]
+
+*Final ML Detector:*
+
+\begin{cases}
+1, & z > \frac{a_1+a_2}{2} \\
+0, & z < \frac{a_1+a_2}{2}
+\end{cases}
+
+
+* Decision Regions
+
+\[
+R_1 = \{ z : z > \frac{a_1+a_2}{2} \}
+\]
+
+\[
+R_2 = \{ z : z < \frac{a_1+a_2}{2} \}
+\]
+
+*** Section 1.D — BER Derivation
+
+Error occurs when:
+
+\[
+P_e = Q\left( \frac{a_1 - a_2}{2\sigma_0} \right)
+\]
+
+Equivalent form:
+
+\[
+P_e = \frac{1}{2} \operatorname{erfc}
+\left( \frac{a_1 - a_2}{2\sqrt{2}\sigma_0} \right)
+\]
+
+
+**** Section 1.E — Equal BER Conditions
+
+Equal BER occurs when:
+
+\[
+\frac{a_1 - a_2}{\sigma_0} = \text{constant}
+\]
+
+***** Section 1.F — Minimum BER with Fixed Energy
+
+Given:
+
+\[
+a_1^2 + a_2^2 = \text{constant}
+\]
+
+Minimum BER occurs for:
+
+\[
+a_1 = -a_2
+\]
+
+(antipodal signaling)
+
+* Section 2.A — Simulation Logic
+
+Noise is generated as:
+
+\[
+n_0 = \sqrt{\sigma_0^2} \cdot \mathcal{N}(0,1)
+\]
+
+In MATLAB:
+
+#+BEGIN_SRC matlab
+n0 = randn * sqrt(vn);
+#+END_SRC
+
+Reason: randn() generates unit-variance Gaussian noise.
+
+Bit generation:
+
+#+BEGIN_SRC matlab
+d = (rand > 0.5);
+#+END_SRC
+
+Ensures equal probability of ‘1’ and ‘0’.
+
+
+** Section 2.B — BER Simulation and Plot
+:PROPERTIES:
+:ID:       66f1d889-90ed-4943-b8a9-8b982917569b
+:END:
+
+*MATLAB Output:*
+BER is simulated for varying values of \( a_1 \) using:
+
+[[file:../../../MacShots/Section_2.A_—_Simulation_Logic/2025-11-29_10-49-06_screenshot.png]]
+
+
+#+BEGIN_SRC matlab
+ figure
+ semilogy(a1_vector, BER)
+xlabel('a_1')
+ylabel('BER')
+grid on
+ #+END_SRC
+
+Theoretical BER:
+
+#+BEGIN_SRC matlab
+BER_exact = 0.5 * erfc((a1_vector - a2_vector) ./ (2*sqrt(vn)) / sqrt(2));
+hold on
+semilogy(a1_vector, BER_exact, 'r')
+#+END_SRC
+
+
+* Explanation
+
+As \( a_1 \) increases, the distance between signal levels grows, reducing overlap between Gaussian PDFs. Thus BER decreases exponentially.
+
+
+*** Section 2.D — Unequal Priors
+
+Given:
+
+\[
+P(s_1) = \frac{1}{10}, \quad P(s_2) = \frac{9}{10}
+\]
+
+New likelihood:
+
+\[
+\Lambda(z) = \frac{f(z|s_1) P(s_1)}{f(z|s_2) P(s_2)}
+\]
+
+New threshold:
+
+\[
+z > \frac{a_1+a_2}{2}
+ \frac{\sigma_0^2}{a_1 - a_2}
+\ln\left(\frac{P(s_2)}{P(s_1)}\right)
+\]
+
+*Interpretation:*
+Threshold moves toward \( s_1 \) because \( s_2 \) is more likely.
+
+
+* Conclusion
+
+ML detection minimizes BER over an AWGN channel. Analytical BER matches simulation, validating theory. Theoretical expressions correctly predict all trends observed from MATLAB.
+

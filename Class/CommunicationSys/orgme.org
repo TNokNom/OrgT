@@ -1,0 +1,320 @@
+* EE3601 Electric Machines – EXTENDED CHEAT SHEET
+This is a fully expanded reference including AC analysis, transformers, synchronous machines,
+induction motors, DC motors/generators, magnetic circuits, per-unit system, and exam-level identities.
+
+All formulas are given using LaTeX. Org renders them automatically.
+
+---
+
+* AC CIRCUIT ANALYSIS
+
+** Impedance and Phasors
+- Impedance:
+  \( Z = R + jX \)
+  \( |Z| = \sqrt{R^2 + X^2} \)
+  \( \theta = \tan^{-1}(X/R) \)
+
+- Reactances:
+  \( X_L = \omega L \)
+  \( X_C = -\frac{1}{\omega C} \)
+
+- Current:
+  \( I = \frac{V}{Z} \)
+
+- Power factor:
+  \( \text{PF} = \cos(\theta) \)
+
+- Phasor RMS:
+  \( V_{\text{rms}} = \frac{V_m}{\sqrt{2}} \)
+
+** AC Power
+- Real power:
+  \( P = VI \cos\theta \)
+
+- Reactive power:
+  \( Q = VI \sin\theta \)
+
+- Apparent:
+  \( S = P + jQ = VI^* \)
+  \( |S| = \sqrt{P^2 + Q^2} \)
+
+** Three-Phase Systems (Balanced)
+- Power:
+  \( P_{3\phi} = \sqrt{3} V_L I_L \cos\theta \)
+  \( Q_{3\phi} = \sqrt{3} V_L I_L \sin\theta \)
+  \( S_{3\phi} = \sqrt{3} V_L I_L \)
+
+- Y/Δ Relations:
+  - Y:
+    \( V_\phi = \frac{V_L}{\sqrt{3}} \)
+    \( I_\phi = I_L \)
+  - Δ:
+    \( V_\phi = V_L \)
+    \( I_\phi = \frac{I_L}{\sqrt{3}} \)
+
+** Complex Power Using Phasors
+If:
+\( V = V_m \angle \alpha \)
+\( I = I_m \angle \beta \)
+Then:
+\( S = VI^* = V_m I_m \angle (\alpha - \beta) \)
+
+---
+
+* TRANSFORMERS
+
+** Turns Ratio and Referred Values
+- Turns ratio:
+  \( a = \frac{N_1}{N_2} = \frac{V_1}{V_2} \)
+
+- Referred impedances:
+  \( R_2' = a^2 R_2 \)
+  \( X_2' = a^2 X_2 \)
+  \( V_2' = a V_2 \)
+  \( I_2' = \frac{I_2}{a} \)
+
+** Open-Circuit Test (core parameters)
+Given \( V_{oc}, I_{oc}, P_{oc} \):
+- Core resistance:
+  \( R_c = \frac{V_{oc}^2}{P_{oc}} \)
+
+- Magnetizing reactance:
+  \( I_c = \frac{V_{oc}}{R_c} \)
+  \( I_m = \sqrt{I_{oc}^2 - I_c^2} \)
+  \( X_m = \frac{V_{oc}}{I_m} \)
+
+** Short-Circuit Test (series parameters)
+Given \( V_{sc}, I_{sc}, P_{sc} \):
+- Equivalent impedance:
+  \( Z_{eq} = \frac{V_{sc}}{I_{sc}} \)
+
+- Resistance:
+  \( R_{eq} = \frac{P_{sc}}{I_{sc}^2} \)
+
+- Reactance:
+  \( X_{eq} = \sqrt{Z_{eq}^2 - R_{eq}^2} \)
+
+** Voltage Regulation
+\( \text{VR} = \frac{V_{nl} - V_{fl}}{V_{fl}} \)
+
+** Efficiency
+\( \eta = \frac{P_{out}}{P_{out} + P_{cu} + P_{core}} \)
+
+** Transformer EMF Equation (important!)
+\( E = 4.44 f N \phi_{\text{max}} \)
+
+---
+
+* SYNCHRONOUS MACHINES
+
+** Speed and Frequency
+- Synchronous speed:
+  \( n_s = \frac{120 f}{P} \)
+
+- Mechanical angular:
+  \( \omega_m = 2\pi \frac{n}{60} \)
+
+- Electrical angular:
+  \( \omega_e = p \cdot \omega_m \)
+
+** Voltage Equation (per-phase)
+\( E_f = V_t + I_a(R_a + jX_s) \)
+
+** Power Output
+\( P = 3 V_t I_a \cos\theta \)
+
+** Power Angle Curve
+\( P = \frac{3EV}{X_s} \sin\delta \)
+\( P_{\text{max}} = \frac{3EV}{X_s} \)
+
+** Torque
+\( T = \frac{P}{\omega_m} \)
+
+** Tests:
+- DC Test → \( R_a \)
+- Short Circuit → \( Z_s \)
+- Open Circuit → magnetization curve
+
+** Synchronous Reactance
+\( X_s = \sqrt{Z_s^2 - R_a^2} \)
+
+** Efficiency & Loading
+Armature copper loss:
+\( P_{cu} = 3 I_a^2 R_a \)
+
+---
+
+* INDUCTION MOTORS
+
+** Slip and Speed
+Slip:
+\( s = \frac{n_s - n}{n_s} \)
+
+Rotor speed:
+\( n = (1 - s)n_s \)
+
+Rotor electrical frequency:
+\( f_r = s f \)
+
+** Torque Relations
+- Developed torque:
+  \( T = \frac{P_{conv}}{\omega_m} \)
+
+- Main approximation:
+  \( T \propto \frac{sE^2}{R_2^2 + (sX_2)^2} \)
+
+** Maximum Torque
+Occurs at:
+\( s_{max} = \frac{R_2}{X_2} \)
+
+Magnitude:
+\( T_{max} \propto \frac{E^2}{2X_2} \)
+
+** Power Flow Diagram
+Stator input → air-gap power \( P_{ag} \) → rotor copper loss \( sP_{ag} \) → converted power \( (1-s)P_{ag} \)
+
+** Important Efficiency Relationship
+Mechanical output:
+\( P_{out} = (1 - s)P_{ag} - P_{\text{mech loss}} \)
+
+---
+
+* DC MACHINES
+
+** EMF and Torque
+Back EMF:
+\( E = k\phi\omega \)
+
+Torque:
+\( T = k\phi I_a \)
+
+** Motor Equation
+\( V = E + I_a R_a \)
+
+** Generator Equation
+\( V = E - I_a R_a \)
+
+** Speed Equation (Shunt Motor)
+\( n \approx \frac{V - I_a R_a}{k\phi} \)
+
+** Starting Resistance Calculation
+\( I_{start} = \frac{V}{R_a + R_s} \)
+Solve:
+\( R_s = \frac{V}{I_{start}} - R_a \)
+
+** Power
+Mechanical:
+\( P_{mech} = T\omega \)
+
+Electrical:
+\( P_{elec} = VI \)
+
+---
+
+* MAGNETIC CIRCUITS
+
+** Reluctance
+\( \mathcal{R} = \frac{l}{\mu A} \)
+
+** MMF
+\( \mathcal{F} = NI \)
+
+** Flux
+\( \phi = \frac{NI}{\mathcal{R}} \)
+
+** Induced Voltage
+General form:
+\( E = N\frac{d\phi}{dt} \)
+
+Sinusoidal:
+\( E = 4.44fN\phi_{max} \)
+
+** Permeability
+\( \mu = \mu_0 \mu_r \)
+
+---
+
+* PER-UNIT SYSTEM
+
+** Base Quantities
+\( Z_{base} = \frac{V_{base}^2}{S_{base}} \)
+\( I_{base} = \frac{S_{base}}{\sqrt{3} V_{base}} \)
+
+** Per-Unit Conversion
+\( x_{pu} = \frac{x_{\text{actual}}}{x_{\text{base}}} \)
+
+** Voltage Bases
+For transformers:
+Both sides need consistent base values.
+
+---
+
+* ASCII EQUIVALENT CIRCUITS
+
+** Transformer Model
+#+BEGIN_SRC
+      ---- Rc -----
+     |             |
+     |             Xm
+     |             |
+ V --+-- Req + jXeq ---- Load
+#+END_SRC
+
+** Induction Motor Per-Phase Model
+#+BEGIN_SRC
+ R1 + jX1 ---- ideal transformer ---- R2'/s + jX2'
+                         |
+                         Xm
+#+END_SRC
+
+---
+
+* EXTENDED PRACTICE PROBLEMS (30 TOTAL)
+
+** AC Analysis
+1. A 10 kVA load at 0.7 lagging PF is supplied at 240 V. Find I, P, Q, S.
+2. Compute θ for Z = 6 + j8.
+3. Given V = 120∠0°, I = 10∠–53°, compute P, Q, S.
+
+** Transformers
+4. A transformer has N1=400, N2=80. Reflect a 5Ω load.
+5. OC test: Voc=240V, Ioc=1.2A, Poc=90W → find Rc, Xm.
+6. SC test: Vsc=20V, Isc=8A, Psc=75W → find Req, Xeq.
+7. Compute VR for Vnl=125V, Vfl=115V.
+8. Compute efficiency for given P_out=2kW, losses=120W.
+
+** Synchronous Machines
+9. 4-pole, 60Hz machine: find ns.
+10. Generator with Vt=480V LL, Ia=45A, PF=0.9 lag: find 3φ power.
+11. Compute Ef given Vt and armature drop.
+12. Given E=240V, Vt=208V, find torque angle δ.
+13. Compute torque for P=12kW at 1800rpm.
+
+** Induction Motors
+14. A 6-pole 60Hz motor runs at 1165 rpm → find slip.
+15. For slip s=0.04, find rotor frequency.
+16. Compute torque from mechanical output 3kW at 1750rpm.
+17. Find s_max given R2=0.5Ω, X2=1.1Ω.
+18. A 50hp motor: compute mechanical torque.
+
+** DC Machines
+19. V=250V, Ra=0.4Ω, limit Istart=60A → find Rs.
+20. E=150V at 1200rpm → find E at 1800rpm.
+21. Compute torque for φ=0.015Wb, Ia=12A, k=1.2.
+22. DC shunt machine: find speed drop due to armature reaction.
+
+** Magnetic Circuits
+23. Compute reluctance for l=0.1m, μ=4000μ0, A=2e−4 m².
+24. Find flux for 200 turns, 0.5A field current.
+25. Compute induced emf for φ=0.02 sin(314t).
+
+** Per-Unit
+26. Compute Zbase for 480V, 25kVA.
+27. Convert 0.5Ω to PU.
+28. Convert current to PU for 3φ system.
+29. PU voltage regulation example.
+30. PU impedance transformation across transformer.
+
+---
+
+* END OF EXTENDED CHEAT SHEET

@@ -1,0 +1,114 @@
+:PROPERTIES:
+:ID:       f7778cc8-4b7e-45ff-832c-c298afdf9354
+:END:
+[[file:../../../MacShots/2025-11-02_20-56-59_screenshot.png]]
+
+[[file:../../../MacShots/2025-11-02_20-58-03_screenshot.png]]
+
+
+[[file:../../../MacShots/2025-11-02_21-06-53_screenshot.png]]
+
+[[file:../../../MacShots/2025-11-02_21-08-51_screenshot.png]]
+#+TITLE: Hilbert Transform & SSB Lab Report
+#+AUTHOR:
+#+DATE:
+
+* Goal
+
+- Compute Hilbert transform in MATLAB
+- Form analytic signal
+- Build SSB modulator in Simulink
+- Verify spectra
+
+* 1. Theory
+     ** 1.A Analytic Signal Spectrum
+     Show:
+     ( Z(\omega)=F(\omega), (\omega>0),;0, (\omega\le0) )
+     Using (z(t)=\frac12(f(t)+j\hat f(t))) and
+     (\hat F(\omega)=\begin{cases}-jF,&\omega>0\jF,&\omega<0\end{cases}).
+     Negative terms cancel → only positive frequencies.
+
+** 1.B Key Property
+Real: symmetric spectrum
+Analytic: only positive frequencies
+
+** 1.C Convolution
+(\hat f(t)=f(t)*\frac{1}{\pi t})
+
+** 1.D AM Case
+If (\omega_c>B):
+(\mathcal{A}{f(t)\cos\omega_ct}=\frac12 f(t)e^{j\omega_ct})
+
+** 1.E Sketches
+*Insert 5 triangle‑spectrum sketches here (1.E‑1 → 1.E‑5)*
+
+* 2. MATLAB Results
+     ** Load & Plot
+     *Insert f(t) plot*
+
+** Hilbert Transform Code
+*Insert code screenshot*
+
+** Overlay
+*Insert overlay plot (f + (\hat f))*
+Shows 90° phase shift.
+
+** Zoom
+*Insert zoom screenshot*
+
+Notes:
+
+* Linear: bigger (f) → bigger (\hat f)
+* (\mathcal{H}{\cos\omega t}=\sin\omega t) → (\pi/2) shifter
+* Zero‑cross ↓ → (\hat f>0); zero‑cross ↑ → (\hat f<0)
+
+- 3. Simulink
+     ** 3.A Analytic Signal
+     Blocks:
+
+* From File: f
+* From File: (\hat f)
+* Gain: j
+* Add: + +
+* Gain: 1/2
+* Spectrum Analyzer
+
+Outputs:
+| Block | Output |
+| From File | f |
+| From File1 | (\hat f) |
+| Gain j | (j\hat f) |
+| Add | (f+j\hat f) |
+| Gain 1/2 | analytic signal |
+
+*Insert model screenshot*
+*Insert spectrum screenshot (only +freqs)*
+
+** Verify (3.A-3)
+Yes — the analytic signal spectrum shows only positive frequencies, which matches the result proven in 1.A.
+
+** 3.B SSB Modulation
+(\omega_c=2\pi(11,000)) rad/s
+Signal:
+(\frac12(f\cos\omega_ct-\hat f\sin\omega_ct))
+
+Blocks:
+
+* From File (f)
+* From File ((\hat f))
+* Sine (phase 0) = (\sin\omega_ct)
+* Sine (phase (\pi/2)) = (\cos\omega_ct)
+* Product, Product1, Add (+−), Gain 1/2
+
+*Insert SSB model screenshot*
+*Insert spectrum screenshot (USB only)*
+
+** Verify (3.B-3)
+The spectrum shows only the upper sideband, matching the theoretical result in 1.E-5. Both theory and simulation produce a single shifted copy of the baseband spectrum with no lower sideband, so they are consistent.
+
+* Conclusion
+  Verified:
+
+- Hilbert = (\pi/2) shift
+- Analytic → positive frequencies only
+- SSB via Hilbert method works

@@ -1,0 +1,73 @@
+#+title: Perl Introduction Notes 
+#+filetags: :Perl:
+* Code 
++ "*my*" in perl is how we declare a lexical variable 
+  * It exist only in the block its declared
+    * It cannot be leaked globally 
+      * It cannot be accidentally overwritten 
+#+begin_src perl
+ {
+    my $x = 10;
+ }
+ print $x;   # ERROR
+
+#+end_src 
+
+** Types
++ A scalar in this case is a single value container and is denoted with a *$*
+  * It can hold (numbers,strings,references,undefined)
+#+begin_src perl
+my $delay = 0.125;
+my $cell = "NAND2_X1";
+#+end_src
++ Important note is perl does not strongly separate types 
+  * It simply auto-converts as needed 
+#+begin_src perl
+my $x = "10";
+print $x + 5;   # prints 15
+#+end_src 
+
+
+: 1
+
++ Next is arrays which are represented with an *@*
+  
++ Hashes are represented with *%*
+*** Strings 
++ Perl is strong in operating on strings 
+  * We can do things like concatenate, increment,decrement,
+#+begin_src perl
+$string1 = "potato";
+$string2 = "head";
+$newstring = $string1. $string2;
+
+#+end_src
+* Modules 
++ Modules are similar to libraries in other coding languages like python and C
+  * It is a reusable library file containing a collection of related functions and variables that
+     are organized in their own distinct name space 
++ Our libraries are contained in files with the extension "pm" so "*strict.pm*";
+  
+** Strict
++ The strict module forces compile-time restrictions on our code 
+  * These restrictions go as followed 
+    1. You must declare variables (*my*)
+    2. No symbolic references 
+    3. No bare words (*accidental strings*);
++ These rules are in place because in perl (*without strict*) it will silently create new variables
+  
+** Warning 
++ The warning module enables runtime warning for
+  1. Using uninitialized variables
+  2. Numeric vs string misuse
+  3. Suspicious comparisons 
+#+begin_src perl
+ my $value;
+print $value + 1;
+#this is wrong but it will still compile and print nothing if we were to not use the warning module
+#+end_src
+     
+  #+begin_src perl
+  use strict;
+  use warnings;
+  #+end_src 

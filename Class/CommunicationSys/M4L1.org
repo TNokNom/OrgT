@@ -1,0 +1,380 @@
+#+TITLE: M4L1
+
+* 1. Theory of QPSK
+
+** 1.A Derivation of Equation (22.2)
+
+The QPSK passband signal is:
+\[
+s_i(t) = \sqrt{\frac{2E_s}{T_s}} \cos(\omega_c t - \phi_i)
+\]
+
+The orthonormal basis functions are:
+\[
+\psi_1(t)=\sqrt{\frac{2}{T_s}}\cos(\omega_c t),
+\quad
+\psi_2(t)=\sqrt{\frac{2}{T_s}}\sin(\omega_c t)
+\]
+
+The goal is to show:
+\[
+s_i(t) = \sqrt{E_s}\cos(\phi_i)\psi_1(t) + \sqrt{E_s}\sin(\phi_i)\psi_2(t)
+\]
+
+*** 1.A1 Direct expansion using cosine identity
+Using:
+\[
+\cos(A-B)=\cos A\cos B + \sin A\sin B
+\]
+
+\[
+s_i(t)=\sqrt{\frac{2E_s}{T_s}}
+\left[
+\cos(\omega_c t)\cos(\phi_i) + \sin(\omega_c t)\sin(\phi_i)
+\right]
+\]
+
+Group terms:
+\[
+s_i(t)
+=\sqrt{E_s}\cos(\phi_i)\left(\sqrt{\frac{2}{T_s}}\cos(\omega_c t)\right)
++\sqrt{E_s}\sin(\phi_i)\left(\sqrt{\frac{2}{T_s}}\sin(\omega_c t)\right)
+\]
+
+Thus:
+\[
+s_i(t)=\sqrt{E_s}\cos(\phi_i)\psi_1(t)+\sqrt{E_s}\sin(\phi_i)\psi_2(t).
+\]
+
+*** 1.A2 Vector-space approach
+
+**** (a) Compute coordinates
+The x-coordinate is:
+\[
+x_i = \int_0^{T_s} s_i(t)\psi_1(t)\,dt = \sqrt{E_s}\cos(\phi_i)
+\]
+
+Similarly:
+\[
+y_i = \int_0^{T_s} s_i(t)\psi_2(t)\,dt = \sqrt{E_s}\sin(\phi_i)
+\]
+
+Thus coordinates:
+\[
+(x_i,y_i)=\left(\sqrt{E_s}\cos\phi_i,\; \sqrt{E_s}\sin\phi_i\right)
+\]
+
+**** (b) Reconstruction
+A signal expressed in an orthonormal basis is:
+\[
+s_i(t)=x_i\psi_1(t)+y_i\psi_2(t)
+\]
+Substitute the coordinates to obtain (22.2).
+
+---
+
+** 2.B Substitute QPSK phase values
+
+Phases from Table 22.1:
+
+| Bits | φ_i        | s_i(t) expression |
+| 11   | π/4        | √E_s cos(π/4)ψ1 + √E_s sin(π/4)ψ2 |
+| 10   | −π/4       | √E_s cos(−π/4)ψ1 + √E_s sin(−π/4)ψ2 |
+| 01   | 3π/4       | √E_s cos(3π/4)ψ1 + √E_s sin(3π/4)ψ2 |
+| 00   | −3π/4      | √E_s cos(−3π/4)ψ1 + √E_s sin(−3π/4)ψ2 |
+
+Explicit values:
+- cos(π/4)=sin(π/4)=√2/2
+- cos(3π/4)=−√2/2, sin(3π/4)=+√2/2
+- cos(−θ)=cosθ, sin(−θ)=−sinθ
+
+This produces the four constellation points at (±√E_s/√2, ±√E_s/√2).
+
+---
+
+** 1.E Mary PSK extension
+
+*** 1.E-1 Coordinates for M = 8
+General M-PSK phase:
+\[
+\phi_i=\frac{2\pi(i-1)}{M}
+\]
+
+Coordinates:
+\[
+x_i=\sqrt{E_s}\cos\left(\frac{2\pi(i-1)}{8}\right)
+\qquad
+y_i=\sqrt{E_s}\sin\left(\frac{2\pi(i-1)}{8}\right)
+\]
+
+Thus for i = 1…8, angles are:
+0°, 45°, 90°, 135°, 180°, 225°, 270°, 315°.
+
+The eight points form a circle of radius √E_s.
+
+*** 1.E-2 Relationship between E_s and E_b
+Each 8-PSK symbol carries:
+\[
+\log_2 8 = 3 \text{ bits}
+\]
+
+Thus:
+\[
+E_b = \frac{E_s}{3}
+\]
+
+---
+
+* 2. QPSK Transmitter in Simulink
+
+** 2.A Design and identification of blocks
+(Fig. 22.1)
+
+| Block | Meaning |
+| Bernoulli Generators | produce random b_I, b_Q bits |
+| Unipolar–Bipolar converters | map {0,1} → {−1,+1} |
+| Gain blocks | scale amplitudes to match √E_s |
+| Sine Wave blocks | generate ψ₁(t), ψ₂(t) |
+| Product blocks | perform modulation: x(t)ψ₁ + y(t)ψ₂ |
+| Scope | displays waveforms |
+| Output ports | si(t), b_I, b_Q |
+
+*** 2.A-2 Justification of Table 22.2 parameters
+- Ts = 1 → sample time of Bernoulli is 1.  
+- Boolean output ensures correct digital data.  
+- Unipolar→bipolar ensures ±1 values needed for BPSK components.  
+- Gain = 4 ensures \(E_b = 16\).  
+- Sinusoids at 30 Hz (60π rad/s) produce the desired carrier.  
+- Sample time = 1/256 matches required 256 samples per symbol.
+
+---
+
+** 2.B Symbol duration and simulation length
+
+*** 2.B-1 Simulation time for 20 symbols
+Since \(T_s = 1\,\text{s}\), 20 symbols require:
+\[
+T_{\text{sim}} = 20\,\text{s}
+\]
+
+*** 2.B2 Scope screenshot
+#+CAPTION: Waveforms of bI, bQ, and si(t)
+
+---
+
+** 2.C Bandwidth comparison of xt, yt, sit
+
+x(t) and y(t) are baseband BPSK signals with identical bandwidth.  
+si(t) = x(t)ψ₁(t) + y(t)ψ₂(t) is a linear combination of *orthogonal* carriers at the same frequency.
+
+Because ψ₁ and ψ₂ differ only by a 90° phase shift, they do not widen the spectrum;  
+si(t) retains the same bandwidth as each component.
+
+
+** 2.D Creation of QPSK_TX subsystem
+#+CAPTION: QPSK_TX subsystem screenshot
+
+
+* 3. QPSK Receiver in Simulink
+
+** 3.A Receiver construction
+
+*** 3.A-1 Integration interval justification
+256 samples per symbol → Integrate and Dump must integrate exactly 1 symbol:
+\[
+256\ \text{samples}
+\]
+
+*** 3.A-2 Receiver design screenshot
+#+CAPTION: Completed receiver
+
+*** 3.A-3 Parameter windows
+#+CAPTION: Sine Parameters
+
+#+CAPTION: Integrate & Dump Parameters
+
+---
+
+** 3.B Verify operation of Integrate and Dump
+
+*** 3.B-1 Screenshot
+#+CAPTION: Integrator output waveform
+
+*** 3.B-2 Explanation
+The output produces a staircase-like pattern: each symbol produces one correlation value.  
+This confirms proper symbol-by-symbol integration.
+
+---
+
+** 3.C Bit detection using Compare To Constant
+We use:
+- Operator “>”
+- Threshold = 0
+
+Because bipolar BPSK produces decision variable z:
+- z > 0 → bit = 1  
+- z < 0 → bit = 0  
+
+---
+
+** 3.D Compare transmitted and detected b_I
+
+#+CAPTION: bI and detected bI waveforms
+
+*** 3.D-2 Bit delay justification
+Integrate & Dump outputs *after* one full symbol interval, so detection is delayed by one bit duration.
+
+---
+
+** 3.E Repeat for Q channel
+#+CAPTION: Q-channel bit comparison
+
+
+** 3.F Constellation diagram
+
+*** 3.F-1 Modified mdl/slx screenshot
+
+*** 3.F-2 Constellation screenshot
+#+CAPTION: Constellation (1000 symbols, properly scaled)
+
+
+* 4. SNR, AWGN, and Phase Error Effects
+
+** 4.A Compute noise variance for Eb/N0 = 13 dB
+
+1. Convert Eb/N0 to linear:
+\[
+\text{Eb/N0}_{lin} = 10^{13/10}
+\]
+\[
+= 19.9526
+\]
+
+2. Given Eb = 16:
+\[
+N_0 = \frac{E_b}{Eb/N0} = \frac{16}{19.9526}=0.802
+\]
+
+3. Noise variance (per sample):
+\[
+\sigma^2 = \frac{N_0}{2\,t_{\text{step}}}
+= \frac{0.802}{2 \times (1/256)}
+= 0.802 \times 128
+= 102.656
+\]
+
+** 4.B Constellation at Eb/N0 = 13 dB
+
+** 4.C Constellation for Eb/N0 = 1, 15, 30 dB
+- SNR ↑ → cloud tightens  
+- SNR ↓ → cloud spreads
+
+Each higher Eb/N0 gives more compact clusters.
+
+** 4.D Phase error effects
+
+With noise variance = 0:
+
+*** 4.D-1 Constellation with π/4 phase error
+#+CAPTION: π/4 phase shift
+
+*** 4.D-2 Phase errors 15°, 30°, 60°
+All points rotate by the imposed phase shift, confirming theoretical prediction.
+
+---
+
+* 5. BER Simulation Using sim()
+
+** 5.A Parameter window screenshots
+#+CAPTION: Bernoulli Parameters
+
+#+CAPTION: Noise Generator parameters
+
+#+CAPTION: Error Rate Calc
+
+#+CAPTION: To Workspace
+
+#+CAPTION: Gain Block
+
+
+** 5.B Completed QPSK_BER.slx
+#+CAPTION: BER model complete
+
+---
+
+** 5.C M-file completion
+
+*** 5.C-1 Completed code
+
+#+BEGIN_SRC matlab
+clear
+Nerrs = 50;
+EbN0dB_vector=[0 1 3 5 7];
+Eb = 16; t_step = 1/256;
+
+for n=1:length(EbN0dB_vector)
+
+    EbN0dB = EbN0dB_vector(n);
+    EbN0   = 10^(EbN0dB/10);      % Convert dB to linear
+    N0     = Eb/EbN0;
+    v_n    = N0/(2*t_step);       % Noise variance expression
+
+    sim('QPSK_BER')
+    BER_vector(n) = BER(1);
+
+    BER_theory(n)=0.5*erfc(sqrt(EbN0));
+end
+
+figure
+semilogy(EbN0dB_vector, BER_vector)
+hold on
+semilogy(EbN0dB_vector, BER_theory,'r')
+legend('Simulated','Theory');grid on; hold off
+#+END_SRC
+
+*** 5.C2 Results
+
+(a) BER curve:
+
+(b) Yes — QPSK BER matches BPSK BER.
+
+*** 5.C3 Why QPSK BER = BPSK BER
+Because QPSK consists of two independent orthogonal BPSK channels, each bit sees the same noise environment and decision rule as BPSK.
+
+
+** 5.C-4 BER with phase errors (π/6 and π/2)
+#+CAPTION: BER with phase error π/6
+
+#+CAPTION: BER with phase error π/2
+
+
+** 5.C-5 Theoretical BER with phase error
+
+*** (a) Derivation
+For QPSK under phase offset θ:
+\[
+P_b = Q\!\left(\sqrt{\frac{2E_b}{N_0}}\cos\theta\right)
+\]
+
+Phase error reduces effective projection of the signal.
+
+*** (b) Modify BER_theory line
+
+#+BEGIN_SRC matlab
+BER_theory(n)=Q( sqrt(2*EbN0) * cos(pi/6) );
+#+END_SRC
+
+*** (c) Comparison
+Simulated and theoretical BER curves match closely for θ = π/6.
+
+#+CAPTION: BER with theoretical curve including phase error
+
+
+* Conclusion
+In this laboratory, we successfully derived QPSK signal expressions, implemented a
+complete QPSK transmitter and receiver in Simulink, examined constellation and
+bandwidth properties, simulated AWGN and phase-error effects, and generated BER
+results consistent with theory. The results confirm orthogonality of QPSK channels,
+BER equivalence to BPSK, and the expected behavior of phase rotations and noise
+variance.
+

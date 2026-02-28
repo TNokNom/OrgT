@@ -1,0 +1,245 @@
+#+TITLE: M3L3 Report
+
+* Section 1 — Likelihood function and ML detection
+
+** 1.A — Conditional PDFs (answer)
+The decision variable at sampling instant \(T\) is
+\[
+z = \begin{cases}
+a_1 + n_0, & \text{if bit '1' (signal } s_1 \text{) transmitted},\\
+a_2 + n_0, & \text{if bit '0' (signal } s_2 \text{) transmitted},
+\end{cases}
+\]
+where \(n_0\sim\mathcal{N}(0,\sigma_0^2)\).
+
+Thus the conditional PDFs are Gaussian:
+\[
+f_{z|s_1}(z) = \frac{1}{\sqrt{2\pi\sigma_0^2}}\exp\!\bigg(-\frac{(z-a_1)^2}{2\sigma_0^2}\bigg),
+\]
+\[
+f_{z|s_2}(z) = \frac{1}{\sqrt{2\pi\sigma_0^2}}\exp\!\bigg(-\frac{(z-a_2)^2}{2\sigma_0^2}\bigg).
+\]
+
+** 1.B — Likelihood ratio and simplification
+By Bayes' theorem:
+\[
+P(s_i\mid z)=\frac{f_{z|s_i}(z)P(s_i)}{f_z(z)}.
+\]
+Hence the likelihood ratio is (equation (16.5)):
+\[
+\Lambda(z)=\frac{P(s_1\mid z)}{P(s_2\mid z)}
+=\frac{f_{z|s_1}(z)P(s_1)}{f_{z|s_2}(z)P(s_2)}.
+\]
+
+If \(P(s_1)=P(s_2)=\tfrac12\), priors cancel and
+\[
+\Lambda(z)=\frac{f_{z|s_1}(z)}{f_{z|s_2}(z)}.
+\]
+
+Substitute the Gaussian PDFs and simplify to get (equation (16.7)):
+\[
+\Lambda(z)=\exp\!\left(-\frac{a_1^2-a_2^2}{2\sigma_0^2}+\frac{z(a_1-a_2)}{\sigma_0^2}\right).
+\]
+
+** 1.C — ML decision rule and regions
+ML rule: choose '1' if \(\Lambda(z)>1\). Using the expression above and assuming \(a_1>a_2\) yields the threshold rule (equation (16.9)):
+\[
+\boxed{\hat d = 
+\begin{cases}
+1, & z > \dfrac{a_1+a_2}{2},\\[6pt]
+0, & z < \dfrac{a_1+a_2}{2}.
+\end{cases}}
+\]
+
+Decision regions:
+\[
+R_1=\left\{z:\ z>\frac{a_1+a_2}{2}\right\},\qquad
+R_2=\left\{z:\ z<\frac{a_1+a_2}{2}\right\}.
+\]
+
+** 1.D — Error probability of ML detector
+
+*** 1.D-1(a) — Error event when '1' is transmitted (fill-in)
+If '1' is transmitted, an error ( \(\hat d='0'\) ) happens when \(z\) is *smaller than* the threshold \(\dfrac{a_1+a_2}{2}\).  
+\[
+\text{Error if '1' sent: } z < \frac{a_1+a_2}{2}.
+\]
+
+*** 1.D2 — BER formula derivation
+
+For '1' sent, \(z=a_1+n_0\). Thus
+\[
+P(\text{error}\mid s_1)=P\!\Big(a_1+n_0<\frac{a_1+a_2}{2}\Big)
+= P\!\Big(n_0< -\frac{a_1-a_2}{2}\Big).
+\]
+Standardize with \(\sigma_0\):
+\[
+P_e = Q\!\left(\frac{a_1-a_2}{2\sigma_0}\right)
+= \frac{1}{2}\operatorname{erfc}\!\left(\frac{a_1-a_2}{2\sqrt{2}\,\sigma_0}\right).
+\]
+(With equal priors the BER equals this value — symmetry.)
+
+*** 1.D-3 — Numerical BERs for the five cases
+Using
+\[
+P_e = \tfrac12\operatorname{erfc}\!\Big(\dfrac{a_1-a_2}{2\sqrt{2}\,\sigma_0}\Big),
+\quad \sigma_0=\sqrt{\sigma_0^2},
+\]
+the computed values are:
+
+| Case | \(a_1,a_2,\sigma_0^2\) | \(\sigma_0\) | \(P_e\) |
+|---:|---|---:|---:|
+| 1 | \(8,\ -8,\ 4\)         | \(2\)     | \(3.1671241833\times10^{-5}\) |
+| 2 | \(2,\ -2,\ 0.25\)      | \(0.5\)   | \(3.1671241833\times10^{-5}\) |
+| 3 | \(1,\ -1,\ 0.5\)       | \(\sqrt{0.5}\) | \(7.8649603525\times10^{-2}\) |
+| 4 | \(4,\ 0,\ 0.25\)       | \(0.5\)   | \(3.1671241833\times10^{-5}\) |
+| 5 | \(10,\ -6,\ 4\)        | \(2\)     | \(3.1671241833\times10^{-5}\) |
+
+
+*** 1.D4a — Compare BERs
+Cases *1, 2, 4, and 5* have the same BER (\(\approx 3.1671\times10^{-5}\)). Case 3 differs and is much larger (\(\approx 0.07865\)).
+
+*** 1.D4b — Condition for equal BER
+From the BER expression the argument of \(Q(\cdot)\) is
+\[
+\frac{a_1-a_2}{2\sigma_0}.
+\]
+Thus two settings produce the same BER **iff**
+\[
+\frac{a_1-a_2}{\sigma_0} = \text{constant}.
+\]
+Equivalently,
+\[
+\boxed{ \frac{a_1-a_2}{\sqrt{\sigma_0^2}} \ \text{is equal for the setups} }.
+\]
+
+*** 1.D4c — Consistency
+Yes — the observed equal BERs (cases 1,2,4,5) satisfy the same normalized separation \((a_1-a_2)/\sigma_0 = 8\), hence identical BER.
+
+*** 1.D-5 — Minimize BER under fixed energy
+\(a_1^2+a_2^2=C\)
+We want to maximize \(|a_1-a_2|\) subject to \(a_1^2+a_2^2=C\). This is achieved when \(a_1=-a_2\) (antipodal signaling). Then
+\[
+a_1^2+a_2^2=2a_1^2=C \Rightarrow a_1=\pm\sqrt{C/2},\ a_2=-a_1.
+\]
+Therefore the BER is minimized by \(a_1=-a_2=\pm\sqrt{C/2}\).
+
+*Section 1 — MATLAB snippet (compute the five BERs)*
+#+BEGIN_SRC matlab
+% compute BERs for specified cases
+a1_vec = [8, 2, 1, 4, 10];
+a2_vec = [-8, -2, -1, 0, -6];
+vn_vec = [4, 0.25, 0.5, 0.25, 4];   % vn = sigma0^2
+Pe_vec = 0.5 * erfc(((a1_vec - a2_vec) ./ (2*sqrt(2) .* sqrt(vn_vec))));
+disp(Pe_vec)
+% Expected: [3.1671e-05, 3.1671e-05, 7.86496e-02, 3.1671e-05, 3.1671e-05]
+#+END_SRC
+
+* Section 2 — BER simulation MATLAB implementation and answers
+*** PART 1 — single trial (sanity check)
+#+BEGIN_SRC matlab
+% PART 1 - one trial
+a1 = 1;
+a2 = -1;
+vn = 1.5;       % sigma0^2
+n0 = randn * sqrt(vn);
+d = (rand > 0.5);   % equally likely bits
+if d == 1
+    z_nonoise = a1;
+end
+if d == 0
+    z_nonoise = a2;
+end
+z = z_nonoise + n0
+% PART 2 - make decision by ML rule (16.9)
+if z > (a1 + a2)/2
+    d_estimate = 1;
+end
+if z < (a1 + a2)/2
+    d_estimate = 0;
+end
+decision_check = (d_estimate == d); % 1 if correct, 0 if error
+#+END_SRC
+
+#+BEGIN_SRC matlab
+% PART 2 - Monte Carlo estimate (fill in Nid)
+Nid = 1182;    % replace 1182 with last three digits of your student ID
+a1 = 1;
+a2 = -1;
+vn = 1.5;
+
+errcnt = 0;
+bitcnt = 0;
+while errcnt < Nid
+    d = (rand > 0.5);
+    if d == 1, z_nonoise = a1; end
+    if d == 0, z_nonoise = a2; end
+    n0 = randn * sqrt(vn);
+    z = z_nonoise + n0;
+    if z > (a1 + a2)/2, d_estimate = 1; end
+    if z < (a1 + a2)/2, d_estimate = 0; end
+    if d_estimate ~= d
+        errcnt = errcnt + 1;
+    end
+    bitcnt = bitcnt + 1;
+end
+BER = errcnt / bitcnt
+#+END_SRC
+
+** 2.B — BER vs \(a_1\) curve (antipodal: \(a_2=-a_1\)) — full code**
+:PROPERTIES:
+:ID:       2f6ef5c5-6e3f-4b09-a0e5-ffa68e0ac1e3
+:END:
+This is the required plot. The code below runs the outer loop over `a1_vector` and produces the simulated BERs and overlays the theoretical BER.
+
+#+BEGIN_SRC matlab
+% BER vs a1 (antipodal)
+Nid = 1182; 
+vn = 1.5;
+
+a1_vector = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5];
+BER = zeros(1, length(a1_vector));
+
+for n = 1:length(a1_vector)
+    a1 = a1_vector(n);
+    a2 = -a1;
+    errcnt = 0;
+    bitcnt = 0;
+    while errcnt < Nid
+        d = (rand > 0.5);
+        if d == 1, z_nonoise = a1; end
+        if d == 0, z_nonoise = a2; end
+        n0 = randn * sqrt(vn);
+        z = z_nonoise + n0;
+        if z > (a1 + a2)/2, d_estimate = 1; end
+        if z < (a1 + a2)/2, d_estimate = 0; end
+        if d_estimate ~= d
+            errcnt = errcnt + 1;
+        end
+        bitcnt = bitcnt + 1;
+    end
+    BER(n) = errcnt / bitcnt;
+end
+
+figure;
+semilogy(a1_vector, BER, 'o-', 'LineWidth', 1.5)
+xlabel('a_1'); ylabel('BER'); grid on; hold on;
+
+% overlay theoretical BER
+a2_vector = -a1_vector;
+BER_exact = 0.5 * erfc(((a1_vector - a2_vector) ./ (2*sqrt(vn))) ./ sqrt(2));
+semilogy(a1_vector, BER_exact, 'r-', 'LineWidth', 2);
+legend('Simulated BER', 'Theoretical BER', 'Location', 'southwest')
+title('BER vs a_1 (antipodal, vn=1.5)')
+% save the figure
+exportgraphics(gcf,'ber_plot.png','Resolution',300)
+savefig('ber_plot.fig')
+#+END_SRC
+[[file:../../../MacShots/Section_2_—_BER_simulation_(MATLAB_implementation_and_answers)/2025-11-29_10-59-10_screenshot.png]]
+
+
+** 2.B3 — Explanation why BER decreases with a1
++ BER decreases because increasing \(a_1\) (with \(a_2=-a_1\)) increases the separation \(|a_1-a_2|=2|a_1|\). The clearer separation relative to noise standard deviation \(\sigma_0\) reduces the overlap of the conditional
+
+  + Gaussian PDFs and thus reduces error probability \(P_e=Q\!\big(\dfrac{a_1-a_2}{2\sigma_0}\big)\).
+

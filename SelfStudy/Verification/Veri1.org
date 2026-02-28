@@ -27,4 +27,3 @@
 + In random stimulus we generate a random amount of test cases to cover a wide range os possible situations or conditions
   * These test are constrained means we abide by some set of rules or limitations that ensure that the input test still make sense
   * The data field is usually the easiest to test. We can call on the $random() function in order to do this
-+

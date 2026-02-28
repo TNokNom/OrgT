@@ -6,9 +6,6 @@ import argparse
 import os
 
 
-# -----------------------------
-# Utility & propagation models
-# -----------------------------
 def centroid_position(users):
     return np.mean(users, axis=0)
 
@@ -19,7 +16,6 @@ def weighted_centroid_position(users, weights):
 
 
 def fspl_db(distance_m, freq_hz=2.4e9):
-    # Free-space path loss in dB (distance in meters)
     if distance_m < 1e-3:
         distance_m = 1e-3
     d_km = distance_m / 1000.0
@@ -42,9 +38,6 @@ def shannon_throughput_mbps(bw_hz, snr_db):
     return capacity_bps / 1e6
 
 
-# -----------------------------
-# Scenario generation
-# -----------------------------
 def generate_outdoor_users(
     n_users=10, area_center=(0.0, 0.0), area_radius=150.0, seed=1
 ):
@@ -63,10 +56,6 @@ def generate_indoor_users(n_users=6, room_size=(12.0, 9.0), seed=2):
     return np.vstack([xs, ys]).T
 
 
-# -----------------------------
-# Pipeline
-# -----------------------------
-def run_pipeline(
     n_outdoor=10,
     n_indoor=6,
     room_size=(12, 9),
@@ -137,9 +126,6 @@ def run_pipeline(
     return df, meta, outdoor, indoor_world
 
 
-# -----------------------------
-# Plotting & main
-# -----------------------------
 def plot_and_save(df, meta, outdoor_pts, indoor_pts, out_dir="outputs"):
     os.makedirs(out_dir, exist_ok=True)
     # Positions
@@ -176,7 +162,6 @@ def plot_and_save(df, meta, outdoor_pts, indoor_pts, out_dir="outputs"):
     plt.savefig(pos_path, bbox_inches="tight")
     plt.close()
 
-    # Throughput bar
     avg_init = df["th_init_mbps"].mean()
     avg_centroid = df["th_centroid_mbps"].mean()
     avg_weighted = df["th_weighted_mbps"].mean()

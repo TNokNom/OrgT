@@ -1,0 +1,15 @@
+#+title: Voltage Controller Oscillator(VCO)
+
+* What Is An Oscillator
++ Essentially a oscillator who's frequency can be controlled by an external voltage source
+   * Denoted as the control voltage
++ In a typical oscillator the frequency is usually controlled by passive components
+   (Resistor,Capacitors,Inductors)
+  * For this setup we need variable components and we need to manually change their values in order
+     to change their frequency
++ A VCO takes away this problem. By changing the control voltage we can directly influence the frequency level
+* Types Of VCOs
+** Harmonic Oscillator
++ Harmonic Oscillators generate sinusoidal signals
+** Relaxation Oscillator
++ Relaxation Oscillator generate square,sawtooth,or triangular waves

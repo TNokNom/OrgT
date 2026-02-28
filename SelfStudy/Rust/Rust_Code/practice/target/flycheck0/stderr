@@ -1,0 +1,14 @@
+    Updating crates.io index
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (Connection timed out after 30031 milliseconds)
+warning: spurious network error (2 tries remaining): [28] Timeout was reached (Connection timed out after 30006 milliseconds)
+warning: spurious network error (1 try remaining): [28] Timeout was reached (Connection timed out after 30031 milliseconds)
+error: failed to get `rand` as a dependency of package `practice v0.1.0 (/home/tnom/OrgT/SelfStudy/Rust/Rust_Code/practice)`
+
+Caused by:
+  download of config.json failed
+
+Caused by:
+  failed to download from `https://index.crates.io/config.json`
+
+Caused by:
+  [28] Timeout was reached (Connection timed out after 30015 milliseconds)
