@@ -3,6 +3,7 @@
 :END:
 #+title: Basic Current Mirrors And Single-Stage Amplifiers
 #+filetags: :Tony:Analog:
+#+author: TNomNOM
 * Source Follower
 
 [[file:../../../MacShots/2025-08-02_23-49-32_screenshot.png]]
