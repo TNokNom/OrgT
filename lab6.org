@@ -1,0 +1,56 @@
+#+title: Lab 6 Discussion Questions
+
+** 1. Why is the range of the ADC output 0–4095?
+
+The ADC is configured for 12-bit resolution, so it can represent
+$2^{12} = 4096$ distinct digital codes.
+
+Each code corresponds to a fraction of the reference voltage
+approximately $0\ \text{V}$ to $3.3\ \text{V}$ into integers
+from $0$ to $4095$.
+
+** 2. What is T_{ADC} for the current ADC1 settings? 
+
+The total conversion time of an SAR ADC is
+
+$T_{ADC} = T_{sampling} + T_{conversion}$
+
+Using the project settings:
+
+- ADC sampling time: 3 cycles 
+- ADC clock prescaler: PCLK2/2 
+- With HSI = 16 MHz and APB2 = 16 MHz, the ADC clock is
+  $f_{ADC} = 16\ \text{MHz} / 2 = 8\ \text{MHz}$
+
+Sampling time:
+
+- $T_{sampling} = 3 / f_{ADC} = 3 / (8\ \text{MHz}) = 0.375\ \mu s$
+
+- $T_{conversion} = 12.5 / f_{ADC} = 12.5 / (8\ \text{MHz}) = 1.5625\ \mu s$
+
+Total conversion time:
+
+- $T_{ADC} = 0.375\ \mu s + 1.5625\ \mu s = 1.9375\ \mu s \approx 1.94\ \mu s$
+
+** 3. Purpose of each function/macro used
+
+*** a. HAL_ADC_Start(ADC_HandleTypeDef *hadc)
+
+Starts the ADC conversion process for the configured ADC and channel.
+In software trigger mode, this begins sampling and conversion so that
+a new ADC result will be produced.
+
+*** b. HAL_ADC_PollForConversion{ADC_HandleTypeDef *hadc, uint32_t Timeout)
+
+Blocks execution until the ADC reports that the conversion is complete.This ensures
+that the ADC result is ready before it is read.
+
+*** c. uint32_t HAL_ADC_GetValue(ADC_HandleTypeDef *hadc)
+
+Returns the most recent ADC conversion result from the ADC data
+register.
+
+*** d. __HAL_TIM_SET_COMPARE{HANDLE, CHANNEL, COMPARE}
+
+Writes a value to the timer compare register (CCR) for the selected
+channel.

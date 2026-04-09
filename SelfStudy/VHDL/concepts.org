@@ -1,0 +1,51 @@
+#+title: VHDL Concepts Explanation
+#+filetags: :VHDL:
+
+* For Loops 
+ + Loops in VHDL work different than those in C
+  * Loops live inside of a process or subprogram
+    * They can't be declared directly inside the architecture 
+#+begin_src vhdl
+  loop_label: for i in 0 to 7 loop
+    -- Your sequential code here
+    result(i) <= input_a(i) and input_b(i);
+end loop loop_label;
+    
+#+end_src
+** Key Rules 
+#+begin_src  vhdl
+architecture Behavioral of ArrayShifter is
+    type int_array is array (0 to 7) of integer;
+    signal my_data : int_array := (0, 1, 2, 3, 4, 5, 6, 7);
+    signal idx     : integer range 0 to 7 := 0;
+begin
+
+    process(clk)
+        -- We use a variable for 'temp' because variables update instantly
+        variable temp : integer;
+    begin
+        if rising_edge(clk) then
+            
+            -- 1. Assign the current array value to the output
+            output_port <= my_data(idx);
+
+            -- 2. Update the index or Reverse the array
+            if idx < 7 then
+                idx <= idx + 1;
+            else
+                -- We reached the end! Reset index and reverse the array.
+                idx <= 0;
+                
+                -- This loop completes entirely within ONE clock cycle
+                for i in 0 to 3 loop 
+                    temp := my_data(i);
+                    my_data(i)   <= my_data(7 - i); -- Swap front with back
+                    my_data(7 - i) <= temp;
+                end loop;
+            end if;
+            
+        end if;
+    end process;
+
+end Behavioral;
+#+end_src

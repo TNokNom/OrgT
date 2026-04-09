@@ -1,4 +1,6 @@
+#+title: me
 * Introduction to C
+
 + C is one of the oldest and most influential programming languages out there.
   * Even though it’s old, it’s still used everywhere — from operating systems to microcontrollers.
 + C gives you direct control over memory and hardware.
@@ -52,7 +54,9 @@ int main() {
 }
 #+end_src
 
+#+RESULTS:
 | Hello | World! |
+
 
 + Line by line:
   * #include <stdio.h> — gives you access to standard input/output functions like `printf`.
