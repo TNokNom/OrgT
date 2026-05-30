@@ -1,0 +1,28 @@
+#+title: Spice Language Notes
+#+filetags: :miscellaneous:
+* Simulation Commands 
+ * Simulation Commands allow us to tell spice what analysis to run
+** .op
+ * This is operating point analysis 
+ * Its used to find the *DC Steady State* voltages and currents
+   - Capacitors = open circuits
+   - Inductors = short circuits
+   - time = infinite steady state
+ * It can calculate (node voltages, current through sources, transistor bias points)
+ #+begin_src v
+ .control
+ op
+.endc
+ #+end_src
+** .tran
+ * This is transient analysis 
+ * Used to simulate time behavior 
+   
+** .ac
+ * AC frequency response(*bode plot*)
+ * This is used to analyze frequency response 
+** .dc
+ * Used for traditional dc analysis 
+** .control
+ * This is our control block 
+ * All our commands are stored in here 
