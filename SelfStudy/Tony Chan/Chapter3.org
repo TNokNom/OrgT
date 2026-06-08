@@ -3,17 +3,14 @@
 :END:
 #+title: Basic Current Mirrors And Single-Stage Amplifiers
 #+filetags: :Tony:Analog:
-#+author: TNomNOM
-* Source Follower
-
-[[file:../../../MacShots/2025-08-02_23-49-32_screenshot.png]]
+#+author: TNomNom
 
 * Current Mirror
 + The image above is a simple current mirror
   * It allows for an ideal current source with low input resistance and high output resistance
   * We look to replicate the \(I_{in}\) current to the Q2 transistor through \(I_{out}\)
 
-** Circuit Breakdown
+** Circuit Breakdown/Notes
 + The small signal model and the output resistance derivation is shown below
   * For Q1 the output resistance would be \(R_{in}\)
 *** Small signal model of Q1
@@ -22,8 +19,36 @@
 :END:
 [[file:../../../MacShots/Current_Mirror/2025-08-02_23-55-13_screenshot.png]]
 + We inject a small test voltage Vy in order to calculate the output resistance \(r_{ds1}\)
- * Using OHMS law, we know that the output resistance \(r_{in}\) has to equal \(r_{in} = \frac{V_{y}}{r_{ds1}\)
- * Using KCL we get \(i_{y}  = g_{m1}V_{gs1} + \frac{V_{y}}{r_{ds1}}\)
+  * Using OHMS law, we know that the output resistance \(r_{in}\) has to equal \(r_{in} = \frac{V_{y}}{I_{y}\)
+  * Using KCL we get \(i_{y}  = g_{m1}V_{gs1} + \frac{V_{y}}{r_{ds1}}\)
+  * Giving us an output resistance of \(r_{ds1}\)
+
+* Common Source 
+:PROPERTIES:
+:ID:       192e6ad8-4d0d-46f8-b947-e86bf65f1c9b
+:END:
+[[file:../../../MacShots/Common_Source/2026-05-30_21-35-59_screenshot.png]]
+
++ One of the main gain stages used 
+  * It's primary trait is its *High Input Impedance*
+  * Allows us to avoid using large resistors or large power supply voltages
++ Output is taken from the drain 
+  * Output resistances is also seen at the Vout node 
+    
+** Circuit Breakdown/Notes 
++  $\downarrow$ Important note during analysis regarding KCL at the Vout node
+  * For this equation \(\frac{V_{out}} {R_{2}} = - g_{m1}v_{in}\) *gm1* is negative due to the fact it's moving in the same direction as 
+     the current coming from the *vout node* 
+
+*** Small Signal Model
+:PROPERTIES:
+:ID:       42f45443-351c-469d-aeab-3aecccbf8400
+:END:
+[[file:../../../MacShots/Common_Source/2026-05-30_21-35-29_screenshot.png]]
+- The reason $Rin$ exist here is due to the internal resistance seen with the power supply 
+  - it can be seen as the Thevenin's equivalent of the input source 
+
+
 
 * Source Follower Or Common Drain Amplifier
 :PROPERTIES:
@@ -38,9 +63,10 @@
 + Now for the circuit above Q2 the current mirror is an active load that supplies the bias current for Q1
   * This gain for this circuit is unity which is < 1. This is due to the fact that this circuit isn't needed for voltage gain
      it's there to help drive loads
-** Circuit Analysis
+** Circuit Analysis/Notes
 + For this circuit the body effect comes into play
    * The source isn't held at small signal ground
++ Typically the gain of this circuit is less than unity due to the limits the body effect introduce 
 *** Small Signal Model
 :PROPERTIES:
 :ID:       d562b83b-4e2d-46bb-87d1-6e7e9162aaf5
@@ -54,10 +80,19 @@ https://youtube.com/shorts/MBTZFWCCpAs?si=ComMpmaMcQpptbTo
 :ID:       0448bb31-622f-495f-b7f8-3a51328ac708
 :END:
 [[file:../../../MacShots/Common_Gate_Amplifier/2025-08-05_18-59-45_screenshot.png]]
- + The Common Gate amplifier is known for its relatively small input impedance
+ + The Common Gate amplifier is known for its relatively small input impedance (Due to the fact the input is applied to the source)
    * It can also be used in applications where the first stage has an input signal that is a current
    * This is useful due to the fact we want to preserve all of the current signal
-+ Acts as a *Current Buffer*
+** Circuit Analysis/Notes
+:PROPERTIES:
+:ID:       5c9d0752-f257-47e0-9703-8c02b751d582
+:END:
++ Primary benefit os this circuit is it acts as a *Current Buffer* 
+  * For this circuit we are primarily concerned with the input resistance 
++ It can be noted that the gain of the Common Gate is roughly the product of \(g_{m} \cdot r_{@ the drain}\)
++ Here the gain equation $\downarrow$
+ [[file:../../../MacShots/Common_Gate_Amplifier/2026-06-04_21-09-53_screenshot.png]]
+ 
 * Source Degenerated Current Mirrors
 :PROPERTIES:
 :ID:       c4f5bc3b-ec07-4bf7-9188-f28729214bdc
@@ -171,3 +206,30 @@ If \( V_{in1} = 1.1 \, \text{V} \) and \( V_{in2} = 0.9 \, \text{V} \):
 :ID:       0d58c779-6f2a-4585-97d9-5075b140a6f9
 :END:
 [[file:../../../MacShots/Diff_Amp_Continued/2025-10-15_15-18-56_screenshot.png]]
+
+* Cascode Gain Stage
+:PROPERTIES:
+:ID:       0c391ced-67cb-4e21-b9f3-584714abf9ba
+:END:
+[[file:../../../MacShots/Cascode_Gain_Stage/2026-06-04_21-16-50_screenshot.png]]
+
++ This configuration is typically used for its high gain for a single stage
+  * This is due to the large impedance at the output 
+  * In order to utilize this high gain, current sources are connected to the output nodes 
+    * This can be something like a common gate setup 
+  * The main drawback is we lose some of the output voltage range compared to that of the 
+     common-source amplifier
+      * This is because we need more of that voltage to keep the transistors in the active region 
+   
++ The second reason for their use is tat they limit the voltage across the input drive transistor 
+  * This helps minimize any short-channel effects 
+    * Also permits the circuit to handle higher output voltages without risking damage 
++ It typically comes in two configurations 
+  * (*a*) telescopic-cascode amplifier 
+  * (*b*) folded-cascode amplifier 
++ The folded cascode provides greater output swing
+  * But it consumes more power due to drain having to bias currents for *Q1* & *Q2*
+    which are drawn in parallel from the supply voltage   
++ While the telescopic cascode share the same dc drain current
+     
+** Circuit Analysis/Notes
