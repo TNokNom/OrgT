@@ -8,7 +8,7 @@
 * Current Mirror
 + The image above is a simple current mirror
   * It allows for an ideal current source with low input resistance and high output resistance
-  * We look to replicate the \(I_{in}\) current to the Q2 transistor through \(I_{out}\)
+  * We look to replicate the \(I_{in}\) current to the Q2 transistor through \(I_{Out}\)
 
 ** Circuit Breakdown/Notes
 + The small signal model and the output resistance derivation is shown below

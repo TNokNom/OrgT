@@ -36,3 +36,23 @@ void foo() {
 }
 
 #+end_src
+#+begin_src cpp
+#include <stdio.h>
+int main(){
+int a = 3;    
+int b = 4;
+if (a < b){
+   printf ("TOO"); 
+}
+else{
+    printf ("meep");
+}
+}
+#+end_src
+
+#+RESULTS:
+: TOO
+
+: TOO
+
+
