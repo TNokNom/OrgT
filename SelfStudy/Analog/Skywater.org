@@ -1,0 +1,78 @@
+
+* Minimum Dimensions {1.8}  For Analog Applications
++ Minimum Length \(L_{min}\) 
+  * 0.15 $\mu m$ (150 nm) 
+  * This $\uparrow$ will be the lowest for analog applications using this pdk
+  * Though for digital applicaitons this limit changes 
+    
++ Minimum Width \(W_{min}\)
+  * 0.42 $\mu m$(420 nm)
+  * This $\uparrow$ will be the lowest for analog applications using this pdk
+  * Though for digital applications this limit changes 
+    
+** Important Notes 
++ Analog Best Practice: For precision analog design (like current mirrors, differential pairs, or op-amps), you should almost never use the absolute minimum length of 0.15 μm anyway. Short-channel effects and threshold voltage (Vth​) mismatch are quite severe at 150 nm in this process. Designers typically scale the length up to at least 0.5 μm or 1 μm for better output impedance (ro​) and matching.
+    
+* In xschem     
+ + In xschem you'll see the dimensions written as (1 x 1 / 0.15)
+   * The second "x 1" is the number of fingers (multipliers)
+     * This is donne because in analog design instead of drawing a massive/wide transistor  
+       * It can be sliced up into multiple parallel pieces called *fingers* to help compact the layout 
+          and to reduce parasitic capacitance 
+ + The formula is Total Width=(Number of Fingers) × (Width per Finger) 
+   * 1 x 1 / 0.15: 1 finger x 1 $\mu m$ wide/ 0.15 $\mu m$ long 
+     * Total width = 1 $\mu m$ 
+   * 4 x 2 / 0.15: 4 finger x 2 $\mu m$ wide/ 0.15 $\mu m$ long 
+     * Total width = 8 $\mu m$
+       
+* Layout considerations  
+Choosing the right number of fingers is one of those classic "analog design trade-offs" where you balance layout geometry, speed, and noise.
+
+There isn't a single mathematical formula that spits out the perfect number of fingers, but there are a few strict practical layout rules and electrical guidelines you can follow to decide.
+1. The Layout Rule of Thumb: Aspect Ratio
+
+A good layout should look like a neat square or a reasonable rectangle. If you have a massive transistor with a total width (Wtotal​) of 40 μm and a length of 0.15 μm, drawing it as a single finger (1×40/0.15) results in a long, skinny "wire" of a transistor that is a nightmare to route.
+
+    The Fix: Break it into fingers. If you use 10 fingers, each finger is 4 μm wide (10×4/0.15). This clusters the gates closely together, creating a square-shaped layout that is much easier to wire up and fits neatly next to other components.
+
+    Target Finger Width: In the SkyWater 130nm process, keeping individual finger widths (Wfinger​) between 1 μm and 5 μm is usually a safe, sweet spot for analog routing.
+
+2. The Electrical Reason: Reducing Parasitics (Rg​ and Cdb​)
+
+Splitting a transistor into fingers fundamentally changes its physics for the better in two ways:
+A. Lowering Gate Resistance (Rg​)
+
+Polysilicon (the gate material) acts like a resistor. If a single finger is too wide, the electrical signal takes time to travel from the contact point down to the end of the gate.  
+
+    By using multiple shorter fingers and tying them together at both ends, you drastically reduce the gate resistance (Rg​). This makes the transistor switch much faster.
+
+B. Sharing Drains to Reduce Capacitance (Cdb​)
+
+When you lay out multiple fingers, they sit side-by-side and can actually share diffusion regions (the source and drain pools).
+
+Instead of every finger needing its own dedicated source and drain, two adjacent fingers can share a single drain pool.
+
+    Why this matters: Less drain area means less parasitic junction capacitance (Cdb​). Lower capacitance directly translates to a faster circuit and higher bandwidth.
+
+3. Matching and Symmetry (For Differential Pairs & Mirrors)
+
+If you are designing a circuit where two transistors must be identical (like a differential pair or a current mirror), you should always use an even number of fingers (e.g., 2, 4, 8).
+
+    Why? An even number of fingers allows you to create a perfectly symmetrical layout layout technique (like "Common Centroid").
+
+    This ensures that manufacturing variations across the silicon chip affect both transistors exactly the same way, preventing offsets.
+
+How to approach it step-by-step:
+
+    Calculate your total width (Wtotal​) required to get your target current or gain from your SPICE simulations.
+
+    Divide that width by a reasonable finger size (e.g., 2 μm or 4 μm).
+
+    Round to a clean integer (and pick an even number if it's for a matching pair).
+
+For example, if your simulation says you need a total width of 24 μm:
+
+    Instead of 1×24/0.15
+
+    Go with 6×4/0.15 (6 fingers, each 4 μm wide) or 8×3/0.15.
+    

@@ -17,12 +17,66 @@
 ** .tran
  * This is transient analysis 
  * Used to simulate time behavior 
-   
+*** Parameters
++ The command goes as follows .tran <Tstep> <Tstop> [<Tstart> [<Tmax>]] [modifiers]
+  * *Tstep* (Plotting Increment): The suggested time increment for saving/plotting data 
+    * During this the simulator can take more steps if there are things in your circuit happening outside
+       of the initial defined steps 
+  * *Tstop* (Stop Time): How long the simulation runs    
+    
+  * *Tstart* (Start Delay-Optional): The time at which the simulator starts saving data.    
+    * Useful if you want to skip something like the initial power-up-turn on behavior 
+      * You can do something like 5ms to 10ms 
+        * You do this by setting the Tstart to 5m 
+
+  * *Tmax* (Maximum Step Size- Optional): Forces the simulator's internal clock to not take steps larger than this
+     value. 
+     * This is necessary for high-frequency circuits to ensure the simulator dosen't skip over fast moving
+        edges 
+      
 ** .ac
  * AC frequency response(*bode plot*)
  * This is used to analyze frequency response 
 ** .dc
- * Used for traditional dc analysis 
++ Our DC Sweep. It's used to see how the circuit reacts to caning DC voltages or current sources 
+  * It does that by instead of time varying, it steps through a range of defined values
+    * A good example is the plot of the diodes I-V characteristics 
+      * Or something like that of an amplifier  
+*** Parameters
++ The command goes as follows .dc <Source_Name> <Start_Val> <Subsequent_Params...>
+  * The exact parameters depend of wether you're doing a linear sweep(*Most Popular*),octave sweep, or decade sweep
++ .dc <Source_Name> <Start_Val> <Stop_Val> <Increment> (*Linear Sweep*)
+  * *Source_Name*: The name of the independent voltage or current source want to sweep   
+    * Something like VG,V1,VDD
+  * *Start_Val*:The starting value of the source.      
+  * *Stop_Val*: The ending value of the source 
+  * *Increment*: The step size between each simulation point
+**** Nested Sweeps 
++ You can sweep up to three sources at the same time
+  * .dc V1 0 5 1 V2 0 3 1 
+    * This will sweep V1 from 0V to 5V every single step of V2 sweeping from
+      0V to 3V 
+      * This is how transistor characteristic curves (IC vs VCE for various IB) are generated 
+    
 ** .control
  * This is our control block 
  * All our commands are stored in here 
+ * Shit q for xschem nvim
+
+* Example Circuit
+:PROPERTIES:
+:ID:       03298b07-87d5-4ef4-8422-d0b5ef026f6d
+:END:
+[[file:../../../MacShots/Example_Circuit/2026-06-23_22-59-42_screenshot.png]]
+ #+begin_src v
+.tran 10u 10m (creats a transient simulation that plots an event every 10 us and last 10 ms)
+
+
+.control 
+run
+gnuplot gp v(VG) v(vout)
+.endc
+ #+end_src
+   
+* For Sky water
+
