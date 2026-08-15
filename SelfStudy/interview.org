@@ -1,0 +1,48 @@
+#+ANKI_DECk: rtx
+
+* How would you troubleshoot a production tool that suddenly goes down during wafer processing 
+:PROPERTIES:
+:ANKI_NOTE_ID: 1786787144802
+:END:
+ * First by making the failure observable assuming that no tool damage will occur by doing this 
+   * Look through alarm logs,event sequence, recipe ran then
+     * Recent process changes or any PMs
+       * After recovery run a lower priority lot to ensure the tool is production ready
+         * Then I would document the root cause, corrective action, recurrence prevention,and update SOP to minimize any future tool downtime 
+* What are the main responsibilities of a semiconductor equipment engineer
+ * Ensuring Tool up time while also ensuring tools are safe,stable, and production ready
+ * My responsibilities include 
+   * Troubleshooting faults
+   * Executing preventive maintenance
+   * Supporting installations
+   * Working with process engineers when tool behavior affects yield,uniformity,or defects
+   * Documentation
+* Explain how vacuum systems work in semiconductor equipment and how you would diagnose poor base pressure 
+ * Vacuum systems remove gas molecules so processes like etch,deposition, and implant can run in a controlled environment.
+   * To diagnose poor base pressure, I first check the gauge health, pump status, 
+   * We can the conduct a rate of rise test to help separate real leaks from out gassing
+   * Next would be checking O-ring seals, chamber hardware, an recent maintenance points 
+   * Valve sequencing 
+        
+* What is out gassing 
+
+
+* What is preventive maintenance, and how do you decide the right PM interval for a tool
+ * Preventive maintenance is scheduled work that prevents predictable degradation before it becomes unplanned downtime 
+   * The OEM interval is a good starting point 
+     * Then adjustment based on chamber hours, wafer count, fault history, and FDC/particle data 
+ * The goal based of all this data is to maximize availability 
+
+
+
+     
+     
+     
+   
+   
+        
+        
+
+   
+ 
+  

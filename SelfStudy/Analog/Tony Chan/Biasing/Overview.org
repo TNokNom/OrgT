@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       0550e803-545a-40d3-80ca-781701073151
+:END:
+#+title: Overview Of Analog IC Biasing Circuits 
+#+filetags: :TonyChan:
+
+[[file:../../../../../MacShots/2026-07-02_10-32-20_screenshot.png]]
+
+* Overview
+** Reference Circuit
++ The Idea behind biasing comes from the inherent non-uniformity in semiconductor manufacturing process 
+  * Where physical variations & mismatches are inevitable 
++ Reference circuits are anything that provides an absolute reference 
+  * as stated above these circuits are not easy to design due to the reasons stated above 
+    * It becomes a difficult task to estimate the necessary variables especially when accounting for the constant changes in the semiconductor manufacturing process 
++ Since looking for thing in an IC that change a lot is difficult especially in the analog domain
+  * The main one used is the bandgap oscilkit
++ Absolute references take the ideology stated above to the next step
+   * They establish some variable (Voltage,Current, or time) that remains immune to fluctuations in semiconductor processing,supply voltages, temperature, etc.
+** Bias Circuit 

@@ -1,0 +1,97 @@
+#+title: Solids
+#+filetags: :Tony:MaterialsScience:
+#+author: TNomNom
+
+* Solids
++ Solids can be classified into the following categories
++ Solids can either be internally crystalline or non-crystalline
+  * Those that are crystalline can be subdivided according to one of 14 different geometric arrays or lattices depending on the placement of atoms
+** Metallic
+:PROPERTIES:
+:ID:       c0803453-bce3-4dd3-a93c-37198be400b1
+:END:
++ Metal atoms release some of their outer electrons
+  * They move freely around positively charged metal ions
+
+*** Characteristics
++ Good electrical conductivity
++ Good thermal conductivity
++ Malleable
++ Ductile (Can be drawn into wires)
++ Strong but deformable
+
+*** Examples
++ Iron
++ Copper
++ Aluminum
+
+** Ionic
++ Ionic bonds form when electrons are transferred from one atom to another
+  * This creates positive and negative ions that attract each other
+
+*** Characteristics
++ Strong bond
++ High melting point
++ Brittle
++ Conducts electricity when molten or dissolved in water
++ Often forms crystalline structure
+
+*** Examples
++ Sodium Chloride
++ Magnesium Oxide
++ Calcium Fluoride
+
+** Covalent
++ Atoms share electrons to achieve stable electron configurations
+
+*** Characteristics
++ Very strong directional bonds
++ High hardness and strength
++ Poor electrical conductivity
++ Often found in ceramics and semiconductors
+
+*** Examples
++ Diamond
++ Silicon
++ Silicon Carbide
+
+** Van der Waals
++ A weak attraction between molecules caused by a temporary or permanent electric dipole
+
+*** Characteristics
++ Weakest of the four bond types
++ Low melting and boiling points
++ Easily separated layers or molecules
++ Important in polymers and layered materials
+
+*** Examples
++ Solid noble gases
++ Molecular Crystals
++ Graphite Layers
++ Many polymers
+
+* Crystalline Solids
+:PROPERTIES:
+:ID:       db0a75c1-6034-41e8-8d99-24568ab40ac1
+:END:
++ Many solid materials already possess an ordered internal crystal structure
+  * These structures can be thought of and described as a three-dimensional array of points geometrically and repetitively distributed in space such that each point has identical surroundings
++ There are only 14 ways to arrange points in space having this property
+  * These point arrays are known as *Bravais Lattices*
+
+** Bravais Lattice In Depth
++ If we imagine a Bravais lattice as just a mathematical pattern of points in space
+  • • •
+  • • •
+  • • •
+  • • •
++ These dots don't represent atoms yet
+  * But they are locations where atoms could be placed
+     In 3D there are 14 unique ways these points can repeat
+  * These are called the 14 Bravais lattices
++ If we add an atom to each lattice point we start to get a physical crystal
+
+** Examples
++ FCC means Face-Centered Cubic
++ FCC lattice + Cu atoms = Copper crystal
++ Diamond lattice + Si atoms = Silicon crystal
